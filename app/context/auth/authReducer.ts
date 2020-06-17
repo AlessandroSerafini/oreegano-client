@@ -1,35 +1,36 @@
-import {SIGNUP_TYPES, SignupAction} from './signupTypes';
+import {AUTH_TYPES, AuthAction} from './authTypes';
 import {User} from '../../models/User';
+import { JwtResponse } from "./authActions";
 
 const INITIAL_STATE = {
   errorMessage: null,
   pending: false,
-  user: null,
+  loginData: null,
 };
 
-export interface SignupState {
+export interface AuthState {
   errorMessage: string | null;
   pending: boolean;
-  user: User | null;
+  loginData: JwtResponse | null;
 }
 
 export default (
-  state: SignupState = INITIAL_STATE,
-  action: SignupAction,
-): SignupState => {
+  state: AuthState = INITIAL_STATE,
+  action: AuthAction,
+): AuthState => {
   switch (action.type) {
-    case SIGNUP_TYPES.SIGNUP_PENDING:
+    case AUTH_TYPES.SIGNUP_PENDING:
       return {...state, pending: true};
-    case SIGNUP_TYPES.SIGNUP_COMPLETED:
+    case AUTH_TYPES.SIGNUP_COMPLETED:
       return {
         ...state,
         errorMessage: null,
         pending: false,
-        user: action.payload,
+        loginData: action.payload,
       };
-    case SIGNUP_TYPES.SIGNUP_ADD_ERROR:
+    case AUTH_TYPES.SIGNUP_ADD_ERROR:
       return {...state, errorMessage: action.payload, pending: false};
-    case SIGNUP_TYPES.SIGNUP_CLEAR_ERROR:
+    case AUTH_TYPES.SIGNUP_CLEAR_ERROR:
       return {...state, errorMessage: null, pending: false};
     /*case AUTH_TYPES.SIGNOUT:
             return {

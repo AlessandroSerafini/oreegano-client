@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {signUp} from '../../context/signup/signupActions';
-import {SignupState} from '../../context/signup/signupReducer';
-import { DropdownAlertContext, useDropDown } from '../../providers/DropdownAlertProvider';
+import {signUp} from '../../context/auth/authActions';
+import {AuthState} from '../../context/auth/authReducer';
+import {
+  DropdownAlertContext,
+  useDropDown,
+} from '../../providers/DropdownAlertProvider';
 
 interface Props {}
 
@@ -12,7 +15,7 @@ const styles = StyleSheet.create({});
 const SignupScreenView = ({}: Props) => {
   // ••• local variables •••
   const dispatch = useDispatch();
-  const { ref } = useDropDown()
+  const {ref} = useDropDown();
 
   // ••• navigation variables •••
 
@@ -21,9 +24,9 @@ const SignupScreenView = ({}: Props) => {
   // ••• refs variables •••
 
   // ••• useSelector methods •••
-  const {pending, errorMessage} = useSelector(
-    ({signupReducer}: {signupReducer: SignupState}) => {
-      return signupReducer;
+  const {pending, errorMessage, loginData} = useSelector(
+    ({authReducer}: {authReducer: AuthState}) => {
+      return authReducer;
     },
   );
 
@@ -37,7 +40,7 @@ const SignupScreenView = ({}: Props) => {
       signUp({
         type: 1,
         name: 'Ale Serafini',
-        email: 'sera-92@hotdmdsail.it',
+        email: 'sera-92@hoddtddsddmdssdsadil.it',
         password: 'ciaoone',
       }),
     );
@@ -47,6 +50,12 @@ const SignupScreenView = ({}: Props) => {
       ref.current.alertWithType('error', 'Error', errorMessage);
     }
   }, [errorMessage]);
+  useEffect(() => {
+    if (loginData) {
+      // INFO: SONO LOGGATO
+      console.log('passo', JSON.stringify(loginData, null, 2));
+    }
+  }, [loginData]);
 
   return (
     <View

@@ -1,15 +1,23 @@
 import {Dispatch} from 'redux';
 import {AxiosResponse} from 'axios';
 import oreeganoApi from '../../api/oreeganoApi';
-import {SIGNUP_TYPES, SignupAction} from './signupTypes';
+import {AUTH_TYPES, AuthAction} from './authTypes';
 import {User} from '../../models/User';
+
+export interface JwtResponse {
+  id: string;
+  user: Omit<
+    User,
+    'password'
+  >;
+}
 
 export const signUp = (
   data: Omit<
     User,
     'id' | 'pswRecToken' | 'pswRecTokenExpireDate' | 'pswRecExpireDate'
   >,
-) => async (dispatch: Dispatch<SignupAction>) => {
+) => async (dispatch: Dispatch<AuthAction>) => {
   try {
     const {type, name, email, password} = data;
     const response: AxiosResponse<any> = await oreeganoApi.post(
@@ -21,21 +29,15 @@ export const signUp = (
         password,
       },
     );
-    console.log('passo', JSON.stringify(response.data, null, 2));
-    /*const mappedAddresses: Address[] = await mapResponseIntoAddresses(
-      response.data,
-    );
 
-    if (Array.isArray(response.data) && response.data.length > 0) {
-      dispatch({
-        type: SIGNUP_TYPES.SIGNUP_COMPLETED,
-        payload: mappedAddresses,
-      });
-    }*/
+    dispatch({
+      type: AUTH_TYPES.SIGNUP_COMPLETED,
+      payload: response.data,
+    });
   } catch (e) {
     const {error} = e.response.data;
     dispatch({
-      type: SIGNUP_TYPES.SIGNUP_ADD_ERROR,
+      type: AUTH_TYPES.SIGNUP_ADD_ERROR,
       payload: error.message,
     });
   }

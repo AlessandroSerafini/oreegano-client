@@ -9,12 +9,12 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
-import signupReducer from '../context/signup/signupReducer';
+import authReducer from '../context/auth/authReducer';
 
 let store: Store;
 
 const rootReducer = combineReducers({
-  signupReducer,
+  authReducer,
 });
 
 const persistConfig = {
