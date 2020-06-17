@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'TesiAlessandroSerafini' do
-  # Pods for TesiAlessandroSerafini
+target 'oreegano' do
+  # Pods for oreegano
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'TesiAlessandroSerafini' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'TesiAlessandroSerafiniTests' do
+  target 'oreeganoTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'TesiAlessandroSerafini' do
   end
 end
 
-target 'TesiAlessandroSerafini-tvOS' do
-  # Pods for TesiAlessandroSerafini-tvOS
+target 'oreegano-tvOS' do
+  # Pods for oreegano-tvOS
 
-  target 'TesiAlessandroSerafini-tvOSTests' do
+  target 'oreegano-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

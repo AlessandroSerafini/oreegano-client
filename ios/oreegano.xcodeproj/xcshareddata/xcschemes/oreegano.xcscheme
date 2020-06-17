@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "TesiAlessandroSerafini.app"
-               BlueprintName = "TesiAlessandroSerafini"
-               ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+               BuildableName = "oreegano.app"
+               BlueprintName = "oreegano"
+               ReferencedContainer = "container:oreegano.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "TesiAlessandroSerafiniTests.xctest"
-               BlueprintName = "TesiAlessandroSerafiniTests"
-               ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+               BuildableName = "oreeganoTests.xctest"
+               BlueprintName = "oreeganoTests"
+               ReferencedContainer = "container:oreegano.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TesiAlessandroSerafini.app"
-            BlueprintName = "TesiAlessandroSerafini"
-            ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+            BuildableName = "oreegano.app"
+            BlueprintName = "oreegano"
+            ReferencedContainer = "container:oreegano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "TesiAlessandroSerafini.app"
-            BlueprintName = "TesiAlessandroSerafini"
-            ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+            BuildableName = "oreegano.app"
+            BlueprintName = "oreegano"
+            ReferencedContainer = "container:oreegano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

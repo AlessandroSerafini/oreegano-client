@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* TesiAlessandroSerafiniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TesiAlessandroSerafiniTests.m */; };
-		053EEAC76C2D5920BB0CB524 /* libPods-TesiAlessandroSerafini-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8600A54AA31008F0BA479853 /* libPods-TesiAlessandroSerafini-tvOSTests.a */; };
+		00E356F31AD99517003FC87E /* oreeganoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* oreeganoTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -16,10 +15,11 @@
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* TesiAlessandroSerafiniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* TesiAlessandroSerafiniTests.m */; };
-		33510556E221BAC0BF05C7B4 /* libPods-TesiAlessandroSerafini-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B0DD3FE32522C18F3D70A4 /* libPods-TesiAlessandroSerafini-tvOS.a */; };
-		575C197C621CE064BB6D8377 /* libPods-TesiAlessandroSerafini.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67129187348135DAC7282254 /* libPods-TesiAlessandroSerafini.a */; };
-		E54EC5510E5A9E0ECED3C2D0 /* libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D02DD7D42EEB372C4B588D /* libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* oreeganoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* oreeganoTests.m */; };
+		A132DF74C020BB5060249A30 /* libPods-oreegano.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2D897F8C52AD9F428629FF /* libPods-oreegano.a */; };
+		CFE951FE0BE4D894BD9C97EF /* libPods-oreegano-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A07BF254034F223999AF5 /* libPods-oreegano-tvOS.a */; };
+		DC8D4EE70A3B003945C5BC04 /* libPods-oreegano-oreeganoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70B5AF1B5F9A48A5E06444 /* libPods-oreegano-oreeganoTests.a */; };
+		E12E63FE1282E472523129F0 /* libPods-oreegano-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE7EA40700B50CFB7730DF9 /* libPods-oreegano-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,43 +28,43 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = TesiAlessandroSerafini;
+			remoteInfo = oreegano;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "TesiAlessandroSerafini-tvOS";
+			remoteInfo = "oreegano-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* TesiAlessandroSerafiniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TesiAlessandroSerafiniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* oreeganoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oreeganoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* TesiAlessandroSerafiniTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TesiAlessandroSerafiniTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* TesiAlessandroSerafini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TesiAlessandroSerafini.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TesiAlessandroSerafini/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = TesiAlessandroSerafini/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* oreeganoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oreeganoTests.m; sourceTree = "<group>"; };
+		03EBF78D89FF217E2B8A112B /* Pods-oreegano-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOSTests/Pods-oreegano-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0557CCB49232DBB8882EB14D /* Pods-oreegano.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano.release.xcconfig"; path = "Target Support Files/Pods-oreegano/Pods-oreegano.release.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* oreegano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oreegano.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = oreegano/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = oreegano/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = TesiAlessandroSerafini/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TesiAlessandroSerafini/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TesiAlessandroSerafini/main.m; sourceTree = "<group>"; };
-		1B6B39D76EF4D0AA4C992948 /* Pods-TesiAlessandroSerafini-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-tvOS.release.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-tvOS/Pods-TesiAlessandroSerafini-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TesiAlessandroSerafini-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TesiAlessandroSerafini-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		67129187348135DAC7282254 /* libPods-TesiAlessandroSerafini.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesiAlessandroSerafini.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		76E62FC16C30EF089EFFFA52 /* Pods-TesiAlessandroSerafini.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini.debug.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini/Pods-TesiAlessandroSerafini.debug.xcconfig"; sourceTree = "<group>"; };
-		8600A54AA31008F0BA479853 /* libPods-TesiAlessandroSerafini-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesiAlessandroSerafini-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		87B0DD3FE32522C18F3D70A4 /* libPods-TesiAlessandroSerafini-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesiAlessandroSerafini-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		91D0E8B0378BC8C9E3FCB3D0 /* Pods-TesiAlessandroSerafini-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-tvOSTests/Pods-TesiAlessandroSerafini-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		95D02DD7D42EEB372C4B588D /* libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AACC93222D6D3E75581DADE0 /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.debug.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests/Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C910BAEFC4F84FBFB6764D6D /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.release.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests/Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.release.xcconfig"; sourceTree = "<group>"; };
-		CE50DEF4C548353CB10BB43C /* Pods-TesiAlessandroSerafini.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini.release.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini/Pods-TesiAlessandroSerafini.release.xcconfig"; sourceTree = "<group>"; };
-		DB702518868FD140E615C11B /* Pods-TesiAlessandroSerafini-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-tvOSTests/Pods-TesiAlessandroSerafini-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		E9749CDFF171D4F83DB54A3B /* Pods-TesiAlessandroSerafini-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TesiAlessandroSerafini-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-TesiAlessandroSerafini-tvOS/Pods-TesiAlessandroSerafini-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = oreegano/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = oreegano/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = oreegano/main.m; sourceTree = "<group>"; };
+		1D70B5AF1B5F9A48A5E06444 /* libPods-oreegano-oreeganoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano-oreeganoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		23BAC98547BD4EA822EF592A /* Pods-oreegano.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano.debug.xcconfig"; path = "Target Support Files/Pods-oreegano/Pods-oreegano.debug.xcconfig"; sourceTree = "<group>"; };
+		279DB135475E5C985AE43508 /* Pods-oreegano-oreeganoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-oreeganoTests.release.xcconfig"; path = "Target Support Files/Pods-oreegano-oreeganoTests/Pods-oreegano-oreeganoTests.release.xcconfig"; sourceTree = "<group>"; };
+		2AFCBB1A191F7D54C74AA984 /* Pods-oreegano-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOSTests/Pods-oreegano-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* oreegano-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oreegano-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* oreegano-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oreegano-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		470E8BD103F1A178DF598C13 /* Pods-oreegano-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOS/Pods-oreegano-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		6EE7EA40700B50CFB7730DF9 /* libPods-oreegano-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2D897F8C52AD9F428629FF /* libPods-oreegano.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A58C0AD6A1AE2E86CF90316 /* Pods-oreegano-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOS.release.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOS/Pods-oreegano-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		A63A07BF254034F223999AF5 /* libPods-oreegano-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD924D21AA9891D583E37952 /* Pods-oreegano-oreeganoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-oreeganoTests.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-oreeganoTests/Pods-oreegano-oreeganoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E54EC5510E5A9E0ECED3C2D0 /* libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a in Frameworks */,
+				DC8D4EE70A3B003945C5BC04 /* libPods-oreegano-oreeganoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				575C197C621CE064BB6D8377 /* libPods-TesiAlessandroSerafini.a in Frameworks */,
+				A132DF74C020BB5060249A30 /* libPods-oreegano.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33510556E221BAC0BF05C7B4 /* libPods-TesiAlessandroSerafini-tvOS.a in Frameworks */,
+				CFE951FE0BE4D894BD9C97EF /* libPods-oreegano-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				053EEAC76C2D5920BB0CB524 /* libPods-TesiAlessandroSerafini-tvOSTests.a in Frameworks */,
+				E12E63FE1282E472523129F0 /* libPods-oreegano-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* TesiAlessandroSerafiniTests */ = {
+		00E356EF1AD99517003FC87E /* oreeganoTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* TesiAlessandroSerafiniTests.m */,
+				00E356F21AD99517003FC87E /* oreeganoTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = TesiAlessandroSerafiniTests;
+			path = oreeganoTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* TesiAlessandroSerafini */ = {
+		13B07FAE1A68108700A75B9A /* oreegano */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,7 +133,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = TesiAlessandroSerafini;
+			name = oreegano;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -141,10 +141,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				67129187348135DAC7282254 /* libPods-TesiAlessandroSerafini.a */,
-				95D02DD7D42EEB372C4B588D /* libPods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.a */,
-				87B0DD3FE32522C18F3D70A4 /* libPods-TesiAlessandroSerafini-tvOS.a */,
-				8600A54AA31008F0BA479853 /* libPods-TesiAlessandroSerafini-tvOSTests.a */,
+				9A2D897F8C52AD9F428629FF /* libPods-oreegano.a */,
+				1D70B5AF1B5F9A48A5E06444 /* libPods-oreegano-oreeganoTests.a */,
+				A63A07BF254034F223999AF5 /* libPods-oreegano-tvOS.a */,
+				6EE7EA40700B50CFB7730DF9 /* libPods-oreegano-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,12 +159,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* TesiAlessandroSerafini */,
+				13B07FAE1A68108700A75B9A /* oreegano */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* TesiAlessandroSerafiniTests */,
+				00E356EF1AD99517003FC87E /* oreeganoTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				DAB51C6FBF69EDCBFDAEE742 /* Pods */,
+				8B045569BEF5FBF296A16ABD /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -174,38 +174,37 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* TesiAlessandroSerafini.app */,
-				00E356EE1AD99517003FC87E /* TesiAlessandroSerafiniTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* oreegano.app */,
+				00E356EE1AD99517003FC87E /* oreeganoTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* oreegano-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* oreegano-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DAB51C6FBF69EDCBFDAEE742 /* Pods */ = {
+		8B045569BEF5FBF296A16ABD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				76E62FC16C30EF089EFFFA52 /* Pods-TesiAlessandroSerafini.debug.xcconfig */,
-				CE50DEF4C548353CB10BB43C /* Pods-TesiAlessandroSerafini.release.xcconfig */,
-				AACC93222D6D3E75581DADE0 /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.debug.xcconfig */,
-				C910BAEFC4F84FBFB6764D6D /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.release.xcconfig */,
-				E9749CDFF171D4F83DB54A3B /* Pods-TesiAlessandroSerafini-tvOS.debug.xcconfig */,
-				1B6B39D76EF4D0AA4C992948 /* Pods-TesiAlessandroSerafini-tvOS.release.xcconfig */,
-				91D0E8B0378BC8C9E3FCB3D0 /* Pods-TesiAlessandroSerafini-tvOSTests.debug.xcconfig */,
-				DB702518868FD140E615C11B /* Pods-TesiAlessandroSerafini-tvOSTests.release.xcconfig */,
+				23BAC98547BD4EA822EF592A /* Pods-oreegano.debug.xcconfig */,
+				0557CCB49232DBB8882EB14D /* Pods-oreegano.release.xcconfig */,
+				DD924D21AA9891D583E37952 /* Pods-oreegano-oreeganoTests.debug.xcconfig */,
+				279DB135475E5C985AE43508 /* Pods-oreegano-oreeganoTests.release.xcconfig */,
+				470E8BD103F1A178DF598C13 /* Pods-oreegano-tvOS.debug.xcconfig */,
+				9A58C0AD6A1AE2E86CF90316 /* Pods-oreegano-tvOS.release.xcconfig */,
+				03EBF78D89FF217E2B8A112B /* Pods-oreegano-tvOSTests.debug.xcconfig */,
+				2AFCBB1A191F7D54C74AA984 /* Pods-oreegano-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* TesiAlessandroSerafiniTests */ = {
+		00E356ED1AD99517003FC87E /* oreeganoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafiniTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "oreeganoTests" */;
 			buildPhases = (
-				DAFBCBA17CED891453779C74 /* [CP] Check Pods Manifest.lock */,
+				4AC0964D74A4AF5B50FE6842 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -215,16 +214,16 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = TesiAlessandroSerafiniTests;
-			productName = TesiAlessandroSerafiniTests;
-			productReference = 00E356EE1AD99517003FC87E /* TesiAlessandroSerafiniTests.xctest */;
+			name = oreeganoTests;
+			productName = oreeganoTests;
+			productReference = 00E356EE1AD99517003FC87E /* oreeganoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* TesiAlessandroSerafini */ = {
+		13B07F861A680F5B00A75B9A /* oreegano */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "oreegano" */;
 			buildPhases = (
-				407171060FE92F8EB00C8F4D /* [CP] Check Pods Manifest.lock */,
+				F93FA11B5B398702AAC3940F /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -235,16 +234,16 @@
 			);
 			dependencies = (
 			);
-			name = TesiAlessandroSerafini;
-			productName = TesiAlessandroSerafini;
-			productReference = 13B07F961A680F5B00A75B9A /* TesiAlessandroSerafini.app */;
+			name = oreegano;
+			productName = oreegano;
+			productReference = 13B07F961A680F5B00A75B9A /* oreegano.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* oreegano-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "oreegano-tvOS" */;
 			buildPhases = (
-				C0630C8B88A58D3C783B1B6E /* [CP] Check Pods Manifest.lock */,
+				DE4451DB32125004956FD0E1 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -255,16 +254,16 @@
 			);
 			dependencies = (
 			);
-			name = "TesiAlessandroSerafini-tvOS";
-			productName = "TesiAlessandroSerafini-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS.app */;
+			name = "oreegano-tvOS";
+			productName = "oreegano-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* oreegano-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* oreegano-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "oreegano-tvOSTests" */;
 			buildPhases = (
-				1DB2C736101747ADAD3ECD66 /* [CP] Check Pods Manifest.lock */,
+				6BE93821EF87D501B8087DF4 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -274,9 +273,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "TesiAlessandroSerafini-tvOSTests";
-			productName = "TesiAlessandroSerafini-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOSTests.xctest */;
+			name = "oreegano-tvOSTests";
+			productName = "oreegano-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* oreegano-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -305,7 +304,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "TesiAlessandroSerafini" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "oreegano" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -318,10 +317,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* TesiAlessandroSerafini */,
-				00E356ED1AD99517003FC87E /* TesiAlessandroSerafiniTests */,
-				2D02E47A1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* oreegano */,
+				00E356ED1AD99517003FC87E /* oreeganoTests */,
+				2D02E47A1E0B4A5D006451C7 /* oreegano-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* oreegano-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -375,28 +374,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		1DB2C736101747ADAD3ECD66 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TesiAlessandroSerafini-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,7 +388,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		407171060FE92F8EB00C8F4D /* [CP] Check Pods Manifest.lock */ = {
+		4AC0964D74A4AF5B50FE6842 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,14 +403,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TesiAlessandroSerafini-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-oreegano-oreeganoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C0630C8B88A58D3C783B1B6E /* [CP] Check Pods Manifest.lock */ = {
+		6BE93821EF87D501B8087DF4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -448,14 +425,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TesiAlessandroSerafini-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-oreegano-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DAFBCBA17CED891453779C74 /* [CP] Check Pods Manifest.lock */ = {
+		DE4451DB32125004956FD0E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -470,7 +447,29 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-oreegano-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F93FA11B5B398702AAC3940F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-oreegano-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -522,7 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* TesiAlessandroSerafiniTests.m in Sources */,
+				00E356F31AD99517003FC87E /* oreeganoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +547,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* TesiAlessandroSerafiniTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* oreeganoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,12 +556,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* TesiAlessandroSerafini */;
+			target = 13B07F861A680F5B00A75B9A /* oreegano */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* TesiAlessandroSerafini-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* oreegano-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -574,7 +573,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = TesiAlessandroSerafini;
+			path = oreegano;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -582,14 +581,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AACC93222D6D3E75581DADE0 /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.debug.xcconfig */;
+			baseConfigurationReference = DD924D21AA9891D583E37952 /* Pods-oreegano-oreeganoTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = TesiAlessandroSerafiniTests/Info.plist;
+				INFOPLIST_FILE = oreeganoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -599,17 +598,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TesiAlessandroSerafini.app/TesiAlessandroSerafini";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oreegano.app/oreegano";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C910BAEFC4F84FBFB6764D6D /* Pods-TesiAlessandroSerafini-TesiAlessandroSerafiniTests.release.xcconfig */;
+			baseConfigurationReference = 279DB135475E5C985AE43508 /* Pods-oreegano-oreeganoTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = TesiAlessandroSerafiniTests/Info.plist;
+				INFOPLIST_FILE = oreeganoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -619,13 +618,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TesiAlessandroSerafini.app/TesiAlessandroSerafini";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oreegano.app/oreegano";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 76E62FC16C30EF089EFFFA52 /* Pods-TesiAlessandroSerafini.debug.xcconfig */;
+			baseConfigurationReference = 23BAC98547BD4EA822EF592A /* Pods-oreegano.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -635,7 +634,38 @@
 					"$(inherited)",
 					"FB_SONARKIT_ENABLED=1",
 				);
-				INFOPLIST_FILE = TesiAlessandroSerafini/Info.plist;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-navigation/lib/ios",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLibEvent\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
+				INFOPLIST_FILE = oreegano/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -643,7 +673,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TesiAlessandroSerafini;
+				PRODUCT_NAME = oreegano;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -652,12 +682,43 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE50DEF4C548353CB10BB43C /* Pods-TesiAlessandroSerafini.release.xcconfig */;
+			baseConfigurationReference = 0557CCB49232DBB8882EB14D /* Pods-oreegano.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = TesiAlessandroSerafini/Info.plist;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-navigation/lib/ios",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaAsyncSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLibEvent\"",
+					"\"${PODS_ROOT}/Headers/Public/DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/FBLazyVector\"",
+					"\"${PODS_ROOT}/Headers/Public/FBReactNativeSpec\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-DoubleConversion\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Folly\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-Glog\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-PeerTalk\"",
+					"\"${PODS_ROOT}/Headers/Public/Flipper-RSocket\"",
+					"\"${PODS_ROOT}/Headers/Public/FlipperKit\"",
+					"\"${PODS_ROOT}/Headers/Public/OpenSSL-Universal\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTRequired\"",
+					"\"${PODS_ROOT}/Headers/Public/RCTTypeSafety\"",
+					"\"${PODS_ROOT}/Headers/Public/React-Core\"",
+					"\"${PODS_ROOT}/Headers/Public/React-RCTText\"",
+					"\"${PODS_ROOT}/Headers/Public/React-cxxreact\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsi\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsiexecutor\"",
+					"\"${PODS_ROOT}/Headers/Public/React-jsinspector\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactCommon\"",
+					"\"${PODS_ROOT}/Headers/Public/Yoga\"",
+					"\"${PODS_ROOT}/Headers/Public/YogaKit\"",
+					"\"${PODS_ROOT}/Headers/Public/glog\"",
+					"\"$(PODS_ROOT)/Headers/Private/React-Core\"",
+				);
+				INFOPLIST_FILE = oreegano/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -665,7 +726,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = TesiAlessandroSerafini;
+				PRODUCT_NAME = oreegano;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -673,7 +734,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9749CDFF171D4F83DB54A3B /* Pods-TesiAlessandroSerafini-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 470E8BD103F1A178DF598C13 /* Pods-oreegano-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -684,14 +745,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TesiAlessandroSerafini-tvOS/Info.plist";
+				INFOPLIST_FILE = "oreegano-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TesiAlessandroSerafini-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.oreegano-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -701,7 +762,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B6B39D76EF4D0AA4C992948 /* Pods-TesiAlessandroSerafini-tvOS.release.xcconfig */;
+			baseConfigurationReference = 9A58C0AD6A1AE2E86CF90316 /* Pods-oreegano-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -712,14 +773,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TesiAlessandroSerafini-tvOS/Info.plist";
+				INFOPLIST_FILE = "oreegano-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TesiAlessandroSerafini-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.oreegano-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -729,7 +790,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91D0E8B0378BC8C9E3FCB3D0 /* Pods-TesiAlessandroSerafini-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 03EBF78D89FF217E2B8A112B /* Pods-oreegano-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -739,24 +800,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TesiAlessandroSerafini-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "oreegano-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TesiAlessandroSerafini-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.oreegano-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TesiAlessandroSerafini-tvOS.app/TesiAlessandroSerafini-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oreegano-tvOS.app/oreegano-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB702518868FD140E615C11B /* Pods-TesiAlessandroSerafini-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 2AFCBB1A191F7D54C74AA984 /* Pods-oreegano-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -766,17 +827,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "TesiAlessandroSerafini-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "oreegano-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.TesiAlessandroSerafini-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.oreegano-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TesiAlessandroSerafini-tvOS.app/TesiAlessandroSerafini-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/oreegano-tvOS.app/oreegano-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -897,7 +958,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafiniTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "oreeganoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -906,7 +967,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "oreegano" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -915,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "oreegano-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -924,7 +985,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "TesiAlessandroSerafini-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "oreegano-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -933,7 +994,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "TesiAlessandroSerafini" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "oreegano" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

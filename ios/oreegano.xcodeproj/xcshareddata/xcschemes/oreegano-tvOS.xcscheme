@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "TesiAlessandroSerafini-tvOS.app"
-               BlueprintName = "TesiAlessandroSerafini-tvOS"
-               ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+               BuildableName = "oreegano-tvOS.app"
+               BlueprintName = "oreegano-tvOS"
+               ReferencedContainer = "container:oreegano.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "TesiAlessandroSerafini-tvOSTests.xctest"
-               BlueprintName = "TesiAlessandroSerafini-tvOSTests"
-               ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+               BuildableName = "oreegano-tvOSTests.xctest"
+               BlueprintName = "oreegano-tvOSTests"
+               ReferencedContainer = "container:oreegano.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TesiAlessandroSerafini-tvOS.app"
-            BlueprintName = "TesiAlessandroSerafini-tvOS"
-            ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+            BuildableName = "oreegano-tvOS.app"
+            BlueprintName = "oreegano-tvOS"
+            ReferencedContainer = "container:oreegano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "TesiAlessandroSerafini-tvOS.app"
-            BlueprintName = "TesiAlessandroSerafini-tvOS"
-            ReferencedContainer = "container:TesiAlessandroSerafini.xcodeproj">
+            BuildableName = "oreegano-tvOS.app"
+            BlueprintName = "oreegano-tvOS"
+            ReferencedContainer = "container:oreegano.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
