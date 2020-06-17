@@ -1,64 +1,83 @@
-import SignupScreenContainer from "./app/screens/SignupScreen/SignupScreenContainer";
-import HomeScreenContainer from "./app/screens/HomeScreen/HomeScreenContainer";
-import SettingsScreenContainer from "./app/screens/SettingsScreen/SettingsScreenContainer";
+import SignupScreenContainer from './app/screens/SignupScreen/SignupScreenContainer';
+import HomeScreenContainer from './app/screens/HomeScreen/HomeScreenContainer';
+import SettingsScreenContainer from './app/screens/SettingsScreen/SettingsScreenContainer';
+import {Provider as ReduxStoreProvider} from 'react-redux';
+import {persistor, store} from './app/config/store';
+import {DropDownAlertContextProvider} from './app/providers/DropdownAlertProvider';
 
 const {Navigation} = require('react-native-navigation');
 const React = require('react');
 
 const NAVIGATION_COMPONENTS = {
-    HOME: "Home",
-    SIGN_IN: "Signin",
-    SETTINGS: "Settings",
-}
+  HOME: 'Home',
+  SIGN_IN: 'Signin',
+  SETTINGS: 'Settings',
+};
 const mainFlow = {
-    root: {
-        bottomTabs: {
+  root: {
+    bottomTabs: {
+      children: [
+        {
+          stack: {
             children: [
-                {
-                    stack: {
-                        children: [
-                            {
-                                component: {
-                                    name: NAVIGATION_COMPONENTS.HOME
-                                }
-                            },
-                        ]
-                    }
+              {
+                component: {
+                  name: NAVIGATION_COMPONENTS.HOME,
                 },
-                {
-                    stack: {
-                        children: [
-                            {
-                                component: {
-                                    name: NAVIGATION_COMPONENTS.SETTINGS
-                                }
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    }
+              },
+            ],
+          },
+        },
+        {
+          stack: {
+            children: [
+              {
+                component: {
+                  name: NAVIGATION_COMPONENTS.SETTINGS,
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
 };
 const signinFlow = {
-    root: {
-        component: {
-            name: NAVIGATION_COMPONENTS.SIGN_IN
-        }
-    }
+  root: {
+    component: {
+      name: NAVIGATION_COMPONENTS.SIGN_IN,
+    },
+  },
 };
 
-Navigation.registerComponent(NAVIGATION_COMPONENTS.SIGN_IN, () => SignupScreenContainer);
-Navigation.registerComponent(NAVIGATION_COMPONENTS.HOME, () => HomeScreenContainer);
-Navigation.registerComponent(NAVIGATION_COMPONENTS.SETTINGS, () => SettingsScreenContainer);
+Navigation.registerComponent(
+  NAVIGATION_COMPONENTS.SIGN_IN,
+  () => (props) => (
+    <ReduxStoreProvider store={store}>
+      <DropDownAlertContextProvider>
+        <SignupScreenContainer {...props} />
+      </DropDownAlertContextProvider>
+    </ReduxStoreProvider>
+  ),
+  () => SignupScreenContainer,
+);
+Navigation.registerComponent(
+  NAVIGATION_COMPONENTS.HOME,
+  () => HomeScreenContainer,
+);
+Navigation.registerComponent(
+  NAVIGATION_COMPONENTS.SETTINGS,
+  () => SettingsScreenContainer,
+);
 
 Navigation.events().registerAppLaunchedListener(async () => {
-    Navigation.setDefaultOptions({
-        statusBar: {
-            /*backgroundColor: '#4d089a'*/
-        },
-        topBar: {
-            /*title: {
+  Navigation.setDefaultOptions({
+    statusBar: {
+      /*backgroundColor: '#4d089a'*/
+    },
+    topBar: {
+      /*title: {
                 color: 'white'
             },
             backButton: {
@@ -67,12 +86,12 @@ Navigation.events().registerAppLaunchedListener(async () => {
             background: {
                 color: '#4d089a'
             }*/
-        },
-        bottomTab: {
-            /*fontSize: 14,
+    },
+    bottomTab: {
+      /*fontSize: 14,
             selectedFontSize: 14*/
-        }
-    });
+    },
+  });
 
-    await Navigation.setRoot(1 === 2 ? mainFlow : signinFlow);
+  await Navigation.setRoot(1 === 2 ? mainFlow : signinFlow);
 });

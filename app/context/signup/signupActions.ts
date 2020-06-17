@@ -1,36 +1,42 @@
-import {Dispatch} from "redux";
-import {AxiosResponse} from "axios";
-import phomeApi from "../../api/phomeApi";
-import {SIGNUP_TYPES, SignupAction} from "./signupTypes";
-import {User} from "../../models/User";
+import {Dispatch} from 'redux';
+import {AxiosResponse} from 'axios';
+import oreeganoApi from '../../api/oreeganoApi';
+import {SIGNUP_TYPES, SignupAction} from './signupTypes';
+import {User} from '../../models/User';
 
-export const addAddress = (
-    data: User
+export const signUp = (
+  data: Omit<
+    User,
+    'id' | 'pswRecToken' | 'pswRecTokenExpireDate' | 'pswRecExpireDate'
+  >,
 ) => async (dispatch: Dispatch<SignupAction>) => {
-    try {
-        dispatch({type: SIGNUP_TYPES.SIGNUP_PENDING});
+  try {
+    const {type, name, email, password} = data;
+    const response: AxiosResponse<any> = await oreeganoApi.post(
+      '/users/signup',
+      {
+        type,
+        name,
+        email,
+        password,
+      },
+    );
+    console.log('passo', JSON.stringify(response.data, null, 2));
+    /*const mappedAddresses: Address[] = await mapResponseIntoAddresses(
+      response.data,
+    );
 
-        const response: AxiosResponse<any> = await phomeApi.post("/users/signup", {
-            params: {
-                id,
-                indirizzo: address,
-                cap: postalCode,
-                citta: city,
-                provincia: province,
-                lat: String(lat),
-                lon: String(lon),
-            },
-        });
-
-
-        dispatch({
-            type: SIGNUP_TYPES.SIGNUP_COMPLETED,
-            payload: response.data,
-        });
-    } catch (err) {
-        dispatch({
-            type: SIGNUP_TYPES.SIGNUP_ADD_ERROR,
-            payload: err,
-        });
-    }
+    if (Array.isArray(response.data) && response.data.length > 0) {
+      dispatch({
+        type: SIGNUP_TYPES.SIGNUP_COMPLETED,
+        payload: mappedAddresses,
+      });
+    }*/
+  } catch (e) {
+    const {error} = e.response.data;
+    dispatch({
+      type: SIGNUP_TYPES.SIGNUP_ADD_ERROR,
+      payload: error.message,
+    });
+  }
 };
