@@ -2,16 +2,26 @@ import {Dispatch} from 'redux';
 import {AxiosResponse} from 'axios';
 import oreeganoApi from '../../api/oreeganoApi';
 import {AUTH_TYPES, AuthAction} from './authTypes';
-import {User} from '../../models/User';
-import AsyncStorage from "@react-native-community/async-storage";
-import {USER_DATA} from "../../data/StorageConstants";
+
+export enum UserRoles {
+  CUSTOMER = 1,
+  STORE = 2,
+}
+
+export interface User {
+  id: number;
+  type: UserRoles;
+  name: string;
+  email: string;
+  password: string;
+  pswRecToken?: string;
+  pswRecTokenExpireDate?: Date;
+  pswRecExpireDate?: Date;
+}
 
 export interface JwtResponse {
   id: string;
-  user: Omit<
-    User,
-    'password'
-  >;
+  user: Omit<User, 'password'>;
 }
 
 export const signUp = (
@@ -46,5 +56,5 @@ export const signUp = (
 };
 
 export const clearErrorMessage = () => (dispatch: Dispatch<AuthAction>) => {
-  dispatch({ type: AUTH_TYPES.SIGNUP_CLEAR_ERROR });
+  dispatch({type: AUTH_TYPES.SIGNUP_CLEAR_ERROR});
 };

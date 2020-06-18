@@ -1,5 +1,4 @@
 import {SignoutAction} from '../auth/authTypes';
-import {User} from '../../models/User';
 import {JwtResponse} from './authActions';
 
 export enum AUTH_TYPES {

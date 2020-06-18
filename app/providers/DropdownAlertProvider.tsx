@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import DropdownAlert, {DropdownAlertType} from 'react-native-dropdownalert';
-import {User} from "../models/User";
 import {signUp} from "../context/auth/authActions";
 
 const DropdownAlertContext = React.createContext({});

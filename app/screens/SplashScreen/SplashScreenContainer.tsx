@@ -1,12 +1,17 @@
-import React from "react";
-import SplashScreenView from "./SplashScreenView";
+import React from 'react';
+import SplashScreenView from './SplashScreenView';
+import TutorialScreenContainer from '../TutorialScreen/TutorialScreenContainer';
 
-interface Props {
-}
-
+interface Props {}
 
 const SplashScreenContainer = (props) => {
-    return <SplashScreenView {...props} />;
+  return <SplashScreenView {...props} />;
+};
+
+SplashScreenContainer.options = {
+  topBar: {
+    visible: false,
+  },
 };
 
 export default SplashScreenContainer;
