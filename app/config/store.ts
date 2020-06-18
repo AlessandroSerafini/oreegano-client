@@ -1,9 +1,9 @@
 import {
-  applyMiddleware,
-  combineReducers,
-  compose,
-  createStore,
-  Store,
+    applyMiddleware,
+    combineReducers,
+    compose,
+    createStore,
+    Store,
 } from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
@@ -14,25 +14,29 @@ import authReducer from '../context/auth/authReducer';
 let store: Store;
 
 const rootReducer = combineReducers({
-  authReducer,
+    authReducer,
 });
 
 const persistConfig = {
-  key: 'root',
-  storage: AsyncStorage,
-  timeout: 0,
-  whitelist: [],
+    key: 'root',
+    storage: AsyncStorage,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+
+const middlewares = [thunk];
 if (__DEV__) {
-  store = createStore(
-    persistedReducer,
-    composeWithDevTools(applyMiddleware(thunk)),
-  );
+    const createDebugger = require('redux-flipper').default;
+    middlewares.push(createDebugger());
+
+
+    store = createStore(
+        persistedReducer,
+        composeWithDevTools(applyMiddleware(...middlewares)),
+    );
 } else {
-  store = createStore(persistedReducer, compose(applyMiddleware(thunk)));
+    store = createStore(persistedReducer, compose(applyMiddleware(...middlewares)));
 }
 
 const persistor = persistStore(store);

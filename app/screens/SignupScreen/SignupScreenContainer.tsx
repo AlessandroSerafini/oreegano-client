@@ -8,4 +8,12 @@ const SignupScreenContainer = () => {
   return <SignupScreenView />;
 };
 
+SignupScreenContainer.options = {
+  topBar: {
+    title: {
+      text: 'Registrati',
+    },
+  }
+}
+
 export default SignupScreenContainer;

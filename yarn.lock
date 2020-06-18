@@ -1084,6 +1084,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha512-7+2BITlgjgDhH0vvwZU/HZJVyk+2XUlvxXe8dFMedNX/aMkaOq++rMAFXc0tM7ij15QaWlbdQASBR9dihi+bDQ==
 
+"@types/node@^14.0.5":
+  version "14.0.13"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.13.tgz#ee1128e881b874c371374c1f72201893616417c9"
+  integrity sha512-rouEWBImiRaSJsVA+ITTFM6ZxibuAlTuNOCyxVbwreu6k6+ujs7DfnU9o+PShFhET78pMBl3eH+AGSI5eOTkPA==
+
 "@types/prop-types@*":
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
@@ -2059,6 +2064,11 @@ csstype@^2.2.0:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.10.tgz#e63af50e66d7c266edb6b32909cfd0aabe03928b"
   integrity sha512-D34BqZU4cIlMCY93rZHbrq9pjTAQJ3U8S8rfBqjwHxkGPThWFjzZDQpgMJY0QViLxth6ZKYiwFBo14RdN44U/w==
 
+cycle@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
+  integrity sha1-IegLK+hYD5i0aPN5QwZisEbDStI=
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -2075,7 +2085,7 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-dayjs@^1.8.15:
+dayjs@^1.8.15, dayjs@^1.8.24:
   version "1.8.28"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.28.tgz#37aa6201df483d089645cb6c8f6cef6f0c4dbc07"
   integrity sha512-ccnYgKC0/hPSGXxj7Ju6AV/BP4HUkXC2u15mikXT5mX9YorEaoi1bEKOmAqdkJHN4EEkmAf97SpH66Try5Mbeg==
@@ -5068,6 +5078,16 @@ react-native-dropdownalert@^4.2.1:
   dependencies:
     prop-types "15.5.10"
 
+react-native-flipper@^0.37.0:
+  version "0.37.0"
+  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.37.0.tgz#15187696e7361553952a83c77dcf53e508261662"
+  integrity sha512-ZnL31EfUoXpFY4zddm/8hW6hh7+wr1VXFV+2s9TWx5F9XQ/bNVFsP+2/bbTVwYE678caZOpmHxkWebkVb2PTtA==
+
+react-native-flipper@^0.47.0:
+  version "0.47.0"
+  resolved "https://registry.yarnpkg.com/react-native-flipper/-/react-native-flipper-0.47.0.tgz#68cec149b51a3dfa21e7afe6fe68bc22b4b1706c"
+  integrity sha512-nbv+c5E5Z08dAsEnQhfvJaqixahYNLxtDbMIMI0JnmhfRzylWMaytv+QGDf/9sMzxzfj7Zlb1nErBp5Wi21rzg==
+
 react-native-navigation@^6.7.5:
   version "6.7.5"
   resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-6.7.5.tgz#32c6f5f4a3ebc76fc4824b5fa92300534a0a3ed8"
@@ -5192,6 +5212,16 @@ redux-devtools-extension@2.13.8:
   version "2.13.8"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
+
+redux-flipper@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/redux-flipper/-/redux-flipper-1.2.0.tgz#49ba94164989d6ded4d998f0683ba0fe7d5f758c"
+  integrity sha512-R9UXGJdKPvEgJOewHi/beU3Iibww+Y2RQG/j8iHUvUxsDFTWAGvjoFUheDtOWV5h+484tobCHHzxpP2zc35kaA==
+  dependencies:
+    "@types/node" "^14.0.5"
+    cycle "^1.0.3"
+    dayjs "^1.8.24"
+    react-native-flipper "^0.37.0"
 
 redux-persist@^6.0.0:
   version "6.0.0"

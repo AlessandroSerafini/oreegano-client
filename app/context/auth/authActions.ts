@@ -3,6 +3,8 @@ import {AxiosResponse} from 'axios';
 import oreeganoApi from '../../api/oreeganoApi';
 import {AUTH_TYPES, AuthAction} from './authTypes';
 import {User} from '../../models/User';
+import AsyncStorage from "@react-native-community/async-storage";
+import {USER_DATA} from "../../data/StorageConstants";
 
 export interface JwtResponse {
   id: string;
@@ -41,4 +43,8 @@ export const signUp = (
       payload: error.message,
     });
   }
+};
+
+export const clearErrorMessage = () => (dispatch: Dispatch<AuthAction>) => {
+  dispatch({ type: AUTH_TYPES.SIGNUP_CLEAR_ERROR });
 };

@@ -18,11 +18,6 @@ const instance = axios.create({
 
 instance.defaults.params = instance.interceptors.request.use(
   async (config) => {
-    const storageResult = await AsyncStorage.getItem(USER_DATA);
-    if (storageResult != null) {
-      config.params =
-        config.method === 'post' ? config.data.params : config.params;
-    }
     config.headers = {
       apiKey: environment.API_KEY,
     };
