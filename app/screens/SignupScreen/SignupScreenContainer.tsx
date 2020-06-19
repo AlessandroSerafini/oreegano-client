@@ -1,19 +1,19 @@
 import React from 'react';
 import SignupScreenView from './SignupScreenView';
-import {FONT_FAMILIES} from '../../data/ThemeConstants';
 
-interface Props {}
+interface Props {
+}
 
-const SignupScreenContainer = () => {
-  return <SignupScreenView />;
+const SignupScreenContainer = (props) => {
+    return <SignupScreenView {...props}/>;
 };
 
 SignupScreenContainer.options = {
-  topBar: {
-    title: {
-      text: 'Registrati',
+    topBar: {
+        title: {
+            text: 'Registrati',
+        },
     },
-  },
 };
 
 export default SignupScreenContainer;

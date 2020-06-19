@@ -1,15 +1,12 @@
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {signUp} from '../../context/auth/authActions';
 import {AuthState} from '../../context/auth/authReducer';
-import {
-  DropdownAlertContext,
-  useDropDown,
-} from '../../providers/DropdownAlertProvider';
+import {DropdownAlertContext,} from '../../providers/DropdownAlertProvider';
 import {Navigation} from 'react-native-navigation';
-import {NAVIGATION_COMPONENTS} from '../../../index';
 import {isFirstAppLaunch} from '../../services/StorageService';
+import {clearErrorMessage, signOut} from "../../context/auth/authActions";
+import {NAVIGATION_COMPONENTS} from "../../data/CommonNavigation";
 
 interface Props {}
 
@@ -17,6 +14,7 @@ const styles = StyleSheet.create({});
 
 const SplashScreenView = (props) => {
   // ••• local variables •••
+    const dispatch = useDispatch();
 
   // ••• navigation variables •••
 
@@ -33,13 +31,15 @@ const SplashScreenView = (props) => {
   const setupApp = async () => {
     const isFirstLaunch = await isFirstAppLaunch();
 
-    // TODO: SE SONO LOGGATO, REDIREZIONARE ALLA HOME SCREEN
+    // TODO: TEMP, RIMUOVERE!!
+      dispatch(signOut());
+
     Navigation.setStackRoot(props.componentId, {
       component: {
         name: isFirstLaunch
           ? NAVIGATION_COMPONENTS.TUTORIAL
           : loginData
-          ? NAVIGATION_COMPONENTS.SIGN_UP
+          ? NAVIGATION_COMPONENTS.HOME
           : NAVIGATION_COMPONENTS.SIGN_UP,
       },
     });

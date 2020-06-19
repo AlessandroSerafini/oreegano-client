@@ -21,6 +21,7 @@ export const COLORS = {
   DARK_SAGE: '#47764f',
   GREY: '#8b959a',
   PALE_GREY: '#e2e6ea',
+  DANGER_RED: '#931c1c',
   LIGHT_GREY: '#ddd',
   DARK: '#193030',
 };

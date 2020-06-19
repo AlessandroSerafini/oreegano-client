@@ -105,6 +105,7 @@ const Text = ({
       style={[
         {
           fontFamily: FONT_FAMILIES.MEDIUM,
+          lineHeight: 24,
           color: COLORS.DARK,
           fontSize: FONT_SIZES.P,
         },

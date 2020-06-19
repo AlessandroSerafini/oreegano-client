@@ -32,13 +32,13 @@ export default (
             return {...state, errorMessage: action.payload, pending: false};
         case AUTH_TYPES.SIGNUP_CLEAR_ERROR:
             return {...state, errorMessage: null, pending: false};
-        /*case AUTH_TYPES.SIGNOUT:
-                return {
-                    ...state,
-                    errorMessage: null,
-                    pending: false,
-                    user: null,
-                };*/
+        case AUTH_TYPES.SIGNOUT:
+            return {
+                ...state,
+                errorMessage: null,
+                pending: false,
+                loginData: null,
+            };
         default:
             return state;
     }

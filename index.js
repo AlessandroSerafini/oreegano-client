@@ -7,24 +7,20 @@ import {PersistGate} from 'redux-persist/integration/react';
 import TutorialScreenContainer from './app/screens/TutorialScreen/TutorialScreenContainer';
 import TopBarBackground from './app/components/TopBarBackground';
 import DismissKeyboard from './app/components/DismissKeyboard';
-import {COLORS, FONT_FAMILIES} from './app/data/ThemeConstants';
+import {TOP_BAR, NAVIGATION_COMPONENTS} from './app/data/CommonNavigation';
+import HomeScreenContainer from "./app/screens/HomeScreen/HomeScreenContainer";
+import PasswordRecoveryScreenContainer from "./app/screens/PasswordRecoveryScreen/PasswordRecoveryScreenContainer";
 
 const {Navigation} = require('react-native-navigation');
 const React = require('react');
 
-export const NAVIGATION_COMPONENTS = {
-  MAIN: 'Main',
-  TUTORIAL: 'Tutorial',
-  SIGN_UP: 'Signup',
-  TOP_BAR_BACKGROUND: 'TopBarBackground',
-};
 const mainFlow = {
   root: {
     stack: {
       children: [
         {
           component: {
-            name: NAVIGATION_COMPONENTS.MAIN,
+            name: NAVIGATION_COMPONENTS.SPLASH,
           },
         },
       ],
@@ -45,7 +41,7 @@ const renderApp = (child) => {
 };
 
 Navigation.registerComponent(
-  NAVIGATION_COMPONENTS.MAIN,
+  NAVIGATION_COMPONENTS.SPLASH,
   () => (props) => renderApp(<SplashScreenContainer {...props} />),
   () => SplashScreenContainer,
 );
@@ -68,6 +64,18 @@ Navigation.registerComponent(
   () => SignupScreenContainer,
 );
 
+Navigation.registerComponent(
+  NAVIGATION_COMPONENTS.HOME,
+  () => (props) => renderApp(<HomeScreenContainer {...props} />),
+  () => HomeScreenContainer,
+);
+
+Navigation.registerComponent(
+  NAVIGATION_COMPONENTS.PASSWORD_RECOVERY,
+  () => (props) => renderApp(<PasswordRecoveryScreenContainer {...props} />),
+  () => PasswordRecoveryScreenContainer,
+);
+
 Navigation.events().registerAppLaunchedListener(async () => {
   Navigation.setDefaultOptions({
     layout: {
@@ -76,35 +84,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
     statusBar: {
       /*backgroundColor: '#4d089a'*/
     },
-    topBar: {
-      visible: true,
-      animate: true,
-      drawBehind: false,
-      noBorder: true,
-      background: {
-        color: '#f2f3ee',
-        component: {name: NAVIGATION_COMPONENTS.TOP_BAR_BACKGROUND},
-      },
-      largeTitle: {
-        visible: true,
-        fontSize: 10,
-        color: COLORS.DARK,
-        fontFamily: FONT_FAMILIES.BOLD,
-      },
-      title: {
-        color: COLORS.DARK,
-        fontFamily: FONT_FAMILIES.BOLD,
-      },
-      /*title: {
-                      color: 'white'
-                  },
-                  backButton: {
-                      color: 'white'
-                  },
-                  background: {
-                      color: '#4d089a'
-                  }*/
-    },
+    topBar: TOP_BAR
     /*bottomTab: {
             fontSize: 14,
                   selectedFontSize: 14
