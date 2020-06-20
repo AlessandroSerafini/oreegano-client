@@ -1,9 +1,5 @@
 import React, {FunctionComponent} from 'react';
-import {
-    StyleSheet,
-    TextInput as RNTextInput,
-    ButtonProps, ViewStyle, TextInputProps,
-} from 'react-native';
+import {StyleSheet, TextInput as RNTextInput, TextInputProps,} from 'react-native';
 import {COLORS, FONT_SIZES, InputState, SIZES} from '../data/ThemeConstants';
 
 const styles = StyleSheet.create({

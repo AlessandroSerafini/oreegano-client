@@ -5,7 +5,7 @@ import {AuthState} from '../../context/auth/authReducer';
 import {DropdownAlertContext,} from '../../providers/DropdownAlertProvider';
 import {Navigation} from 'react-native-navigation';
 import {isFirstAppLaunch} from '../../services/StorageService';
-import {clearErrorMessage, signOut} from "../../context/auth/authActions";
+import {signOut} from "../../context/auth/authActions";
 import {NAVIGATION_COMPONENTS} from "../../data/CommonNavigation";
 
 interface Props {}
@@ -31,8 +31,7 @@ const SplashScreenView = (props) => {
   const setupApp = async () => {
     const isFirstLaunch = await isFirstAppLaunch();
 
-    // TODO: TEMP, RIMUOVERE!!
-      dispatch(signOut());
+      // dispatch(signOut());
 
     Navigation.setStackRoot(props.componentId, {
       component: {

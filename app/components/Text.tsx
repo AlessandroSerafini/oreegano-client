@@ -1,8 +1,6 @@
-import React, {useEffect} from 'react';
-import {Image, StyleSheet, TextStyle} from 'react-native';
-import {Navigation} from 'react-native-navigation';
-import {Text as RNText} from 'react-native';
-import {COLORS, FONT_FAMILIES, FONT_SIZES} from '../data/ThemeConstants';
+import React from 'react';
+import {StyleSheet, Text as RNText, TextStyle} from 'react-native';
+import {COLORS, FONT_FAMILIES, FONT_SIZES, LINE_HEIGHTS} from '../data/ThemeConstants';
 
 interface Props {
   style: TextStyle;
@@ -76,11 +74,11 @@ const Text = ({
   // ••• useEffect methods •••
 
   const textStyle = StyleSheet.flatten<TextStyle>([
-    h1 && {fontSize: FONT_SIZES.H1},
-    h2 && {fontSize: FONT_SIZES.H2},
-    h3 && {fontSize: FONT_SIZES.H3},
-    h4 && {fontSize: FONT_SIZES.H4},
-    h5 && {fontSize: FONT_SIZES.H5},
+    h1 && {fontSize: FONT_SIZES.H1, lineHeight: LINE_HEIGHTS.H1},
+    h2 && {fontSize: FONT_SIZES.H2, lineHeight: LINE_HEIGHTS.H2},
+    h3 && {fontSize: FONT_SIZES.H3, lineHeight: LINE_HEIGHTS.H3},
+    h4 && {fontSize: FONT_SIZES.H4, lineHeight: LINE_HEIGHTS.H4},
+    h5 && {fontSize: FONT_SIZES.H5, lineHeight: LINE_HEIGHTS.H5},
     p && {fontSize: FONT_SIZES.P},
     s && {fontSize: FONT_SIZES.S},
     !!size && {fontSize: size},

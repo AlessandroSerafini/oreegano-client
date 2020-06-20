@@ -1,5 +1,6 @@
 import React from 'react';
 import SignupScreenView from './SignupScreenView';
+import {SCREEN_TOP_BAR} from "../../data/CommonNavigation";
 
 interface Props {
 }
@@ -10,9 +11,11 @@ const SignupScreenContainer = (props) => {
 
 SignupScreenContainer.options = {
     topBar: {
-        title: {
-            text: 'Registrati',
-        },
+        ...SCREEN_TOP_BAR, ...{
+            title: {
+                text: 'Registrati',
+            },
+        }
     },
 };
 

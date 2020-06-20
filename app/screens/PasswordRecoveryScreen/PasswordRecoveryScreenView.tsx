@@ -1,18 +1,16 @@
 import React, {useEffect} from 'react';
-import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {clearErrorMessage, signUp} from '../../context/auth/authActions';
+import {clearSignupErrorMessage} from '../../context/auth/authActions';
 import {AuthState} from '../../context/auth/authReducer';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
 import {DropdownAlertContext, useDropDown,} from '../../providers/DropdownAlertProvider';
-import {COLORS, INITIAL_INPUT_STATE, InputState, SIZES,} from '../../data/ThemeConstants';
+import {INITIAL_INPUT_STATE, InputState, SIZES,} from '../../data/ThemeConstants';
 import Block from '../../components/Block';
 import NewLine from '../../components/NewLine';
 import TextInput from '../../components/Input';
 import {validateEmail} from "../../services/validationService";
-import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS, TOP_BAR} from "../../data/CommonNavigation";
 
 interface Props {
 }
@@ -77,7 +75,7 @@ const PasswordRecoveryScreenView = (props) => {
                 title: 'Error',
                 message: errorMessage,
                 callback: () => {
-                    dispatch(clearErrorMessage());
+                    dispatch(clearSignupErrorMessage());
                 },
             });
         }
@@ -100,7 +98,6 @@ const PasswordRecoveryScreenView = (props) => {
     // TODO: IMPLEMENTARE LOADING AD ALTO LIVELLO COME LE DROPDOWN ALERT
 
     return (
-        <>
             <SafeAreaView>
                 <Block
                     style={{
@@ -129,7 +126,6 @@ const PasswordRecoveryScreenView = (props) => {
                     />
                 </Block>
             </SafeAreaView>
-        </>
     )
         ;
 };

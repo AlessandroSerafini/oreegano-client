@@ -1,5 +1,4 @@
-import { Dispatch } from "redux";
-import Axios, { AxiosResponse } from "axios";
+import {Dispatch} from "redux";
 import {PASSWORD_RECOVERY_TYPES, PasswordRecoveryAction} from "./passwordRecoveryTypes";
 
 export const RecoveryPassword = (mail: string) => async (

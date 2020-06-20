@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Keyboard,
-  ScrollView,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
+import {Keyboard, StyleSheet, TouchableWithoutFeedback, View,} from 'react-native';
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
 

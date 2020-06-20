@@ -1,6 +1,4 @@
 import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
-import {USER_DATA} from '../data/StorageConstants';
 import {environment} from '../environment/environment';
 
 let url;

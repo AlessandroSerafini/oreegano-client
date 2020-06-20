@@ -1,5 +1,5 @@
 import {JwtResponse} from './passwordRecoveryActions';
-import {AuthAction} from "../auth/authTypes";
+import {SignupAction} from "../auth/signupTypes";
 
 export enum PASSWORD_RECOVERY_TYPES {
     PASSWORD_RECOVERY_PENDING = 'PASSWORD_RECOVERY_PENDING',
@@ -39,4 +39,4 @@ export type PasswordRecoveryAction =
     | PasswordRecoveryAddError
     | PasswordRecoveryClearError
     | PasswordRecoveryReset
-    | AuthAction;
+    | SignupAction;

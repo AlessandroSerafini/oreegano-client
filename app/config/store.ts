@@ -1,20 +1,20 @@
-import {
-    applyMiddleware,
-    combineReducers,
-    compose,
-    createStore,
-    Store,
-} from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore, Store,} from 'redux';
 import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import authReducer from '../context/auth/authReducer';
+import signinReducer from '../context/auth/signinReducer';
+import signoutReducer from '../context/auth/signoutReducer';
+import signupReducer from '../context/auth/signupReducer';
 
 let store: Store;
 
 const rootReducer = combineReducers({
     authReducer,
+    signinReducer,
+    signoutReducer,
+    signupReducer,
 });
 
 const persistConfig = {

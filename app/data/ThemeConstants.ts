@@ -17,6 +17,16 @@ export const FONT_SIZES = {
   P: 16,
   S: 14,
 };
+
+export const LINE_HEIGHTS = {
+  H1: 40,
+  H2: 30,
+  H3: 26,
+  H4: 8,
+  H5: 8,
+  P: 16,
+  S: 14,
+};
 export const COLORS = {
   DARK_SAGE: '#47764f',
   GREY: '#8b959a',
@@ -27,7 +37,7 @@ export const COLORS = {
 };
 export const SIZES = {
   DEFAULT_PADDING: 15,
-  BORDER_RADIUS: 5,
+  BORDER_RADIUS: 10,
 };
 
 export const FONT_FAMILIES = {
@@ -41,4 +51,3 @@ export const FONT_FAMILIES = {
   SEMI_BOLD: 'PublicSans-SemiBold',
   THIN: 'PublicSans-Thin',
 };
-export const FIRST_APP_LAUNCH_KEY = 'FirstAppLaunchKey';

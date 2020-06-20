@@ -1,4 +1,4 @@
-import {AUTH_TYPES} from "../auth/authTypes";
+import {AUTH_TYPES} from "../auth/signupTypes";
 import {PASSWORD_RECOVERY_TYPES, PasswordRecoveryAction} from "./passwordRecoveryTypes";
 
 const INITIAL_STATE = {

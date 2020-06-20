@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {clearSignupErrorMessage, signUp} from '../../context/auth/authActions';
+import {clearSigninErrorMessage, signIn} from '../../context/auth/authActions';
 import {AuthState} from '../../context/auth/authReducer';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
@@ -12,9 +12,10 @@ import NewLine from '../../components/NewLine';
 import TextInput from '../../components/Input';
 import {validateEmail} from "../../services/validationService";
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS} from "../../data/CommonNavigation";
+import {MODAL_TOP_BAR, NAVIGATION_COMPONENTS} from "../../data/CommonNavigation";
 import DismissKeyboard from "../../components/DismissKeyboard";
 import {SignupState} from "../../context/auth/signupReducer";
+import {SigninState} from "../../context/auth/signinReducer";
 
 interface Props {
 }
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupScreenView = (props) => {
+const SigninScreenView = (props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -43,7 +44,6 @@ const SignupScreenView = (props) => {
     };
 
     // ••• state variables & methods •••
-    const [name, setName] = React.useState<InputState>(INITIAL_INPUT_STATE);
     const [email, setEmail] = React.useState<InputState>(INITIAL_INPUT_STATE);
     const [password, setPassword] = React.useState<InputState>(
         INITIAL_INPUT_STATE,
@@ -58,20 +58,18 @@ const SignupScreenView = (props) => {
         },
     );
     const {pending, errorMessage} = useSelector(
-        ({signupReducer}: { signupReducer: SignupState }) => {
-            return signupReducer;
+        ({signinReducer}: { signinReducer: SigninState }) => {
+            return signinReducer;
         },
     );
 
     // ••• working methods •••
     const canIProceed = (): boolean => {
-        return !!name.text && name.status !== "danger" && !!email.text && email.status !== "danger" && !!password.text && password.status !== "danger";
+        return !!email.text && email.status !== "danger" && !!password.text && password.status !== "danger";
     };
-    const handleSignup = (): void => {
+    const handleSignIn = (): void => {
         dispatch(
-            signUp({
-                type: 1,
-                name: name.text,
+            signIn({
                 email: email.text,
                 password: password.text,
             }),
@@ -88,7 +86,7 @@ const SignupScreenView = (props) => {
                 title: 'Error',
                 message: errorMessage,
                 callback: () => {
-                    dispatch(clearSignupErrorMessage());
+                    dispatch(clearSigninErrorMessage());
                 },
             });
         }
@@ -122,19 +120,19 @@ const SignupScreenView = (props) => {
                             <NewLine multiplier={3}/>
                             <Block center>
                                 <Block row>
-                                    <Text>Hai già un account?</Text>
+                                    <Text>Non hai un account?</Text>
                                     <TouchableOpacity
                                         activeOpacity={0.7}
                                         style={{marginLeft: 8}}
                                         onPress={() => {
                                             Navigation.push(props.componentId, {
                                                 component: {
-                                                    name: NAVIGATION_COMPONENTS.SIGN_IN
+                                                    name: NAVIGATION_COMPONENTS.SIGN_UP
                                                 }
                                             });
                                         }}>
                                         <Text bold underline color={COLORS.DARK_SAGE}>
-                                            Accedi
+                                            Registrati
                                         </Text>
                                     </TouchableOpacity>
                                 </Block>
@@ -164,14 +162,6 @@ const SignupScreenView = (props) => {
                             </Block>
                             <NewLine multiplier={2}/>
                             <TextInput
-                                placeholder="Nome"
-                                inputState={name}
-                                onChangeText={(text) => {
-                                    setName({status: 'success', text});
-                                }}
-                            />
-                            <NewLine multiplier={1.333}/>
-                            <TextInput
                                 placeholder="E-mail"
                                 autoCapitalize="none"
                                 inputState={email}
@@ -191,11 +181,36 @@ const SignupScreenView = (props) => {
                             <NewLine multiplier={2}/>
                             <Button
                                 disabled={!canIProceed()}
-                                title={'Registrati'}
+                                title={'Accedi'}
                                 onPress={() => {
-                                    handleSignup();
+                                    handleSignIn();
                                 }}
                             />
+                            <NewLine multiplier={2}/>
+                            <Block center>
+                                <TouchableOpacity
+                                    activeOpacity={0.7}
+                                    onPress={() => {
+                                        Navigation.showModal({
+                                            stack: {
+                                                children: [
+                                                    {
+                                                        component: {
+                                                            name: NAVIGATION_COMPONENTS.PASSWORD_RECOVERY,
+                                                            options: {
+                                                                topBar: MODAL_TOP_BAR
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        });
+                                    }}>
+                                    <Text underline s color={COLORS.DARK_SAGE}>
+                                        Password dimenticata?
+                                    </Text>
+                                </TouchableOpacity>
+                            </Block>
                         </Block>
                     </Block>
             </SafeAreaView>
@@ -220,4 +235,4 @@ const SignupScreenView = (props) => {
     );
 };
 
-export default SignupScreenView;
+export default SigninScreenView;

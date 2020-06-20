@@ -1,6 +1,5 @@
 import React from 'react';
 import SplashScreenView from './SplashScreenView';
-import TutorialScreenContainer from '../TutorialScreen/TutorialScreenContainer';
 
 interface Props {}
 

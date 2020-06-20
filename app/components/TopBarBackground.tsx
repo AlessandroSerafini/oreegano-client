@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Image, StyleSheet} from 'react-native';
-import {Navigation} from 'react-native-navigation';
 
 interface Props {}
 
@@ -31,26 +30,6 @@ const TopBarBackground = (props) => {
   // ••• render methods •••
 
   // ••• useEffect methods •••
-  useEffect(() => {
-    const listener = {
-      componentDidAppear: () => {
-        console.log('RNN', 'componentDidAppear');
-      },
-      componentDidDisappear: () => {
-        console.log('RNN', 'componentDidDisappear');
-      },
-    };
-    // Register the listener to all events related to our component
-    const unsubscribe = Navigation.events().registerComponentListener(
-      listener,
-      props.componentId,
-    );
-    return () => {
-      // Make sure to unregister the listener during cleanup
-      unsubscribe.remove();
-    };
-  }, []);
-
   return (
     <>
       <Image

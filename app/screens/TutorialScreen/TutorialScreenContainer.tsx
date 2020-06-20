@@ -3,8 +3,8 @@ import TutorialScreenView from './TutorialScreenView';
 
 interface Props {}
 
-const TutorialScreenContainer = () => {
-  return <TutorialScreenView />;
+const TutorialScreenContainer = (props) => {
+  return <TutorialScreenView {...props} />;
 };
 
 TutorialScreenContainer.options = {

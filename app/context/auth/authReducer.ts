@@ -1,42 +1,30 @@
-import {AUTH_TYPES, AuthAction} from './authTypes';
+import {SIGNUP_TYPES, SignupAction} from './signupTypes';
 import {JwtResponse} from "./authActions";
+import {AuthAction, SIGNOUT_TYPES} from "./signoutTypes";
+import {SIGNIN_TYPES, SigninAction} from "./signinTypes";
 
 const INITIAL_STATE = {
-    errorMessage: null,
-    pending: false,
     loginData: null,
 };
 
 export interface AuthState {
-    errorMessage: string | null;
-    pending: boolean;
     loginData: JwtResponse | null;
 }
 
 export default (
     state: AuthState = INITIAL_STATE,
-    action: AuthAction,
+    action: SignupAction | SigninAction | AuthAction,
 ): AuthState => {
     switch (action.type) {
-        case AUTH_TYPES.SIGNUP_PENDING:
-            return {...state, pending: true};
-        case AUTH_TYPES.SIGNUP_COMPLETED:
-            console.log("PASSO", "STORE DATA", action.payload)
+        case SIGNUP_TYPES.SIGNUP_COMPLETED:
+        case SIGNIN_TYPES.SIGNIN_COMPLETED:
             return {
                 ...state,
-                errorMessage: null,
-                pending: false,
                 loginData: action.payload,
             };
-        case AUTH_TYPES.SIGNUP_ADD_ERROR:
-            return {...state, errorMessage: action.payload, pending: false};
-        case AUTH_TYPES.SIGNUP_CLEAR_ERROR:
-            return {...state, errorMessage: null, pending: false};
-        case AUTH_TYPES.SIGNOUT:
+        case SIGNOUT_TYPES.SIGNOUT_COMPLETED:
             return {
                 ...state,
-                errorMessage: null,
-                pending: false,
                 loginData: null,
             };
         default:
