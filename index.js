@@ -93,7 +93,9 @@ Navigation.events().registerAppLaunchedListener(async () => {
         topBar: {
             ...DEFAULT_TOP_BAR, ...{
                 background: {
-                    component: {name: NAVIGATION_COMPONENTS.TOP_BAR_BACKGROUND},
+                    component: {
+                        name: NAVIGATION_COMPONENTS.TOP_BAR_BACKGROUND,
+                    },
                 },
             }
         }
@@ -101,6 +103,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
                 fontSize: 14,
                       selectedFontSize: 14
             },*/
-    });
+    })
+    ;
     Navigation.setRoot(mainFlow);
 });

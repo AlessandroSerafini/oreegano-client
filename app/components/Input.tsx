@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 
 interface Props extends TextInputProps {
     inputState: InputState;
+    disabled?: boolean;
     placeholder?: string;
     onChangeText?: (text: string) => void;
     onEndEditing?: () => void;
@@ -22,6 +23,7 @@ interface Props extends TextInputProps {
 const TextInput: FunctionComponent<Props> = ({
                                                  placeholder,
                                                  inputState,
+                                                 disabled = false,
                                                  onChangeText,
                                                  onEndEditing,
                                                  ...restProps
@@ -40,6 +42,7 @@ const TextInput: FunctionComponent<Props> = ({
     return (
         <RNTextInput
             {...restProps}
+            editable={!disabled}
             placeholder={placeholder}
             style={[styles.input, inputStyles]}
             placeholderTextColor={COLORS.DARK}

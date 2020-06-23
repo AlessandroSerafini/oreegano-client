@@ -45,6 +45,16 @@ const TutorialScreenView = (props) => {
             title: "Titolo quarta slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
+        {
+            image: require('../../assets/images/test5.png'),
+            title: "Titolo quinta slide",
+            content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
+        },
+        {
+            image: require('../../assets/images/test6.png'),
+            title: "Titolo sesta slide",
+            content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
+        },
     ];
     const Y_OFFSET = "55%";
 
@@ -61,7 +71,7 @@ const TutorialScreenView = (props) => {
 
     // ••• working methods •••
     const handlePressNext = async () => {
-        if (activeIndex < SLIDES.length-1) {
+        if (activeIndex < SLIDES.length - 1) {
             setActiveIndex(activeIndex + 1);
         } else {
             await writeFirstLaunch();
@@ -77,11 +87,8 @@ const TutorialScreenView = (props) => {
 
     // ••• useEffect methods •••
     useEffect(() => {
-        if (contentSwiperEl && activeIndex > 0 && activeIndex < SLIDES.length) {
+        if (contentSwiperEl && activeIndex < SLIDES.length) {
             contentSwiperEl.current.scrollTo(activeIndex);
-            setTimeout(() => {
-                imageSwiperEl.current.scrollTo(activeIndex);
-            }, 250);
         }
     }, [activeIndex]);
 
@@ -90,8 +97,11 @@ const TutorialScreenView = (props) => {
         <SafeAreaView style={{flex: 1}}>
             <Swiper showsPagination={false}
                     showsButtons={false}
-                    scrollEnabled={false}
                     loop={false}
+                    onIndexChanged={(newIndex) => {
+                        setActiveIndex(newIndex);
+                        imageSwiperEl.current.scrollTo(newIndex);
+                    }}
                     ref={contentSwiperEl}>
                 {SLIDES.map((slide: SLIDE, i) => (
                     <Block key={`text-${i}`} style={{top: Y_OFFSET, paddingHorizontal: SIZES.DEFAULT_PADDING * 2}} flex>
@@ -125,7 +135,12 @@ const TutorialScreenView = (props) => {
                     width: "90%",
                 }}
                 title={activeIndex < SLIDES.length - 1 ? 'Avanti' : 'Inizia'}
-                onPress={handlePressNext}
+                onPress={() => {
+                    handlePressNext();
+                    setTimeout(() => {
+                        imageSwiperEl.current.scrollTo(activeIndex);
+                    }, 200);
+                }}
             />
         </SafeAreaView>
     );

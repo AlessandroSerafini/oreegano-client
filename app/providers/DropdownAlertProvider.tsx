@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import DropdownAlert, {DropdownAlertType} from 'react-native-dropdownalert';
+import {FONT_FAMILIES, FONT_SIZES, SIZES} from "../data/ThemeConstants";
 
 const DropdownAlertContext = React.createContext({});
 
@@ -7,7 +8,8 @@ export const DropDownAlertContextProvider = ({children}) => {
     interface DropdownAlertData {
         type: DropdownAlertType;
         title: string;
-        message: string;
+        message?: string;
+        time: number;
         callback: () => void;
     }
 
@@ -18,7 +20,7 @@ export const DropDownAlertContextProvider = ({children}) => {
         setTimeout(() => {
             ref.current.closeAction();
             data.callback();
-        }, 3500);
+        }, data.time || 3500);
     }
 
     return (
@@ -31,7 +33,9 @@ export const DropDownAlertContextProvider = ({children}) => {
                 ref={ref}
                 closeInterval={0}
                 defaultContainer={{paddingHorizontal: 20}}
-                imageStyle={{width: 25, height: 25, alignSelf: 'center'}}
+                imageStyle={{marginRight: 5, width: 25, height: 25, alignSelf: 'center'}}
+                titleStyle={{marginTop: SIZES.DEFAULT_PADDING, color: "#FFF", fontFamily: FONT_FAMILIES.SEMI_BOLD, fontSize: FONT_SIZES.P}}
+                messageStyle={{marginTop: 5, marginBottom: SIZES.DEFAULT_PADDING, color: "#FFF", fontFamily: FONT_FAMILIES.REGULAR, fontSize: FONT_SIZES.P}}
             />
         </DropdownAlertContext.Provider>
     );

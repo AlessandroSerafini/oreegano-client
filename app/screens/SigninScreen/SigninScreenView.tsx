@@ -65,7 +65,11 @@ const SigninScreenView = (props) => {
 
     // ••• working methods •••
     const canIProceed = (): boolean => {
-        return !!email.text && email.status !== "danger" && !!password.text && password.status !== "danger";
+        return !pending &&
+            !!email.text &&
+            email.status !== "danger" &&
+            !!password.text &&
+            password.status !== "danger";
     };
     const handleSignIn = (): void => {
         dispatch(
@@ -111,108 +115,67 @@ const SigninScreenView = (props) => {
     return (
         <DismissKeyboard>
             <SafeAreaView>
-                    <Block>
-                        <Block
-                            style={{
-                                height: '100%',
-                                paddingHorizontal: SIZES.DEFAULT_PADDING * 2,
-                            }}>
-                            <NewLine multiplier={3}/>
-                            <Block center>
-                                <Block row>
-                                    <Text>Non hai un account?</Text>
-                                    <TouchableOpacity
-                                        activeOpacity={0.7}
-                                        style={{marginLeft: 8}}
-                                        onPress={() => {
-                                            Navigation.push(props.componentId, {
-                                                component: {
-                                                    name: NAVIGATION_COMPONENTS.SIGN_UP
-                                                }
-                                            });
-                                        }}>
-                                        <Text bold underline color={COLORS.DARK_SAGE}>
-                                            Registrati
-                                        </Text>
-                                    </TouchableOpacity>
-                                </Block>
-                            </Block>
-                            <NewLine multiplier={2}/>
-                            <Block>
-                                <Block
-                                    height={1}
-                                    fluid
-                                    style={{
-                                        borderTopWidth: 1,
-                                        borderTopColor: COLORS.LIGHT_GREY,
-                                        position: 'absolute',
-                                        top: '50%',
-                                        left: 0,
-                                        marginTop: 1,
-                                    }}
-                                />
-                                <Block center>
-                                    <Text
-                                        s
-                                        color={COLORS.GREY}
-                                        style={{backgroundColor: '#FFF', paddingHorizontal: 22}}>
-                                        Oppure inserisci le credenziali
-                                    </Text>
-                                </Block>
-                            </Block>
-                            <NewLine multiplier={2}/>
-                            <TextInput
-                                placeholder="E-mail"
-                                autoCapitalize="none"
-                                inputState={email}
-                                onChangeText={(text) => {
-                                    setEmail({status: 'success', text});
-                                }}
-                            />
-                            <NewLine multiplier={1.333}/>
-                            <TextInput
-                                secureTextEntry
-                                placeholder="Password"
-                                inputState={password}
-                                onChangeText={(text) => {
-                                    setPassword({status: 'success', text});
-                                }}
-                            />
-                            <NewLine multiplier={2}/>
-                            <Button
-                                disabled={!canIProceed()}
-                                title={'Accedi'}
+                <Block>
+                    <Block
+                        style={{
+                            height: '100%',
+                            paddingHorizontal: SIZES.DEFAULT_PADDING * 2,
+                        }}>
+                        <NewLine multiplier={3}/>
+                        <TextInput
+                            disabled={pending}
+                            placeholder="E-mail"
+                            autoCapitalize="none"
+                            inputState={email}
+                            onChangeText={(text) => {
+                                setEmail({status: 'success', text});
+                            }}
+                        />
+                        <NewLine multiplier={1.333}/>
+                        <TextInput
+                            disabled={pending}
+                            secureTextEntry
+                            placeholder="Password"
+                            inputState={password}
+                            onChangeText={(text) => {
+                                setPassword({status: 'success', text});
+                            }}
+                        />
+                        <NewLine multiplier={2}/>
+                        <Button
+                            disabled={!canIProceed()}
+                            title={'Accedi'}
+                            onPress={() => {
+                                handleSignIn();
+                            }}
+                        />
+                        <NewLine multiplier={2}/>
+                        <Block center>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
                                 onPress={() => {
-                                    handleSignIn();
-                                }}
-                            />
-                            <NewLine multiplier={2}/>
-                            <Block center>
-                                <TouchableOpacity
-                                    activeOpacity={0.7}
-                                    onPress={() => {
-                                        Navigation.showModal({
-                                            stack: {
-                                                children: [
-                                                    {
-                                                        component: {
-                                                            name: NAVIGATION_COMPONENTS.PASSWORD_RECOVERY,
-                                                            options: {
-                                                                topBar: MODAL_TOP_BAR
-                                                            }
+                                    Navigation.showModal({
+                                        stack: {
+                                            children: [
+                                                {
+                                                    component: {
+                                                        name: NAVIGATION_COMPONENTS.PASSWORD_RECOVERY,
+                                                        options: {
+                                                            topBar: MODAL_TOP_BAR
                                                         }
                                                     }
-                                                ]
-                                            }
-                                        });
-                                    }}>
-                                    <Text underline s color={COLORS.DARK_SAGE}>
-                                        Password dimenticata?
-                                    </Text>
-                                </TouchableOpacity>
-                            </Block>
+                                                }
+                                            ]
+                                        }
+                                    });
+                                }}>
+                                <Text underline s color={COLORS.DARK_SAGE}>
+                                    Password dimenticata?
+                                </Text>
+                            </TouchableOpacity>
                         </Block>
                     </Block>
+                </Block>
             </SafeAreaView>
             <Block
                 row

@@ -11,7 +11,7 @@ const PasswordRecoveryScreenContainer = (props) => {
 PasswordRecoveryScreenContainer.options = {
     topBar: {
         title: {
-            text: 'Recupera',
+            text: 'Recupera password',
         },
     },
 };

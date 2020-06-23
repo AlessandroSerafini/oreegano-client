@@ -1,39 +1,31 @@
 import {Dispatch} from "redux";
 import {PASSWORD_RECOVERY_TYPES, PasswordRecoveryAction} from "./passwordRecoveryTypes";
+import {SIGNUP_TYPES} from "../auth/signupTypes";
+import {AxiosResponse} from "axios";
+import oreeganoApi from "../../api/oreeganoApi";
+import {SIGNOUT_TYPES} from "../auth/signoutTypes";
 
-export const RecoveryPassword = (mail: string) => async (
+export const recoveryPassword = (email: string) => async (
     dispatch: Dispatch<PasswordRecoveryAction>,
 ) => {
     try {
         dispatch({ type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_PENDING });
 
-        /*const params = new URLSearchParams();
+        const response: AxiosResponse<any> = await oreeganoApi.post(
+            '/users/password-recovery',
+            {
+                email
+            },
+        );
 
-        params.append("account_email", mail);
-        params.append("username", STAGING_USERNAME);
-        params.append("password", STAGING_PASSWORD);
-        params.append("version", getReadableVersion());
-
-        const response: AxiosResponse<any> = await Axios.post(
-            `${PRODUCTION_BASE_URL}/forgot_password`,
-            params,
-        );*/
-
-        /*if (response.data.result) {
-            dispatch({
-                type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_COMPLETED,
-                payload: response.data.result,
-            });
-        } else {
-            dispatch({
-                type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_ADD_ERROR,
-                payload: response.data.messg,
-            });
-        }*/
-    } catch (err) {
+        dispatch({
+            type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_COMPLETED,
+        });
+    } catch (e) {
+        const {error} = e.response.data;
         dispatch({
             type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_ADD_ERROR,
-            payload: err,
+            payload: error.message,
         });
     }
 };
@@ -80,7 +72,7 @@ export const clearRecoveryPasswordErrorMessage = () => (
 export const clearResetPasswordErrorMessage = () => (
     dispatch: Dispatch<PasswordRecoveryAction>,
 ) => {
-    dispatch({ type: PASSWORD_RECOVERY_TYPES.PASSWORD_RESET_CLEAR_ERROR });
+    // dispatch({ type: PASSWORD_RECOVERY_TYPES.PASSWORD_RESET_CLEAR_ERROR });
 };
 
 export const resetPasswordRecovery = (

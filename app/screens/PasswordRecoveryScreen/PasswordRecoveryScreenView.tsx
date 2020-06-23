@@ -11,6 +11,13 @@ import Block from '../../components/Block';
 import NewLine from '../../components/NewLine';
 import TextInput from '../../components/Input';
 import {validateEmail} from "../../services/validationService";
+import {
+    clearRecoveryPasswordErrorMessage,
+    recoveryPassword, resetPasswordRecovery
+} from "../../context/passwordRecovery/passwordRecoveryActions";
+import {PasswordRecoveryState} from "../../context/passwordRecovery/passwordRecoveryReducer";
+import DismissKeyboard from "../../components/DismissKeyboard";
+import {Navigation} from "react-native-navigation";
 
 interface Props {
 }
@@ -44,25 +51,20 @@ const PasswordRecoveryScreenView = (props) => {
     // ••• refs variables •••
 
     // ••• useSelector methods •••
-    const {pending, errorMessage, loginData} = useSelector(
-        ({authReducer}: { authReducer: AuthState }) => {
-            return authReducer;
+    const {pending, isComplete, errorMessage} = useSelector(
+        ({passwordRecoveryReducer}: { passwordRecoveryReducer: PasswordRecoveryState }) => {
+            return passwordRecoveryReducer;
         },
     );
 
     // ••• working methods •••
     const canIProceed = (): boolean => {
-        return !!email.text && email.status !== "danger";
+        return !pending && !!email.text && email.status !== "danger";
     };
     const handlePasswordRecovery = (): void => {
-        /*dispatch(
-            signUp({
-                type: 1,
-                name: name.text,
-                email: email.text,
-                password: password.text,
-            }),
-        );*/
+        dispatch(
+            recoveryPassword(email.text),
+        );
     };
 
     // ••• render methods •••
@@ -75,20 +77,27 @@ const PasswordRecoveryScreenView = (props) => {
                 title: 'Error',
                 message: errorMessage,
                 callback: () => {
-                    dispatch(clearSignupErrorMessage());
+                    dispatch(clearRecoveryPasswordErrorMessage());
                 },
             });
         }
     }, [errorMessage]);
+
     useEffect(() => {
-        if (loginData) {
-            /*Navigation.setStackRoot(props.componentId, {
-                component: {
-                    name: NAVIGATION_COMPONENTS.HOME,
-                },
-            });*/
+        if (isComplete) {
+                openDropDownAlert({
+                    type: 'success',
+                    time: 10000,
+                    title: 'Controlla la tua casella',
+                    message: `Un'email è stata inviata al tuo indirizzo ${email.text}. Per reimpostare la password, segui le istruzioni riportate nell'email.`,
+                    callback: () => {
+                        dispatch(resetPasswordRecovery);
+                        Navigation.dismissModal(props.componentId);
+                    },
+                });
         }
-    }, [loginData]);
+    }, [isComplete]);
+
     useEffect(() => {
         if (email.text) {
             validateEmailInput();
@@ -98,6 +107,7 @@ const PasswordRecoveryScreenView = (props) => {
     // TODO: IMPLEMENTARE LOADING AD ALTO LIVELLO COME LE DROPDOWN ALERT
 
     return (
+        <DismissKeyboard>
             <SafeAreaView>
                 <Block
                     style={{
@@ -126,6 +136,7 @@ const PasswordRecoveryScreenView = (props) => {
                     />
                 </Block>
             </SafeAreaView>
+        </DismissKeyboard>
     )
         ;
 };

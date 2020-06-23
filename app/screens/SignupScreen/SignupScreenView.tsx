@@ -65,7 +65,13 @@ const SignupScreenView = (props) => {
 
     // ••• working methods •••
     const canIProceed = (): boolean => {
-        return !!name.text && name.status !== "danger" && !!email.text && email.status !== "danger" && !!password.text && password.status !== "danger";
+        return !pending &&
+            !!name.text &&
+            name.status !== "danger" &&
+            !!email.text &&
+            email.status !== "danger" &&
+            !!password.text &&
+            password.status !== "danger";
     };
     const handleSignup = (): void => {
         dispatch(
@@ -164,6 +170,7 @@ const SignupScreenView = (props) => {
                             </Block>
                             <NewLine multiplier={2}/>
                             <TextInput
+                                disabled={pending}
                                 placeholder="Nome"
                                 inputState={name}
                                 onChangeText={(text) => {
@@ -172,6 +179,7 @@ const SignupScreenView = (props) => {
                             />
                             <NewLine multiplier={1.333}/>
                             <TextInput
+                                disabled={pending}
                                 placeholder="E-mail"
                                 autoCapitalize="none"
                                 inputState={email}
@@ -181,6 +189,7 @@ const SignupScreenView = (props) => {
                             />
                             <NewLine multiplier={1.333}/>
                             <TextInput
+                                disabled={pending}
                                 secureTextEntry
                                 placeholder="Password"
                                 inputState={password}

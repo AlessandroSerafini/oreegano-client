@@ -35,6 +35,9 @@ export const SCREEN_TOP_BAR = {
         background: {
             color: '#f2f3ee',
         },
+        backButton: {
+            color: "#888",
+        }
     }
 }
 export const MODAL_TOP_BAR = {

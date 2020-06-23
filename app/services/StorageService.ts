@@ -3,7 +3,6 @@ import {FIRST_APP_LAUNCH_KEY,} from '../data/StorageConstants';
 
 export async function isFirstAppLaunch() {
   try {
-    // await AsyncStorage.removeItem(FIRST_APP_LAUNCH_KEY);
     const isFirstOpen = await AsyncStorage.getItem(FIRST_APP_LAUNCH_KEY);
     if (isFirstOpen) {
       return false;

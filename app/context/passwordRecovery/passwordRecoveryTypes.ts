@@ -17,7 +17,6 @@ interface PasswordRecoveryPending {
 
 interface PasswordRecoveryCompleted {
     type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_COMPLETED;
-    payload: JwtResponse;
 }
 
 interface PasswordRecoveryAddError {
