@@ -24,6 +24,7 @@ const styles = StyleSheet.create({});
 
 const TutorialScreenView = (props) => {
     // ••• local variables •••
+    // TODO: IMMAGINI E TESTI NON SONO DEFINITIVI
     const SLIDES: SLIDE[] = [
         {
             image: require('../../assets/images/test1.png'),

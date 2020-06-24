@@ -37,7 +37,6 @@ export const resetPassword = (password: string, token: string) => async (
 ) => {
     try {
         dispatch({ type: PASSWORD_RESET_TYPES.PASSWORD_RESET_PENDING });
-        console.log("PASSO", token);
         const response: AxiosResponse<any> = await oreeganoApi.post(
             `/users/password-reset/${token}`,
             {

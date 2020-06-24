@@ -72,7 +72,6 @@ const PasswordRecoveryScreenView = (props) => {
     // ••• useEffect methods •••
     useEffect(() => {
         if (errorMessage) {
-            console.log("PASSO2");
             openDropDownAlert({
                 type: 'error',
                 title: 'Error',

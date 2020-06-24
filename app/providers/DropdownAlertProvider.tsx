@@ -16,7 +16,6 @@ export const DropDownAlertContextProvider = ({children}) => {
     let ref = useRef<DropdownAlert>();
 
     const openDropDownAlert = (data: DropdownAlertData) => {
-        console.log("PASSO1");
         ref.current.alertWithType(data.type, data.title, data.message);
         setTimeout(() => {
             if(ref.current) {
