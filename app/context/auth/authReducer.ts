@@ -2,6 +2,7 @@ import {SIGNUP_TYPES, SignupAction} from './signupTypes';
 import {JwtResponse} from "./authActions";
 import {AuthAction, SIGNOUT_TYPES} from "./signoutTypes";
 import {SIGNIN_TYPES, SigninAction} from "./signinTypes";
+import {PASSWORD_RESET_TYPES} from "../passwordRecovery/passwordResetTypes";
 
 const INITIAL_STATE = {
     loginData: null,
@@ -18,6 +19,7 @@ export default (
     switch (action.type) {
         case SIGNUP_TYPES.SIGNUP_COMPLETED:
         case SIGNIN_TYPES.SIGNIN_COMPLETED:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_COMPLETED:
             return {
                 ...state,
                 loginData: action.payload,

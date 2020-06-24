@@ -114,8 +114,6 @@ const SignupScreenView = (props) => {
         }
     }, [email.text]);
 
-    // TODO: IMPLEMENTARE LOADING AD ALTO LIVELLO COME LE DROPDOWN ALERT
-
     return (
         <DismissKeyboard>
             <SafeAreaView>

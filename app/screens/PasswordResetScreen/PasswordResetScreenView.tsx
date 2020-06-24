@@ -1,8 +1,6 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {clearSignupErrorMessage} from '../../context/auth/authActions';
-import {AuthState} from '../../context/auth/authReducer';
 import Text from '../../components/Text';
 import Button from '../../components/Button';
 import {DropdownAlertContext, useDropDown,} from '../../providers/DropdownAlertProvider';
@@ -11,13 +9,15 @@ import Block from '../../components/Block';
 import NewLine from '../../components/NewLine';
 import TextInput from '../../components/Input';
 import {validateEmail} from "../../services/validationService";
-import {
-    clearRecoveryPasswordErrorMessage,
-    recoveryPassword, resetPasswordRecovery
-} from "../../context/passwordRecovery/passwordActions";
-import {PasswordRecoveryState} from "../../context/passwordRecovery/passwordRecoveryReducer";
 import DismissKeyboard from "../../components/DismissKeyboard";
 import {Navigation} from "react-native-navigation";
+import {
+    clearResetPasswordErrorMessage,
+    resetPassword,
+    resetPasswordReset
+} from "../../context/passwordRecovery/passwordActions";
+import {PasswordResetState} from "../../context/passwordRecovery/passwordResetReducer";
+import {signIn} from "../../context/auth/authActions";
 
 interface Props {
 }
@@ -28,42 +28,51 @@ const styles = StyleSheet.create({
     },
 });
 
-const PasswordRecoveryScreenView = (props) => {
+const PasswordResetScreenView = (props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
+    const {token, email} = props;
     const {openDropDownAlert} = useDropDown();
 
     // ••• navigation variables •••
 
     // ••• validation fields methods •••
-    const validateEmailInput = () => {
-        if (email.text && !validateEmail(email.text)) {
-            setEmail({
-                ...email,
-                status: "danger",
-            });
+    const validatePasswordInput = () => {
+        if (password.text) {
+            if (password.text !== confirmPassword.text) {
+                setPassword({
+                    ...password,
+                    status: "danger",
+                });
+            }else {
+                setPassword({
+                    ...password,
+                    status: "success",
+                });
+            }
         }
     };
 
     // ••• state variables & methods •••
-    const [email, setEmail] = React.useState<InputState>(INITIAL_INPUT_STATE);
+    const [password, setPassword] = React.useState<InputState>(INITIAL_INPUT_STATE);
+    const [confirmPassword, setConfirmPassword] = React.useState<InputState>(INITIAL_INPUT_STATE);
 
     // ••• refs variables •••
 
     // ••• useSelector methods •••
     const {pending, isComplete, errorMessage} = useSelector(
-        ({passwordRecoveryReducer}: { passwordRecoveryReducer: PasswordRecoveryState }) => {
-            return passwordRecoveryReducer;
+        ({passwordResetReducer}: { passwordResetReducer: PasswordResetState }) => {
+            return passwordResetReducer;
         },
     );
 
     // ••• working methods •••
     const canIProceed = (): boolean => {
-        return !pending && !!email.text && email.status !== "danger";
+        return !pending && !!password.text && password.status !== "danger";
     };
-    const handlePasswordRecovery = (): void => {
+    const handlePasswordReset = (): void => {
         dispatch(
-            recoveryPassword(email.text),
+            resetPassword(password.text, token),
         );
     };
 
@@ -72,13 +81,12 @@ const PasswordRecoveryScreenView = (props) => {
     // ••• useEffect methods •••
     useEffect(() => {
         if (errorMessage) {
-            console.log("PASSO2");
             openDropDownAlert({
                 type: 'error',
                 title: 'Error',
                 message: errorMessage,
                 callback: () => {
-                    dispatch(clearRecoveryPasswordErrorMessage());
+                    dispatch(clearResetPasswordErrorMessage());
                 },
             });
         }
@@ -88,22 +96,26 @@ const PasswordRecoveryScreenView = (props) => {
         if (isComplete) {
                 openDropDownAlert({
                     type: 'success',
-                    time: 6000,
-                    title: 'Controlla la tua casella',
-                    message: `Un'email è stata inviata al tuo indirizzo ${email.text}. Per reimpostare la password, segui le istruzioni riportate nell'email.`,
+                    time: 3000,
+                    title: 'Successo',
+                    message: `La password è stata aggiornata con successo.`,
                     callback: () => {
-                        dispatch(resetPasswordRecovery);
+                        dispatch(resetPasswordReset);
                         Navigation.dismissModal(props.componentId);
+                        signIn({
+                            email: email,
+                            password: password.text,
+                        });
                     },
                 });
         }
     }, [isComplete]);
 
     useEffect(() => {
-        if (email.text) {
-            validateEmailInput();
+        if (password.text) {
+            validatePasswordInput();
         }
-    }, [email.text]);
+    }, [password.text, confirmPassword.text]);
 
     return (
         <DismissKeyboard>
@@ -113,24 +125,33 @@ const PasswordRecoveryScreenView = (props) => {
                         paddingHorizontal: SIZES.DEFAULT_PADDING * 2,
                     }}>
                     <NewLine multiplier={3}/>
-                    <Text>Inserisci l'indirizzo E-mail del tuo account.{`\n`}Riceverai una mail contenente un link
-                        per
-                        reimpostare la password.</Text>
+                    <Text>Reimposta la tua password, verrà effettuato l'accesso con i nuovi dati.</Text>
                     <NewLine multiplier={2}/>
                     <TextInput
-                        placeholder="E-mail"
+                        placeholder="Nuova password"
                         autoCapitalize="none"
-                        inputState={email}
+                        secureTextEntry
+                        inputState={password}
                         onChangeText={(text) => {
-                            setEmail({status: 'success', text});
+                            setPassword({status: 'success', text});
+                        }}
+                    />
+                    <NewLine multiplier={1.333}/>
+                    <TextInput
+                        placeholder="Conferma password"
+                        autoCapitalize="none"
+                        secureTextEntry
+                        inputState={confirmPassword}
+                        onChangeText={(text) => {
+                            setConfirmPassword({status: 'success', text});
                         }}
                     />
                     <NewLine multiplier={2}/>
                     <Button
                         disabled={!canIProceed()}
-                        title={'Recupera password'}
+                        title={'Reimposta password'}
                         onPress={() => {
-                            handlePasswordRecovery();
+                            handlePasswordReset();
                         }}
                     />
                 </Block>
@@ -140,4 +161,4 @@ const PasswordRecoveryScreenView = (props) => {
         ;
 };
 
-export default PasswordRecoveryScreenView;
+export default PasswordResetScreenView;

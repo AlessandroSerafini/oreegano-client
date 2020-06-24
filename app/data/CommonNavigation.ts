@@ -8,6 +8,7 @@ export const NAVIGATION_COMPONENTS = {
     SIGN_IN: 'Signin',
     HOME: 'Home',
     PASSWORD_RECOVERY: 'RecoveryPassword',
+    PASSWORD_RESET: 'ResetPassword',
     TOP_BAR_BACKGROUND: 'TopBarBackground',
 };
 

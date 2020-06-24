@@ -16,9 +16,12 @@ export const DropDownAlertContextProvider = ({children}) => {
     let ref = useRef<DropdownAlert>();
 
     const openDropDownAlert = (data: DropdownAlertData) => {
+        console.log("PASSO1");
         ref.current.alertWithType(data.type, data.title, data.message);
         setTimeout(() => {
-            ref.current.closeAction();
+            if(ref.current) {
+                ref.current.closeAction();
+            }
             data.callback();
         }, data.time || 3500);
     }
@@ -34,8 +37,8 @@ export const DropDownAlertContextProvider = ({children}) => {
                 closeInterval={0}
                 defaultContainer={{paddingHorizontal: 20}}
                 imageStyle={{marginRight: 5, width: 25, height: 25, alignSelf: 'center'}}
-                titleStyle={{marginTop: SIZES.DEFAULT_PADDING, color: "#FFF", fontFamily: FONT_FAMILIES.SEMI_BOLD, fontSize: FONT_SIZES.P}}
-                messageStyle={{marginTop: 5, marginBottom: SIZES.DEFAULT_PADDING, color: "#FFF", fontFamily: FONT_FAMILIES.REGULAR, fontSize: FONT_SIZES.P}}
+                titleStyle={{marginTop: SIZES.DEFAULT_PADDING/2, color: "#FFF", fontFamily: FONT_FAMILIES.SEMI_BOLD, fontSize: FONT_SIZES.P}}
+                messageStyle={{marginTop: 5, marginBottom: SIZES.DEFAULT_PADDING/2, color: "#FFF", fontFamily: FONT_FAMILIES.REGULAR, fontSize: FONT_SIZES.P}}
             />
         </DropdownAlertContext.Provider>
     );

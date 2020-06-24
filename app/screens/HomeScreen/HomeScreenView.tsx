@@ -30,11 +30,6 @@ const HomeScreenView = ({}: Props) => {
     // ••• render methods •••
 
     // ••• useEffect methods •••
-    // TODO: TEMPORANEO: RIMUOVERE!!
-
-
-    // TODO: IMPLEMENTARE LOADING AD ALTO LIVELLO COME LE DROPDOWN ALERT
-    // TODO: IMPLEMENTARE CONTROLLO VALIDITA' EMAIL COME SU PASSE
 
     return (
             <SafeAreaView>

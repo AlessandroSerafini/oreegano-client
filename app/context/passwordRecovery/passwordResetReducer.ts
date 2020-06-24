@@ -1,6 +1,5 @@
-import {PasswordRecoveryAction} from "./passwordResetTypes";
+import {PASSWORD_RESET_TYPES, PasswordResetAction} from "./passwordResetTypes";
 import {SIGNOUT_TYPES, SignoutAction} from "../auth/signoutTypes";
-import {PASSWORD_RECOVERY_TYPES} from "./passwordRecoveryTypes";
 
 const INITIAL_STATE = {
     errorMessage: null,
@@ -8,41 +7,41 @@ const INITIAL_STATE = {
     isComplete: false,
 };
 
-export interface PasswordRecoveryState {
+export interface PasswordResetState {
     errorMessage: string | null;
     pending: boolean;
     isComplete: boolean;
 }
 
 export default (
-    state: PasswordRecoveryState = INITIAL_STATE,
-    action: PasswordRecoveryAction | SignoutAction,
-): PasswordRecoveryState => {
+    state: PasswordResetState = INITIAL_STATE,
+    action: PasswordResetAction | SignoutAction,
+): PasswordResetState => {
     switch (action.type) {
-        case PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_PENDING:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_PENDING:
             return {...state, pending: true};
-        case PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_COMPLETED:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_COMPLETED:
             return {
                 ...state,
                 errorMessage: null,
                 pending: false,
                 isComplete: true,
             };
-        case PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_ADD_ERROR:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_ADD_ERROR:
             return {
                 ...state,
                 errorMessage: action.payload,
                 pending: false,
                 isComplete: false,
             };
-        case PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_CLEAR_ERROR:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_CLEAR_ERROR:
             return {
                 ...state,
                 errorMessage: null,
                 pending: false,
                 isComplete: false,
             };
-        case PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_RESET:
+        case PASSWORD_RESET_TYPES.PASSWORD_RESET_RESET:
         case SIGNOUT_TYPES.SIGNOUT_COMPLETED:
             return {
                 ...state,

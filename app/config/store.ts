@@ -8,6 +8,7 @@ import signinReducer from '../context/auth/signinReducer';
 import signoutReducer from '../context/auth/signoutReducer';
 import signupReducer from '../context/auth/signupReducer';
 import passwordRecoveryReducer from '../context/passwordRecovery/passwordRecoveryReducer';
+import passwordResetReducer from '../context/passwordRecovery/passwordResetReducer';
 
 let store: Store;
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     signoutReducer,
     signupReducer,
     passwordRecoveryReducer,
+    passwordResetReducer,
 });
 
 const persistConfig = {

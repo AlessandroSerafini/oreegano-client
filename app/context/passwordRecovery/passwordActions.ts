@@ -1,9 +1,11 @@
 import {Dispatch} from "redux";
-import {PASSWORD_RECOVERY_TYPES, PasswordRecoveryAction} from "./passwordRecoveryTypes";
+import {PASSWORD_RESET_TYPES, PasswordRecoveryAction, PasswordResetAction} from "./passwordResetTypes";
 import {SIGNUP_TYPES} from "../auth/signupTypes";
 import {AxiosResponse} from "axios";
 import oreeganoApi from "../../api/oreeganoApi";
 import {SIGNOUT_TYPES} from "../auth/signoutTypes";
+import {PASSWORD_RECOVERY_TYPES} from "./passwordRecoveryTypes";
+import {SIGNIN_TYPES} from "../auth/signinTypes";
 
 export const recoveryPassword = (email: string) => async (
     dispatch: Dispatch<PasswordRecoveryAction>,
@@ -30,38 +32,31 @@ export const recoveryPassword = (email: string) => async (
     }
 };
 
-/*export const resetPassword = (
-    userId: string,
-    resetPasswordCode: string,
-    userType: VALIDATION_ACCOUNT_TYPE,
-    newPassword: string,
-) => async (dispatch: Dispatch<ResetPasswordAction>) => {
+export const resetPassword = (password: string, token: string) => async (
+    dispatch: Dispatch<PasswordResetAction>,
+) => {
     try {
-        dispatch({ type: RESET_PASSWORD_TYPES.RESET_PASSWORD_PENDING });
-
-        const response: AxiosResponse<any> = await Axios.get(
-            `${RESET_PASSWORD_BASE_URL}/${userId}/${resetPasswordCode}/${userType}/${newPassword}`,
-            {},
+        dispatch({ type: PASSWORD_RESET_TYPES.PASSWORD_RESET_PENDING });
+        console.log("PASSO", token);
+        const response: AxiosResponse<any> = await oreeganoApi.post(
+            `/users/password-reset/${token}`,
+            {
+                password
+            },
         );
 
-        if (response.data.result) {
-            dispatch({
-                type: RESET_PASSWORD_TYPES.RESET_PASSWORD_COMPLETED,
-                payload: mapResponseIntoUserInfo(response.data),
-            });
-        } else {
-            dispatch({
-                type: RESET_PASSWORD_TYPES.RESET_PASSWORD_ADD_ERROR,
-                payload: response.data.messg,
-            });
-        }
-    } catch (err) {
         dispatch({
-            type: RESET_PASSWORD_TYPES.RESET_PASSWORD_ADD_ERROR,
-            payload: err,
+            type: PASSWORD_RESET_TYPES.PASSWORD_RESET_COMPLETED,
+            payload: response.data,
+        });
+    } catch (e) {
+        const {error} = e.response.data;
+        dispatch({
+            type: PASSWORD_RESET_TYPES.PASSWORD_RESET_ADD_ERROR,
+            payload: error.message,
         });
     }
-};*/
+};
 
 export const clearRecoveryPasswordErrorMessage = () => (
     dispatch: Dispatch<PasswordRecoveryAction>,
@@ -70,13 +65,19 @@ export const clearRecoveryPasswordErrorMessage = () => (
 };
 
 export const clearResetPasswordErrorMessage = () => (
-    dispatch: Dispatch<PasswordRecoveryAction>,
+    dispatch: Dispatch<PasswordResetAction>,
 ) => {
-    // dispatch({ type: PASSWORD_RECOVERY_TYPES.PASSWORD_RESET_CLEAR_ERROR });
+    dispatch({ type: PASSWORD_RESET_TYPES.PASSWORD_RESET_CLEAR_ERROR });
 };
 
 export const resetPasswordRecovery = (
     dispatch: Dispatch<PasswordRecoveryAction>,
 ) => {
     dispatch({ type: PASSWORD_RECOVERY_TYPES.PASSWORD_RECOVERY_RESET });
+};
+
+export const resetPasswordReset = (
+    dispatch: Dispatch<PasswordResetAction>,
+) => {
+    dispatch({ type: PASSWORD_RESET_TYPES.PASSWORD_RESET_RESET });
 };

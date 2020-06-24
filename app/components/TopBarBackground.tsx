@@ -30,6 +30,9 @@ const TopBarBackground = (props) => {
   // ••• render methods •••
 
   // ••• useEffect methods •••
+
+    // TODO: QUESTO COMPONENTE FA SI CHE IL PULSANTE BACK DI NAVIGAZIONE NATIVO NON VENGA CLICCATO
+
   return (
     <>
       <Image
