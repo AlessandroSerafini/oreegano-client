@@ -31,8 +31,6 @@ const SplashScreenView = (props) => {
   const setupApp = async () => {
     const isFirstLaunch = await isFirstAppLaunch();
 
-      dispatch(signOut()); // TODO: RIMUOVERE!!
-
     Navigation.setStackRoot(props.componentId, {
       component: {
         name: isFirstLaunch
