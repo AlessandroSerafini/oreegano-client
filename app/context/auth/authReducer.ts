@@ -3,6 +3,7 @@ import {JwtResponse} from "./authActions";
 import {AuthAction, SIGNOUT_TYPES} from "./signoutTypes";
 import {SIGNIN_TYPES, SigninAction} from "./signinTypes";
 import {PASSWORD_RESET_TYPES} from "../passwordRecovery/passwordResetTypes";
+import {clearLoginData, storeLoginData} from "../../services/StorageService";
 
 const INITIAL_STATE = {
     loginData: null,
@@ -20,11 +21,13 @@ export default (
         case SIGNUP_TYPES.SIGNUP_COMPLETED:
         case SIGNIN_TYPES.SIGNIN_COMPLETED:
         case PASSWORD_RESET_TYPES.PASSWORD_RESET_COMPLETED:
+            storeLoginData(action.payload);
             return {
                 ...state,
                 loginData: action.payload,
             };
         case SIGNOUT_TYPES.SIGNOUT_COMPLETED:
+            clearLoginData();
             return {
                 ...state,
                 loginData: null,

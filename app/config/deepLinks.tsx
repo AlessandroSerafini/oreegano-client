@@ -7,7 +7,7 @@
  *
  * @format
  */
-import {MODAL_TOP_BAR, NAVIGATION_COMPONENTS} from "../data/CommonNavigation";
+import {MODAL_TOP_BAR, NAVIGATION_COMPONENTS_COMMON} from "../data/CommonNavigation";
 import {environment} from "../environment/environment";
 import {Navigation} from "react-native-navigation";
 import {Linking} from "react-native";
@@ -48,7 +48,7 @@ const DeepLinks = () => {
                                     children: [
                                         {
                                             component: {
-                                                name: NAVIGATION_COMPONENTS.PASSWORD_RESET,
+                                                name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RESET,
                                                 passProps: {
                                                     token,
                                                 },

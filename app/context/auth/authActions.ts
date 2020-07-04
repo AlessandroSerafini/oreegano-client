@@ -7,12 +7,12 @@ import {SIGNOUT_TYPES, SignoutAction} from "./signoutTypes";
 
 export enum UserRoles {
     CUSTOMER = 1,
-    STORE = 2,
+    DELIVERY = 2,
 }
 
 export interface User {
     id: number;
-    type: UserRoles;
+    role: UserRoles;
     name: string;
     email: string;
     password: string;
@@ -37,11 +37,11 @@ export const signUp = (
 ) => async (dispatch: Dispatch<SignupAction>) => {
     try {
         dispatch({type: SIGNUP_TYPES.SIGNUP_PENDING});
-        const {type, name, email, password} = data;
+        const {role, name, email, password} = data;
         const response: AxiosResponse<any> = await oreeganoApi.post(
             '/users/signup',
             {
-                type,
+                role,
                 name,
                 email,
                 password,

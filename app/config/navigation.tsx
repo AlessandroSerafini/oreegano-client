@@ -7,19 +7,33 @@
  *
  * @format
  */
-import {DEFAULT_TOP_BAR, NAVIGATION_COMPONENTS} from "../data/CommonNavigation";
-import SplashScreenContainer from "../screens/SplashScreen/SplashScreenContainer";
-import TutorialScreenContainer from "../screens/TutorialScreen/TutorialScreenContainer";
+import {
+    DEFAULT_TOP_BAR,
+    NAVIGATION_COMPONENTS_COMMON,
+    NAVIGATION_COMPONENTS_CUSTOMER,
+    NAVIGATION_COMPONENTS_DELIVERY,
+    NAVIGATION_STACKS
+} from "../data/CommonNavigation";
 import TopBarBackground from "../components/TopBarBackground";
-import SignupScreenContainer from "../screens/SignupScreen/SignupScreenContainer";
-import SigninScreenContainer from "../screens/SigninScreen/SigninScreenContainer";
-import HomeScreenContainer from "../screens/HomeScreen/HomeScreenContainer";
-import PasswordRecoveryScreenContainer from "../screens/PasswordRecoveryScreen/PasswordRecoveryScreenContainer";
-import PasswordResetScreenContainer from "../screens/PasswordResetScreen/PasswordResetScreenContainer";
 import {persistor, store} from "./store";
 import {PersistGate} from "redux-persist/integration/react";
 import {DropDownAlertContextProvider} from "../providers/DropdownAlertProvider";
 import {Provider as ReduxStoreProvider} from "react-redux";
+import OrderDetailScreenContainer from "../screens/Customer/OrderDetailScreen/OrderDetailScreenContainer";
+import SplashScreenContainer from "../screens/Common/SplashScreen/SplashScreenContainer";
+import TutorialScreenContainer from "../screens/Common/TutorialScreen/TutorialScreenContainer";
+import SigninScreenContainer from "../screens/Common/SigninScreen/SigninScreenContainer";
+import PasswordRecoveryScreenContainer from "../screens/Common/PasswordRecoveryScreen/PasswordRecoveryScreenContainer";
+import PasswordResetScreenContainer from "../screens/Common/PasswordResetScreen/PasswordResetScreenContainer";
+import SignupDeliveryScreenContainer from "../screens/Delivery/SignupScreen/SignupDeliveryScreenContainer";
+import SignupCustomerAddressScreenContainer
+    from "../screens/Customer/SignupScreen/SignupCustomerAddressScreenContainer";
+import SignupCustomerAccountScreenContainer
+    from "../screens/Customer/SignupScreen/SignupCustomerAccountScreenContainer";
+import HomeCustomerScreenContainer from "../screens/Customer/HomeScreen/HomeCustomerScreenContainer";
+import HomeDeliveryScreenContainer from "../screens/Delivery/HomeScreen/HomeDeliveryScreenContainer";
+import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenContainer";
+import {LoadingContextProvider} from "../providers/LoadingProvider";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -27,49 +41,78 @@ const SetupNavigation = () => {
     const {Navigation} = require('react-native-navigation');
     const MAIN_FLOW = {
         root: {
-            stack: {
-                children: [
-                    {
-                        component: {
-                            name: NAVIGATION_COMPONENTS.SPLASH,
-                        },
-                    },
-                ],
-            },
+            sideMenu: {
+                id: NAVIGATION_STACKS.LEFT,
+                left: {
+                    component: {
+                        name: NAVIGATION_COMPONENTS_COMMON.DRAWER,
+                    }
+                },
+                center: {
+                    stack: {
+                        id: NAVIGATION_STACKS.CENTER,
+                        children: [{
+                            component: {
+                                name: NAVIGATION_COMPONENTS_COMMON.SPLASH,
+                            }
+                        }]
+                    }
+                }
+            }
         },
     };
     const COMPONENTS = [
         {
-            name: NAVIGATION_COMPONENTS.SPLASH,
+            name: NAVIGATION_COMPONENTS_COMMON.SPLASH,
             concreteComponentProvider: SplashScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.TUTORIAL,
+            name: NAVIGATION_COMPONENTS_COMMON.TUTORIAL,
             concreteComponentProvider: TutorialScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.TOP_BAR_BACKGROUND,
+            name: NAVIGATION_COMPONENTS_COMMON.TOP_BAR_BACKGROUND,
             concreteComponentProvider: TopBarBackground,
         },
         {
-            name: NAVIGATION_COMPONENTS.SIGN_UP,
-            concreteComponentProvider: SignupScreenContainer,
+            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
+            concreteComponentProvider: SignupCustomerAccountScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.SIGN_IN,
+            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ADDRESS,
+            concreteComponentProvider: SignupCustomerAddressScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
+            concreteComponentProvider: SignupDeliveryScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_COMMON.SIGN_IN,
             concreteComponentProvider: SigninScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.HOME,
-            concreteComponentProvider: HomeScreenContainer,
+            name: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            concreteComponentProvider: HomeCustomerScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.PASSWORD_RECOVERY,
+            name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
+            concreteComponentProvider: HomeDeliveryScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RECOVERY,
             concreteComponentProvider: PasswordRecoveryScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS.PASSWORD_RESET,
+            name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RESET,
             concreteComponentProvider: PasswordResetScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_DETAIL,
+            concreteComponentProvider: OrderDetailScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_COMMON.DRAWER,
+            concreteComponentProvider: DrawerScreenContainer,
         }
     ];
 
@@ -89,7 +132,9 @@ const SetupNavigation = () => {
             <ReduxStoreProvider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                     <DropDownAlertContextProvider>
-                        {child}
+                        <LoadingContextProvider>
+                            {child}
+                        </LoadingContextProvider>
                     </DropDownAlertContextProvider>
                 </PersistGate>
             </ReduxStoreProvider>
@@ -122,7 +167,7 @@ const SetupNavigation = () => {
                 ...DEFAULT_TOP_BAR, ...{
                     background: {
                         component: {
-                            name: NAVIGATION_COMPONENTS.TOP_BAR_BACKGROUND,
+                            // name: NAVIGATION_COMPONENTS_COMMON.TOP_BAR_BACKGROUND,
                         },
                     },
                 }

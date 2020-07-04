@@ -51,7 +51,9 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Ci serviamo della geolocalizzazione per mostrare la posizione corrente del corriere sulla mappa</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Ci serviamo della geolocalizzazione per mostrare la posizione corrente del corriere sulla mappa</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>PublicSans-Black.otf</string>
@@ -63,6 +65,8 @@
 		<string>PublicSans-Regular.otf</string>
 		<string>PublicSans-SemiBold.otf</string>
 		<string>PublicSans-Thin.otf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
@@ -78,5 +82,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string></string>
+	</array>
 </dict>
 </plist>

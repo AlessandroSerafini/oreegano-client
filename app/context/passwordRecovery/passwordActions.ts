@@ -1,11 +1,8 @@
 import {Dispatch} from "redux";
 import {PASSWORD_RESET_TYPES, PasswordRecoveryAction, PasswordResetAction} from "./passwordResetTypes";
-import {SIGNUP_TYPES} from "../auth/signupTypes";
 import {AxiosResponse} from "axios";
 import oreeganoApi from "../../api/oreeganoApi";
-import {SIGNOUT_TYPES} from "../auth/signoutTypes";
 import {PASSWORD_RECOVERY_TYPES} from "./passwordRecoveryTypes";
-import {SIGNIN_TYPES} from "../auth/signinTypes";
 
 export const recoveryPassword = (email: string) => async (
     dispatch: Dispatch<PasswordRecoveryAction>,

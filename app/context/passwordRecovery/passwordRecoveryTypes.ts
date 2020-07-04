@@ -1,4 +1,3 @@
-import {JwtResponse} from './passwordActions';
 import {SignupAction} from "../auth/signupTypes";
 
 export enum PASSWORD_RECOVERY_TYPES {

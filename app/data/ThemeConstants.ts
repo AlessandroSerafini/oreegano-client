@@ -12,8 +12,8 @@ export const FONT_SIZES = {
   H1: 34,
   H2: 30,
   H3: 26,
-  H4: 8,
-  H5: 8,
+  H4: 23,
+  H5: 20,
   P: 16,
   S: 14,
 };
@@ -22,14 +22,15 @@ export const LINE_HEIGHTS = {
   H1: 40,
   H2: 30,
   H3: 26,
-  H4: 8,
-  H5: 8,
+  H4: 23,
+  H5: 20,
   P: 16,
   S: 14,
 };
 export const COLORS = {
   DARK_SAGE: '#47764f',
   GREY: '#8b959a',
+  DARK_GREY: '#777',
   PALE_GREY: '#e2e6ea',
   DANGER_RED: '#931c1c',
   LIGHT_GREY: '#ddd',
