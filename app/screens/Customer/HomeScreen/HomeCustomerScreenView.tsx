@@ -1,15 +1,19 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
 import Geolocation from '@react-native-community/geolocation';
-import Text from "../../../components/Text";
 import Block from "../../../components/Block";
 import {useDispatch, useSelector} from "react-redux";
-import {clearGetNearStoresErrorMessage, getStoresNearMe} from "../../../context/stores/storesActions";
-import {GetNearStoresState} from "../../../context/stores/getNearStoresReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 import MisteryBoxesList from "../../../components/MisteryBoxesList";
-import {SIZES} from "../../../data/ThemeConstants";
+import NewLine from "../../../components/NewLine";
+import {GetLatestBoxesState} from "../../../context/misteryBoxes/getLatestBoxesReducer";
+import {GetNearBoxesState} from "../../../context/misteryBoxes/getNearBoxesReducer";
+import {
+    clearGetLatestBoxesErrorMessage,
+    clearGetNearBoxesErrorMessage, clearGetSoldOutBoxesErrorMessage,
+    getBoxesNearMe, getLatestBoxes, getSoldOutBoxes
+} from "../../../context/misteryBoxes/misteryBoxesActions";
 
 interface Props {
 }
@@ -20,7 +24,7 @@ enum ROOMS {
 
 const styles = StyleSheet.create({});
 
-const HomeCustomerScreenView = ({}: Props) => {
+const HomeCustomerScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -37,9 +41,19 @@ const HomeCustomerScreenView = ({}: Props) => {
     // ••• refs variables •••
 
     // ••• useSelector methods •••
-    const {pending, stores, errorMessage} = useSelector(
-        ({getNearStoresReducer}: { getNearStoresReducer: GetNearStoresState }) => {
-            return getNearStoresReducer;
+    const {pending: nerMePending, misteryBoxes: nearBoxes, errorMessage: nearMeErrorMessage} = useSelector(
+        ({getNearBoxesReducer}: { getNearBoxesReducer: GetNearBoxesState }) => {
+            return getNearBoxesReducer;
+        },
+    );
+    const {pending: latestBoxesPending, misteryBoxes: latestBoxes, errorMessage: latestBoxesErrorMessage} = useSelector(
+        ({getLatestBoxesReducer}: { getLatestBoxesReducer: GetLatestBoxesState }) => {
+            return getLatestBoxesReducer;
+        },
+    );
+    const {pending: soldOutBoxesPending, misteryBoxes: soldOutBoxes, errorMessage: soldOutBoxesErrorMessage} = useSelector(
+        ({getSoldOutBoxesReducer}: { getSoldOutBoxesReducer: GetLatestBoxesState }) => {
+            return getSoldOutBoxesReducer;
         },
     );
 
@@ -77,32 +91,73 @@ const HomeCustomerScreenView = ({}: Props) => {
         });
     }, []);
     useEffect(() => {
-        setLoadingVisibility(pending);
-    }, [pending]);
+        setLoadingVisibility(nerMePending || latestBoxesPending || soldOutBoxesPending);
+    }, [nerMePending, latestBoxesPending, soldOutBoxesPending]);
     useEffect(() => {
-        if (errorMessage) {
+        if (nearMeErrorMessage) {
             openDropDownAlert({
                 type: 'error',
                 title: 'Error',
-                message: errorMessage,
+                message: nearMeErrorMessage,
                 callback: () => {
-                    dispatch(clearGetNearStoresErrorMessage());
+                    dispatch(clearGetNearBoxesErrorMessage());
                 },
             });
         }
-    }, [errorMessage]);
+    }, [nearMeErrorMessage]);
+    useEffect(() => {
+        if (latestBoxesErrorMessage) {
+            openDropDownAlert({
+                type: 'error',
+                title: 'Error',
+                message: latestBoxesErrorMessage,
+                callback: () => {
+                    dispatch(clearGetLatestBoxesErrorMessage());
+                },
+            });
+        }
+    }, [latestBoxesErrorMessage]);
+    useEffect(() => {
+        if (soldOutBoxesErrorMessage) {
+            openDropDownAlert({
+                type: 'error',
+                title: 'Error',
+                message: soldOutBoxesErrorMessage,
+                callback: () => {
+                    dispatch(clearGetSoldOutBoxesErrorMessage());
+                },
+            });
+        }
+    }, [soldOutBoxesErrorMessage]);
     useEffect(() => {
         if (latitude && longitude) {
-            dispatch(getStoresNearMe({lat: latitude, lon: longitude}))
+            dispatch(getBoxesNearMe({lat: latitude, lon: longitude}))
         }
+        dispatch(getLatestBoxes());
+        dispatch(getSoldOutBoxes());
     }, [latitude, longitude]);
 
     return (
-        <SafeAreaView>
-                {stores && (
-                    <MisteryBoxesList title="Vicini a me" stores={stores} />
-                )}
-        </SafeAreaView>
+        <ScrollView>
+            {nearBoxes && nearBoxes.length>0 && (
+                <Block>
+                    <MisteryBoxesList title="Vicini a me" boxes={nearBoxes} {...restProps}/>
+                    <NewLine multiplier={1}/>
+                </Block>
+            )}
+            {latestBoxes && latestBoxes.length>0 && (
+                <Block>
+                    <MisteryBoxesList title="Ultime possibilità" boxes={latestBoxes} {...restProps}/>
+                    <NewLine multiplier={1}/>
+                </Block>
+            )}
+            {soldOutBoxes && soldOutBoxes.length>0 && (
+                <Block>
+                    <MisteryBoxesList title="Perse per un pelo" boxes={soldOutBoxes} {...restProps}/>
+                    <NewLine multiplier={1}/>
+                </Block>
+            )}
+        </ScrollView>
     );
 };
 

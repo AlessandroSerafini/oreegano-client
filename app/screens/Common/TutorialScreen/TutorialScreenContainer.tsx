@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import TutorialScreenView from './TutorialScreenView';
 import {Navigation} from "react-native-navigation";
 
-interface Props {}
+interface Props extends ComponentProps<any>{
 
-const TutorialScreenContainer = (props) => {
-  Navigation.mergeOptions(props.componentId, {
+}
+
+const TutorialScreenContainer = ({...restProps}:Props) => {
+  Navigation.mergeOptions(restProps.componentId, {
     sideMenu: {
       left: {
         enabled: false
       }
     }
   });
-  return <TutorialScreenView {...props} />;
+  return <TutorialScreenView {...restProps} />;
 };
 
 TutorialScreenContainer.options = {

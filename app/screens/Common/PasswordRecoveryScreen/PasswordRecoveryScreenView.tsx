@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from "react-native-navigation";
@@ -19,7 +19,7 @@ import Button from "../../../components/Button";
 import Text from '../../../components/Text';
 import {useLoading} from "../../../providers/LoadingProvider";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const PasswordRecoveryScreenView = (props) => {
+const PasswordRecoveryScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -92,7 +92,7 @@ const PasswordRecoveryScreenView = (props) => {
                     message: `Un'email è stata inviata al tuo indirizzo ${email.text}. Per reimpostare la password, segui le istruzioni riportate nell'email.`,
                     callback: () => {
                         dispatch(resetPasswordRecovery);
-                        Navigation.dismissModal(props.componentId);
+                        Navigation.dismissModal(restProps.componentId);
                     },
                 });
         }

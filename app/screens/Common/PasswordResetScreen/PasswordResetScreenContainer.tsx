@@ -1,19 +1,19 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import PasswordResetScreenView from './PasswordResetScreenView';
 import {Navigation} from "react-native-navigation";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const PasswordResetScreenContainer = (props) => {
-    Navigation.mergeOptions(props.componentId, {
+const PasswordResetScreenContainer = ({...restProps}:Props) => {
+    Navigation.mergeOptions(restProps.componentId, {
         sideMenu: {
             left: {
                 enabled: false
             }
         }
     });
-    return <PasswordResetScreenView {...props}/>;
+    return <PasswordResetScreenView {...restProps}/>;
 };
 
 PasswordResetScreenContainer.options = {

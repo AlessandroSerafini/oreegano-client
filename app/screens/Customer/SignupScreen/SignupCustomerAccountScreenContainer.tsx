@@ -1,13 +1,13 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import SignupCustomerAccountScreenView from './SignupCustomerAccountScreenView';
 import {SCREEN_TOP_BAR} from "../../../data/CommonNavigation";
 import {Navigation} from "react-native-navigation";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const SignupCustomerAccountScreenContainer = (props) => {
-    Navigation.mergeOptions(props.componentId, {
+const SignupCustomerAccountScreenContainer = ({...restProps}:Props) => {
+    Navigation.mergeOptions(restProps.componentId, {
         sideMenu: {
             left: {
                 enabled: false
@@ -15,7 +15,7 @@ const SignupCustomerAccountScreenContainer = (props) => {
         }
     });
 
-    return <SignupCustomerAccountScreenView {...props}/>;
+    return <SignupCustomerAccountScreenView {...restProps}/>;
 };
 
 SignupCustomerAccountScreenContainer.options = {

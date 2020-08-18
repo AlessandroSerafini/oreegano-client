@@ -1,4 +1,4 @@
-import React, {ReactText, useEffect} from 'react';
+import React, {ComponentProps, ReactText, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from 'react-native-navigation';
@@ -11,11 +11,13 @@ import {
     NAVIGATION_COMPONENTS_DELIVERY
 } from "../../../data/CommonNavigation";
 
-interface Props {}
+interface Props extends ComponentProps<any>{
+
+}
 
 const styles = StyleSheet.create({});
 
-const SplashScreenView = (props) => {
+const SplashScreenView = ({...restProps}:Props) => {
   // ••• local variables •••
     const dispatch = useDispatch();
 
@@ -33,10 +35,6 @@ const SplashScreenView = (props) => {
   // ••• working methods •••
   const setupApp = async () => {
     const isFirstLaunch = await isFirstAppLaunch();
-
-
-
-
       let component: ReactText;
       if(isFirstLaunch) {
           component = NAVIGATION_COMPONENTS_COMMON.TUTORIAL;
@@ -53,7 +51,7 @@ const SplashScreenView = (props) => {
       }
 
 
-    Navigation.setStackRoot(props.componentId, {
+    Navigation.setStackRoot(restProps.componentId, {
       component: {
         name: component,
       },

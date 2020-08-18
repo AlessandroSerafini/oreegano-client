@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import SignupCustomerAddressScreenView from './SignupCustomerAddressScreenView';
 import {SCREEN_TOP_BAR} from "../../../data/CommonNavigation";
 import {Navigation} from "react-native-navigation";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const SignupCustomerAddressScreenContainer = (props) => {
-    Navigation.mergeOptions(props.componentId, {
+const SignupCustomerAddressScreenContainer = ({...restProps}:Props) => {
+    Navigation.mergeOptions(restProps.componentId, {
         sideMenu: {
             left: {
                 enabled: false
             }
         }
     });
-    return <SignupCustomerAddressScreenView {...props}/>;
+    return <SignupCustomerAddressScreenView {...restProps}/>;
 };
 
 SignupCustomerAddressScreenContainer.options = {

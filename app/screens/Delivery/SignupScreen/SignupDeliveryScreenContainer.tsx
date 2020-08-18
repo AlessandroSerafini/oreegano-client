@@ -1,27 +1,27 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import SignupDeliveryScreenView from './SignupDeliveryScreenView';
 import {SCREEN_TOP_BAR} from "../../../data/CommonNavigation";
 import {Navigation} from "react-native-navigation";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const SignupDeliveryScreenContainer = (props) => {
-    Navigation.mergeOptions(props.componentId, {
+const SignupDeliveryScreenContainer = ({...restProps}:Props) => {
+    Navigation.mergeOptions(restProps.componentId, {
         sideMenu: {
             left: {
                 enabled: false
             }
         }
     });
-    return <SignupDeliveryScreenView {...props}/>;
+    return <SignupDeliveryScreenView {...restProps}/>;
 };
 
 SignupDeliveryScreenContainer.options = {
     topBar: {
         ...SCREEN_TOP_BAR, ...{
             title: {
-                text: 'Registrazione corriere',
+                text: 'Nuovo runner',
             },
         }
     },

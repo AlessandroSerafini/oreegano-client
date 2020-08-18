@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Text from '../../../components/Text';
@@ -19,7 +19,7 @@ import {PasswordResetState} from "../../../context/passwordRecovery/passwordRese
 import {signIn} from "../../../context/auth/authActions";
 import {useLoading} from "../../../providers/LoadingProvider";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const PasswordResetScreenView = (props) => {
+const PasswordResetScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {token, email} = props;
@@ -101,7 +101,7 @@ const PasswordResetScreenView = (props) => {
                 message: `La password è stata aggiornata con successo.`,
                 callback: () => {
                     dispatch(resetPasswordReset);
-                    Navigation.dismissModal(props.componentId);
+                    Navigation.dismissModal(restProps.componentId);
                     signIn({
                         email: email,
                         password: password.text,

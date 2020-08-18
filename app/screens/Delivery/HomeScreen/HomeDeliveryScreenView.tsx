@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import {DropdownAlertContext,} from '../../../providers/DropdownAlertProvider';
 import {environment} from "../../../environment/environment";
@@ -6,7 +6,7 @@ import SocketIOClient from 'socket.io-client';
 import {useSelector} from "react-redux";
 import {AuthState} from "../../../context/auth/authReducer";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 enum ROOMS {
@@ -15,7 +15,7 @@ enum ROOMS {
 
 const styles = StyleSheet.create({});
 
-const HomeDeliveryScreenView = ({}: Props) => {
+const HomeDeliveryScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••

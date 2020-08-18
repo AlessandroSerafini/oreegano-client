@@ -7,7 +7,9 @@ import authReducer from '../context/auth/authReducer';
 import signinReducer from '../context/auth/signinReducer';
 import signoutReducer from '../context/auth/signoutReducer';
 import signupReducer from '../context/auth/signupReducer';
-import getNearStoresReducer from '../context/stores/getNearStoresReducer';
+import getNearBoxesReducer from '../context/misteryBoxes/getNearBoxesReducer';
+import getLatestBoxesReducer from '../context/misteryBoxes/getLatestBoxesReducer';
+import getSoldOutBoxesReducer from '../context/misteryBoxes/getSoldOutBoxesReducer';
 import createAddressReducer from '../context/addresses/createAddressReducer';
 import passwordRecoveryReducer from '../context/passwordRecovery/passwordRecoveryReducer';
 import passwordResetReducer from '../context/passwordRecovery/passwordResetReducer';
@@ -19,7 +21,9 @@ const rootReducer = combineReducers({
     signinReducer,
     signoutReducer,
     signupReducer,
-    getNearStoresReducer,
+    getNearBoxesReducer,
+    getLatestBoxesReducer,
+    getSoldOutBoxesReducer,
     createAddressReducer,
     passwordRecoveryReducer,
     passwordResetReducer,

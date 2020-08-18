@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import HomeDeliveryScreenView from './HomeDeliveryScreenView';
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const HomeDeliveryScreenContainer = () => {

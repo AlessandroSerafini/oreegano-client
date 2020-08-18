@@ -1,12 +1,10 @@
-import React, {useEffect} from 'react';
-import {FlatList, Keyboard, StyleSheet, TouchableWithoutFeedback, View,} from 'react-native';
+import React, {ComponentProps, useEffect} from 'react';
+import {FlatList, StyleSheet,} from 'react-native';
 import {MisteryBox} from "../context/misteryBoxes/misteryBoxesActions";
 import Block from "./Block";
-import {Store} from "../context/stores/storesActions";
 import Text from "./Text";
 import MisteryBoxItem from "./MisteryBox";
-import {INITIAL_INPUT_STATE, InputState, SIZES} from "../data/ThemeConstants";
-import {store} from "../config/store";
+import {SIZES} from "../data/ThemeConstants";
 import NewLine from "./NewLine";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
@@ -17,40 +15,33 @@ const styles = StyleSheet.create({});
 
 // --------------------------------------- INTERFACES ---------------------------------------
 
-interface Props {
-    stores: Store[];
+interface Props extends ComponentProps<any>{
+    boxes: MisteryBox[];
     title?: string;
-}
-
-export interface MisteryBoxEl {
-    misteryBox: MisteryBox;
-    store: Store;
-    distance?: number;
 }
 
 // ------------------------------------- WORKING METHODS -------------------------------------
 
 // ----------------------------------- MAIN RENDER METHOD -----------------------------------
 
-const MisteryBoxesList = ({stores, title}: Props) => {
+const MisteryBoxesList = ({boxes, title, ...restProps}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
 
     // ••• state variables & methods •••
-    const [misteryBoxes, setMisteryBoxes] = React.useState<MisteryBoxEl[]>([]);
 
     // ••• refs variables •••
 
     // ••• working methods •••
 
     // ••• render methods •••
-    const renderItem = (item: MisteryBoxEl, index: number) => {
+    const renderItem = (item: MisteryBox, index: number) => {
         return <Block style={{
             paddingLeft: index === 0 ? SIZES.DEFAULT_PADDING : SIZES.DEFAULT_PADDING / 2,
-            paddingRight: index === misteryBoxes.length - 1 ? SIZES.DEFAULT_PADDING : SIZES.DEFAULT_PADDING / 2
+            paddingRight: index === boxes.length - 1 ? SIZES.DEFAULT_PADDING : SIZES.DEFAULT_PADDING / 2
         }}>
-            <MisteryBoxItem misteryBoxEl={item}/>
+            <MisteryBoxItem box={item} {...restProps}/>
         </Block>
     };
 
@@ -58,19 +49,6 @@ const MisteryBoxesList = ({stores, title}: Props) => {
 
 
     // ••• useEffect methods •••
-    useEffect(() => {
-        if (stores && stores.length > 0) {
-            const els: MisteryBoxEl[] = [];
-            stores?.forEach((store: Store) => {
-                if (store.misteryBoxes && store.misteryBoxes.length > 0) {
-                    store.misteryBoxes?.forEach((misteryBox: MisteryBox) => {
-                        els.push({store, misteryBox, distance: store.distance});
-                    });
-                }
-            });
-            setMisteryBoxes(els);
-        }
-    }, [stores]);
 
     return (
         <Block>
@@ -88,7 +66,7 @@ const MisteryBoxesList = ({stores, title}: Props) => {
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
-                data={misteryBoxes}
+                data={boxes}
                 keyExtractor={(item, index) => `${index}`.toString()}
                 renderItem={({item, index}) => renderItem(item, index)}
             />

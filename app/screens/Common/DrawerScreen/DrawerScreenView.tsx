@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import Block from "../../../components/Block";
 import Text from '../../../components/Text';
@@ -9,13 +9,14 @@ import {Navigation} from "react-native-navigation";
 import {useDispatch, useSelector} from "react-redux";
 import {AuthState} from "../../../context/auth/authReducer";
 import {signOut} from "../../../context/auth/authActions";
+import {isFirstAppLaunch} from "../../../services/StorageService";
 
-interface Props {
+interface Props extends ComponentProps<any> {
 }
 
 const styles = StyleSheet.create({});
 
-const DrawerScreenView = (props) => {
+const DrawerScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     // TODO: IMPLEMENTARE LE ICONE
@@ -61,12 +62,16 @@ const DrawerScreenView = (props) => {
 
     useEffect(() => {
         if (!loginData) {
-            closeDrawer();
-            Navigation.setStackRoot(NAVIGATION_STACKS.CENTER, {
-                component: {
-                    name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
-                },
-            });
+            (async () => {
+                closeDrawer();
+                if (!await isFirstAppLaunch()) {
+                    Navigation.setStackRoot(NAVIGATION_STACKS.CENTER, {
+                        component: {
+                            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
+                        },
+                    });
+                }
+            })();
         }
     }, [loginData]);
 

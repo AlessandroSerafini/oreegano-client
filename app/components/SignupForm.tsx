@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from "react-redux";
 import {useDropDown} from "../providers/DropdownAlertProvider";
@@ -10,7 +10,7 @@ import TextInput from "./Input";
 import NewLine from "./NewLine";
 import Button from "./Button";
 
-interface Props {
+interface Props extends ComponentProps<any>{
     role: UserRoles,
 }
 

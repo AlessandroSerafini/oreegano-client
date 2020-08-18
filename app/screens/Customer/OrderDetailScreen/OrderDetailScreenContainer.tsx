@@ -1,19 +1,11 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import OrderDetailScreenView from './OrderDetailScreenView';
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const OrderDetailScreenContainer = (props) => {
-    return <OrderDetailScreenView {...props}/>;
-};
-
-OrderDetailScreenContainer.options = {
-    topBar: {
-        title: {
-            text: 'Reimposta password',
-        },
-    },
+const OrderDetailScreenContainer = ({...restProps}:Props) => {
+    return <OrderDetailScreenView {...restProps}/>;
 };
 
 export default OrderDetailScreenContainer;

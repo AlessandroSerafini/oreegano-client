@@ -34,6 +34,8 @@ import HomeCustomerScreenContainer from "../screens/Customer/HomeScreen/HomeCust
 import HomeDeliveryScreenContainer from "../screens/Delivery/HomeScreen/HomeDeliveryScreenContainer";
 import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenContainer";
 import {LoadingContextProvider} from "../providers/LoadingProvider";
+import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDetailScreenContainer";
+import {PropsWithChildren} from "react";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -63,6 +65,38 @@ const SetupNavigation = () => {
     };
     const COMPONENTS = [
         {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
+            concreteComponentProvider: SignupCustomerAccountScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ADDRESS,
+            concreteComponentProvider: SignupCustomerAddressScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            concreteComponentProvider: HomeCustomerScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_DETAIL,
+            concreteComponentProvider: OrderDetailScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,
+            concreteComponentProvider: BoxDetailScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
+            concreteComponentProvider: SignupDeliveryScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
+            concreteComponentProvider: SignupDeliveryScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
+            concreteComponentProvider: HomeDeliveryScreenContainer,
+        },
+        {
             name: NAVIGATION_COMPONENTS_COMMON.SPLASH,
             concreteComponentProvider: SplashScreenContainer,
         },
@@ -75,28 +109,8 @@ const SetupNavigation = () => {
             concreteComponentProvider: TopBarBackground,
         },
         {
-            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
-            concreteComponentProvider: SignupCustomerAccountScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ADDRESS,
-            concreteComponentProvider: SignupCustomerAddressScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
-            concreteComponentProvider: SignupDeliveryScreenContainer,
-        },
-        {
             name: NAVIGATION_COMPONENTS_COMMON.SIGN_IN,
             concreteComponentProvider: SigninScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
-            concreteComponentProvider: HomeCustomerScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
-            concreteComponentProvider: HomeDeliveryScreenContainer,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RECOVERY,
@@ -105,10 +119,6 @@ const SetupNavigation = () => {
         {
             name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RESET,
             concreteComponentProvider: PasswordResetScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_DETAIL,
-            concreteComponentProvider: OrderDetailScreenContainer,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.DRAWER,
@@ -127,7 +137,7 @@ const SetupNavigation = () => {
     // ••• useSelector methods •••
 
     // ••• render methods •••
-    const renderWithinProviders = (child) => {
+    const renderWithinProviders = (child: any) => {
         return (
             <ReduxStoreProvider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
@@ -146,7 +156,8 @@ const SetupNavigation = () => {
         COMPONENTS.forEach((component) => {
             Navigation.registerComponent(
                 component.name,
-                () => (props) => renderWithinProviders(<component.concreteComponentProvider {...props} />),
+                () => (props: PropsWithChildren<any>) => renderWithinProviders(
+                    <component.concreteComponentProvider {...props} />),
                 () => component.concreteComponentProvider,
             );
         });

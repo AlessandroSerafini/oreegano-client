@@ -20,6 +20,7 @@ export const NAVIGATION_COMPONENTS_CUSTOMER = {
     SIGN_UP_ADDRESS: 'SignupAddress',
     HOME: 'HomeCustomer',
     ORDER_DETAIL: 'OrderDetailCustomer',
+    BOX_DETAIL: 'BoxDetailCustomer',
 };
 export const NAVIGATION_COMPONENTS_DELIVERY = {
     SIGN_UP: 'SignupDelivery',

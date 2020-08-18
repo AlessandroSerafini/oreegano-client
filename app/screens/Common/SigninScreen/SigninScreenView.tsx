@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {clearSigninErrorMessage, signIn, UserRoles} from '../../../context/auth/authActions';
@@ -22,7 +22,7 @@ import DismissKeyboard from "../../../components/DismissKeyboard";
 import {SigninState} from "../../../context/auth/signinReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SigninScreenView = (props) => {
+const SigninScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -103,7 +103,7 @@ const SigninScreenView = (props) => {
     }, [errorMessage]);
     useEffect(() => {
         if (loginData) {
-            Navigation.setStackRoot(props.componentId, {
+            Navigation.setStackRoot(restProps.componentId, {
                 component: {
                     name: loginData.user.role === UserRoles.CUSTOMER
                         ? NAVIGATION_COMPONENTS_CUSTOMER.HOME

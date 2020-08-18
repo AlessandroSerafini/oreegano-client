@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import DrawerScreenView from './DrawerScreenView';
 
-interface Props {}
+interface Props extends ComponentProps<any>{
 
-const DrawerScreenContainer = (props) => {
-  return <DrawerScreenView {...props} />;
+}
+
+const DrawerScreenContainer = ({...restProps}:Props) => {
+  return <DrawerScreenView {...restProps} />;
 };
 
 DrawerScreenContainer.options = {

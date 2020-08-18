@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import {UserRoles} from '../../../context/auth/authActions';
@@ -17,7 +17,7 @@ import {
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import SignupForm from "../../../components/SignupForm";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupCustomerAccountScreenView = (props) => {
+const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
@@ -54,7 +54,7 @@ const SignupCustomerAccountScreenView = (props) => {
     useEffect(() => {
         if(isComponentFocused) {
             if (loginData) {
-                Navigation.push(props.componentId, {
+                Navigation.push(restProps.componentId, {
                     component: {
                         name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ADDRESS,
                     }
@@ -71,7 +71,7 @@ const SignupCustomerAccountScreenView = (props) => {
             }
         };
         // Register the listener to all events related to our component
-        const unsubscribe = Navigation.events().registerComponentListener(listener, props.componentId);
+        const unsubscribe = Navigation.events().registerComponentListener(listener, restProps.componentId);
         return () => {
             // Make sure to unregister the listener during cleanup
             unsubscribe.remove();
@@ -94,7 +94,7 @@ const SignupCustomerAccountScreenView = (props) => {
                                 activeOpacity={0.7}
                                 style={{marginLeft: 8}}
                                 onPress={() => {
-                                    Navigation.push(props.componentId, {
+                                    Navigation.push(restProps.componentId, {
                                         component: {
                                             name: NAVIGATION_COMPONENTS_COMMON.SIGN_IN
                                         }
@@ -134,12 +134,12 @@ const SignupCustomerAccountScreenView = (props) => {
                     <NewLine multiplier={2}/>
                     <Block center>
                         <Block row>
-                            <Text>Sei un corriere?</Text>
+                            <Text>Sei un runner?</Text>
                             <TouchableOpacity
                                 activeOpacity={0.7}
                                 style={{marginLeft: 8}}
                                 onPress={() => {
-                                    Navigation.push(props.componentId, {
+                                    Navigation.push(restProps.componentId, {
                                         component: {
                                             name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP
                                         }

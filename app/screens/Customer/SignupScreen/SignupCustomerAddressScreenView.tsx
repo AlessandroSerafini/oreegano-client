@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Button from '../../../components/Button';
@@ -15,7 +15,7 @@ import {clearCreateAddressErrorMessage, createAddress} from "../../../context/ad
 import {CreateAddressState} from "../../../context/addresses/createAddressReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupCustomerAddressScreenView = (props) => {
+const SignupCustomerAddressScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -109,7 +109,7 @@ const SignupCustomerAddressScreenView = (props) => {
     }, [errorMessage]);
     useEffect(() => {
         if (newAddress) {
-            Navigation.setStackRoot(props.componentId, {
+            Navigation.setStackRoot(restProps.componentId, {
                 component: {
                     name: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
                 },

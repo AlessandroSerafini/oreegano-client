@@ -5,10 +5,7 @@ import {JwtResponse} from "../context/auth/authActions";
 export async function isFirstAppLaunch() {
   try {
     const isFirstOpen = await AsyncStorage.getItem(FIRST_APP_LAUNCH_KEY);
-    if (isFirstOpen) {
-      return false;
-    }
-    return true;
+    return !isFirstOpen;
   } catch (err) {
     console.log(`[ isFirstAppLaunch ] ${err}`);
     return false;

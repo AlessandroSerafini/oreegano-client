@@ -34,6 +34,7 @@ export const COLORS = {
   PALE_GREY: '#e2e6ea',
   DANGER_RED: '#931c1c',
   LIGHT_GREY: '#ddd',
+  DULL_ORANGE: '#e98a22',
   DARK: '#193030',
 };
 export const SIZES = {

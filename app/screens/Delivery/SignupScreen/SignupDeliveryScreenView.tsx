@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {ComponentProps, useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {UserRoles} from '../../../context/auth/authActions';
@@ -13,7 +13,7 @@ import SignupForm from "../../../components/SignupForm";
 import {AuthState} from "../../../context/auth/authReducer";
 import Text from "../../../components/Text";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupDeliveryScreenView = (props) => {
+const SignupDeliveryScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
 
@@ -48,7 +48,7 @@ const SignupDeliveryScreenView = (props) => {
     // ••• useEffect methods •••
     useEffect(() => {
         if (loginData) {
-            Navigation.setStackRoot(props.componentId, {
+            Navigation.setStackRoot(restProps.componentId, {
                 component: {
                     name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
                 },

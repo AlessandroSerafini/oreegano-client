@@ -1,52 +1,52 @@
 import {SIGNOUT_TYPES, SignoutAction} from "../auth/signoutTypes";
-import {Store} from "./storesActions";
-import {GET_NEAR_STORES_TYPES, GetNearStoresAction} from "./getNearStoresTypes";
+import {MisteryBox} from "./misteryBoxesActions";
+import {GET_LATEST_BOXES_TYPES, GetLatestBoxesAction} from "./getLatestBoxesTypes";
 
 const INITIAL_STATE = {
     errorMessage: null,
     pending: false,
-    stores: null,
+    misteryBoxes: null,
 };
 
-export interface GetNearStoresState {
+export interface GetLatestBoxesState {
     errorMessage: string | null;
     pending: boolean;
-    stores: Store[] | null;
+    misteryBoxes: MisteryBox[] | null;
 }
 
 export default (
-    state: GetNearStoresState = INITIAL_STATE,
-    action: GetNearStoresAction | SignoutAction,
-): GetNearStoresState => {
+    state: GetLatestBoxesState = INITIAL_STATE,
+    action: GetLatestBoxesAction | SignoutAction,
+): GetLatestBoxesState => {
     switch (action.type) {
-        case GET_NEAR_STORES_TYPES.GET_NEAR_STORES_PENDING:
+        case GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_PENDING:
             return {...state, pending: true};
-        case GET_NEAR_STORES_TYPES.GET_NEAR_STORES_COMPLETED:
+        case GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_COMPLETED:
             return {
                 ...state,
                 errorMessage: null,
                 pending: false,
-                stores: action.payload,
+                misteryBoxes: action.payload,
             };
-        case GET_NEAR_STORES_TYPES.GET_NEAR_STORES_ADD_ERROR:
+        case GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_ADD_ERROR:
             return {
                 ...state,
                 errorMessage: action.payload,
                 pending: false,
             };
-        case GET_NEAR_STORES_TYPES.GET_NEAR_STORES_CLEAR_ERROR:
+        case GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_CLEAR_ERROR:
             return {
                 ...state,
                 errorMessage: null,
                 pending: false,
             };
-        case GET_NEAR_STORES_TYPES.GET_NEAR_STORES_RESET:
+        case GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_RESET:
         case SIGNOUT_TYPES.SIGNOUT_COMPLETED:
             return {
                 ...state,
                 errorMessage: null,
                 pending: false,
-                stores: null,
+                misteryBoxes: null,
             };
         default:
             return state;

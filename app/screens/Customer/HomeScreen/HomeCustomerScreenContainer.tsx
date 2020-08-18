@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import HomeCustomerScreenView from './HomeCustomerScreenView';
+import SignupCustomerAccountScreenView from "../SignupScreen/SignupCustomerAccountScreenView";
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
-const HomeCustomerScreenContainer = () => {
-    return <HomeCustomerScreenView/>;
+const HomeCustomerScreenContainer = ({...restProps}:Props) => {
+    return <HomeCustomerScreenView {...restProps}/>;
 };
 
 HomeCustomerScreenContainer.options = {

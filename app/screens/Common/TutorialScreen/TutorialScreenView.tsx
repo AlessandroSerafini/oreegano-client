@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {ComponentProps, useEffect, useRef} from 'react';
 import {Image, NodeRequire, SafeAreaView, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper'
 import {Navigation} from "react-native-navigation";
@@ -16,12 +16,12 @@ interface SLIDE {
     content: string,
 }
 
-interface Props {
+interface Props extends ComponentProps<any>{
 }
 
 const styles = StyleSheet.create({});
 
-const TutorialScreenView = (props) => {
+const TutorialScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     // TODO: IMMAGINI E TESTI NON SONO DEFINITIVI
     const SLIDES: SLIDE[] = [
@@ -75,7 +75,7 @@ const TutorialScreenView = (props) => {
             setActiveIndex(activeIndex + 1);
         } else {
             await writeFirstLaunch();
-            await Navigation.setStackRoot(props.componentId, {
+            await Navigation.setStackRoot(restProps.componentId, {
                 component: {
                     name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
                 },

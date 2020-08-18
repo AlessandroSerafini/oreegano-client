@@ -1,18 +1,20 @@
-import React from 'react';
+import React, {ComponentProps} from 'react';
 import SplashScreenView from './SplashScreenView';
 import {Navigation} from "react-native-navigation";
 
-interface Props {}
+interface Props extends ComponentProps<any>{
 
-const SplashScreenContainer = (props) => {
-  Navigation.mergeOptions(props.componentId, {
+}
+
+const SplashScreenContainer = ({...restProps}:Props) => {
+  Navigation.mergeOptions(restProps.componentId, {
     sideMenu: {
       left: {
         enabled: false
       }
     }
   });
-  return <SplashScreenView {...props} />;
+  return <SplashScreenView {...restProps} />;
 };
 
 SplashScreenContainer.options = {
