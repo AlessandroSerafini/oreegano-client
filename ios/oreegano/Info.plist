@@ -56,15 +56,15 @@
 	<string>Ci serviamo della geolocalizzazione per mostrare la posizione corrente del corriere sulla mappa</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>PublicSans-Black.otf</string>
-		<string>PublicSans-Bold.otf</string>
-		<string>PublicSans-ExtraBold.otf</string>
-		<string>PublicSans-ExtraLight.otf</string>
-		<string>PublicSans-Light.otf</string>
-		<string>PublicSans-Medium.otf</string>
-		<string>PublicSans-Regular.otf</string>
-		<string>PublicSans-SemiBold.otf</string>
-		<string>PublicSans-Thin.otf</string>
+		<string>Poppins-Black.otf</string>
+		<string>Poppins-Bold.otf</string>
+		<string>Poppins-ExtraBold.otf</string>
+		<string>Poppins-ExtraLight.otf</string>
+		<string>Poppins-Light.otf</string>
+		<string>Poppins-Medium.otf</string>
+		<string>Poppins-Regular.otf</string>
+		<string>Poppins-SemiBold.otf</string>
+		<string>Poppins-Thin.otf</string>
 		<string>MaterialIcons.ttf</string>
 		<string>MaterialCommunityIcons.ttf</string>
 	</array>

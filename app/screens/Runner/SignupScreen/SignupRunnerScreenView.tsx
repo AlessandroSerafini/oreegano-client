@@ -7,7 +7,7 @@ import {SIZES,} from '../../../data/ThemeConstants';
 import Block from '../../../components/Block';
 import NewLine from '../../../components/NewLine';
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS_DELIVERY} from "../../../data/CommonNavigation";
+import {NAVIGATION_COMPONENTS_RUNNER} from "../../../data/CommonNavigation";
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import SignupForm from "../../../components/SignupForm";
 import {AuthState} from "../../../context/auth/authReducer";
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupDeliveryScreenView = ({...restProps}:Props) => {
+const SignupRunnerScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ const SignupDeliveryScreenView = ({...restProps}:Props) => {
         if (loginData) {
             Navigation.setStackRoot(restProps.componentId, {
                 component: {
-                    name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
+                    name: NAVIGATION_COMPONENTS_RUNNER.HOME,
                 },
             });
         }
@@ -62,35 +62,21 @@ const SignupDeliveryScreenView = ({...restProps}:Props) => {
                 <Block>
                     <Block
                         style={{
-                            height: '100%',
                             paddingHorizontal: SIZES.DEFAULT_PADDING,
                         }}>
+
                         <NewLine multiplier={3}/>
+                        <Text bold
+                              h1>Nuovo runner</Text>
+                        <NewLine multiplier={2}/>
                         <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
                         <NewLine multiplier={2}/>
-                        <SignupForm role={UserRoles.DELIVERY} />
+                        <SignupForm role={UserRoles.RUNNER} />
                     </Block>
                 </Block>
             </SafeAreaView>
-            <Block
-                row
-                fluid
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    justifyContent: 'space-between',
-                }}>
-                <Image
-                    source={require('../../../assets/images/footer-image1.png')}
-                    style={[styles.image, {}]}
-                />
-                <Image
-                    source={require('../../../assets/images/footer-image2.png')}
-                    style={[styles.image, {}]}
-                />
-            </Block>
         </DismissKeyboard>
     );
 };
 
-export default SignupDeliveryScreenView;
+export default SignupRunnerScreenView;

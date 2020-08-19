@@ -12,23 +12,23 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2299467F3ECE4890A05FD046 /* PublicSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54F808C3BA014321B5952319 /* PublicSans-Black.otf */; };
+		2299467F3ECE4890A05FD046 /* Poppins-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 54F808C3BA014321B5952319 /* Poppins-Black.otf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* oreeganoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* oreeganoTests.m */; };
-		80E0ADBE8B1041B693D80259 /* PublicSans-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA53977DCAB4C92BF79B4BD /* PublicSans-ExtraBold.otf */; };
+		80E0ADBE8B1041B693D80259 /* Poppins-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4CA53977DCAB4C92BF79B4BD /* Poppins-ExtraBold.otf */; };
 		A132DF74C020BB5060249A30 /* libPods-oreegano.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2D897F8C52AD9F428629FF /* libPods-oreegano.a */; };
-		CBDF3393455641E794CCC6BF /* PublicSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EBFF06D786454583590AE6 /* PublicSans-Bold.otf */; };
-		CD9AB31EE33E453FA74D4793 /* PublicSans-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E84848B32D5944EB8076C855 /* PublicSans-ExtraLight.otf */; };
-		CE96171C9BFF493F9C1035A4 /* PublicSans-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7344F0985E6144839EF5ADCD /* PublicSans-Thin.otf */; };
+		CBDF3393455641E794CCC6BF /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 40EBFF06D786454583590AE6 /* Poppins-Bold.otf */; };
+		CD9AB31EE33E453FA74D4793 /* Poppins-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = E84848B32D5944EB8076C855 /* Poppins-ExtraLight.otf */; };
+		CE96171C9BFF493F9C1035A4 /* Poppins-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7344F0985E6144839EF5ADCD /* Poppins-Thin.otf */; };
 		CFE951FE0BE4D894BD9C97EF /* libPods-oreegano-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A63A07BF254034F223999AF5 /* libPods-oreegano-tvOS.a */; };
-		D0005BF369DD478A848C043F /* PublicSans-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F882CB0459D84CF6BBC0FA61 /* PublicSans-SemiBold.otf */; };
+		D0005BF369DD478A848C043F /* Poppins-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F882CB0459D84CF6BBC0FA61 /* Poppins-SemiBold.otf */; };
 		DC8D4EE70A3B003945C5BC04 /* libPods-oreegano-oreeganoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D70B5AF1B5F9A48A5E06444 /* libPods-oreegano-oreeganoTests.a */; };
 		E12E63FE1282E472523129F0 /* libPods-oreegano-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EE7EA40700B50CFB7730DF9 /* libPods-oreegano-tvOSTests.a */; };
-		E246D707CFE04669BB5D1840 /* PublicSans-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EAD200ABB4C8EB9980B02 /* PublicSans-Light.otf */; };
-		EF9D7680F64F45FC84A466ED /* PublicSans-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D61815124D44416937B584E /* PublicSans-Medium.otf */; };
-		FB609E13EA18454D90A3C4FE /* PublicSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4F38875A144376B85A5203 /* PublicSans-Regular.otf */; };
+		E246D707CFE04669BB5D1840 /* Poppins-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EAD200ABB4C8EB9980B02 /* Poppins-Light.otf */; };
+		EF9D7680F64F45FC84A466ED /* Poppins-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9D61815124D44416937B584E /* Poppins-Medium.otf */; };
+		FB609E13EA18454D90A3C4FE /* Poppins-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7E4F38875A144376B85A5203 /* Poppins-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +54,9 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* oreeganoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = oreeganoTests.m; sourceTree = "<group>"; };
 		03EBF78D89FF217E2B8A112B /* Pods-oreegano-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOSTests/Pods-oreegano-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		044EE6A125834211B34AF8E1 /* PublicSans-ThinItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-ThinItalic.otf"; path = "../assets/fonts/PublicSans-ThinItalic.otf"; sourceTree = "<group>"; };
+		044EE6A125834211B34AF8E1 /* Poppins-ThinItalic.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.otf"; path = "../assets/fonts/Poppins-ThinItalic.otf"; sourceTree = "<group>"; };
 		0557CCB49232DBB8882EB14D /* Pods-oreegano.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano.release.xcconfig"; path = "Target Support Files/Pods-oreegano/Pods-oreegano.release.xcconfig"; sourceTree = "<group>"; };
-		0C0EAD200ABB4C8EB9980B02 /* PublicSans-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Light.otf"; path = "../assets/fonts/PublicSans-Light.otf"; sourceTree = "<group>"; };
+		0C0EAD200ABB4C8EB9980B02 /* Poppins-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.otf"; path = "../assets/fonts/Poppins-Light.otf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* oreegano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oreegano.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = oreegano/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = oreegano/AppDelegate.m; sourceTree = "<group>"; };
@@ -70,24 +70,24 @@
 		2AFCBB1A191F7D54C74AA984 /* Pods-oreegano-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOSTests/Pods-oreegano-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* oreegano-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "oreegano-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* oreegano-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "oreegano-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		40EBFF06D786454583590AE6 /* PublicSans-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Bold.otf"; path = "../assets/fonts/PublicSans-Bold.otf"; sourceTree = "<group>"; };
+		40EBFF06D786454583590AE6 /* Poppins-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.otf"; path = "../assets/fonts/Poppins-Bold.otf"; sourceTree = "<group>"; };
 		470E8BD103F1A178DF598C13 /* Pods-oreegano-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOS/Pods-oreegano-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		4CA53977DCAB4C92BF79B4BD /* PublicSans-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-ExtraBold.otf"; path = "../assets/fonts/PublicSans-ExtraBold.otf"; sourceTree = "<group>"; };
-		54F808C3BA014321B5952319 /* PublicSans-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Black.otf"; path = "../assets/fonts/PublicSans-Black.otf"; sourceTree = "<group>"; };
+		4CA53977DCAB4C92BF79B4BD /* Poppins-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.otf"; path = "../assets/fonts/Poppins-ExtraBold.otf"; sourceTree = "<group>"; };
+		54F808C3BA014321B5952319 /* Poppins-Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.otf"; path = "../assets/fonts/Poppins-Black.otf"; sourceTree = "<group>"; };
 		6EE7EA40700B50CFB7730DF9 /* libPods-oreegano-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7344F0985E6144839EF5ADCD /* PublicSans-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Thin.otf"; path = "../assets/fonts/PublicSans-Thin.otf"; sourceTree = "<group>"; };
-		7E4F38875A144376B85A5203 /* PublicSans-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Regular.otf"; path = "../assets/fonts/PublicSans-Regular.otf"; sourceTree = "<group>"; };
+		7344F0985E6144839EF5ADCD /* Poppins-Thin.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.otf"; path = "../assets/fonts/Poppins-Thin.otf"; sourceTree = "<group>"; };
+		7E4F38875A144376B85A5203 /* Poppins-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.otf"; path = "../assets/fonts/Poppins-Regular.otf"; sourceTree = "<group>"; };
 		8435556224B0A656005CAA66 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
 		8435556C24B0A656005CAA66 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		9A2D897F8C52AD9F428629FF /* libPods-oreegano.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A58C0AD6A1AE2E86CF90316 /* Pods-oreegano-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-tvOS.release.xcconfig"; path = "Target Support Files/Pods-oreegano-tvOS/Pods-oreegano-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		9D61815124D44416937B584E /* PublicSans-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-Medium.otf"; path = "../assets/fonts/PublicSans-Medium.otf"; sourceTree = "<group>"; };
+		9D61815124D44416937B584E /* Poppins-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.otf"; path = "../assets/fonts/Poppins-Medium.otf"; sourceTree = "<group>"; };
 		A63A07BF254034F223999AF5 /* libPods-oreegano-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-oreegano-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD924D21AA9891D583E37952 /* Pods-oreegano-oreeganoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-oreegano-oreeganoTests.debug.xcconfig"; path = "Target Support Files/Pods-oreegano-oreeganoTests/Pods-oreegano-oreeganoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E84848B32D5944EB8076C855 /* PublicSans-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-ExtraLight.otf"; path = "../assets/fonts/PublicSans-ExtraLight.otf"; sourceTree = "<group>"; };
+		E84848B32D5944EB8076C855 /* Poppins-ExtraLight.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.otf"; path = "../assets/fonts/Poppins-ExtraLight.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F882CB0459D84CF6BBC0FA61 /* PublicSans-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "PublicSans-SemiBold.otf"; path = "../assets/fonts/PublicSans-SemiBold.otf"; sourceTree = "<group>"; };
+		F882CB0459D84CF6BBC0FA61 /* Poppins-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.otf"; path = "../assets/fonts/Poppins-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,16 +233,16 @@
 		C3C285351FF04059BAA43CD4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				54F808C3BA014321B5952319 /* PublicSans-Black.otf */,
-				40EBFF06D786454583590AE6 /* PublicSans-Bold.otf */,
-				4CA53977DCAB4C92BF79B4BD /* PublicSans-ExtraBold.otf */,
-				E84848B32D5944EB8076C855 /* PublicSans-ExtraLight.otf */,
-				0C0EAD200ABB4C8EB9980B02 /* PublicSans-Light.otf */,
-				9D61815124D44416937B584E /* PublicSans-Medium.otf */,
-				7E4F38875A144376B85A5203 /* PublicSans-Regular.otf */,
-				F882CB0459D84CF6BBC0FA61 /* PublicSans-SemiBold.otf */,
-				7344F0985E6144839EF5ADCD /* PublicSans-Thin.otf */,
-				044EE6A125834211B34AF8E1 /* PublicSans-ThinItalic.otf */,
+				54F808C3BA014321B5952319 /* Poppins-Black.otf */,
+				40EBFF06D786454583590AE6 /* Poppins-Bold.otf */,
+				4CA53977DCAB4C92BF79B4BD /* Poppins-ExtraBold.otf */,
+				E84848B32D5944EB8076C855 /* Poppins-ExtraLight.otf */,
+				0C0EAD200ABB4C8EB9980B02 /* Poppins-Light.otf */,
+				9D61815124D44416937B584E /* Poppins-Medium.otf */,
+				7E4F38875A144376B85A5203 /* Poppins-Regular.otf */,
+				F882CB0459D84CF6BBC0FA61 /* Poppins-SemiBold.otf */,
+				7344F0985E6144839EF5ADCD /* Poppins-Thin.otf */,
+				044EE6A125834211B34AF8E1 /* Poppins-ThinItalic.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -391,15 +391,15 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				2299467F3ECE4890A05FD046 /* PublicSans-Black.otf in Resources */,
-				CBDF3393455641E794CCC6BF /* PublicSans-Bold.otf in Resources */,
-				80E0ADBE8B1041B693D80259 /* PublicSans-ExtraBold.otf in Resources */,
-				CD9AB31EE33E453FA74D4793 /* PublicSans-ExtraLight.otf in Resources */,
-				E246D707CFE04669BB5D1840 /* PublicSans-Light.otf in Resources */,
-				EF9D7680F64F45FC84A466ED /* PublicSans-Medium.otf in Resources */,
-				FB609E13EA18454D90A3C4FE /* PublicSans-Regular.otf in Resources */,
-				D0005BF369DD478A848C043F /* PublicSans-SemiBold.otf in Resources */,
-				CE96171C9BFF493F9C1035A4 /* PublicSans-Thin.otf in Resources */,
+				2299467F3ECE4890A05FD046 /* Poppins-Black.otf in Resources */,
+				CBDF3393455641E794CCC6BF /* Poppins-Bold.otf in Resources */,
+				80E0ADBE8B1041B693D80259 /* Poppins-ExtraBold.otf in Resources */,
+				CD9AB31EE33E453FA74D4793 /* Poppins-ExtraLight.otf in Resources */,
+				E246D707CFE04669BB5D1840 /* Poppins-Light.otf in Resources */,
+				EF9D7680F64F45FC84A466ED /* Poppins-Medium.otf in Resources */,
+				FB609E13EA18454D90A3C4FE /* Poppins-Regular.otf in Resources */,
+				D0005BF369DD478A848C043F /* Poppins-SemiBold.otf in Resources */,
+				CE96171C9BFF493F9C1035A4 /* Poppins-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
