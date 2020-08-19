@@ -1,5 +1,5 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {Image, SafeAreaView, StyleSheet} from 'react-native';
+import {Image, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Button from '../../../components/Button';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
@@ -14,6 +14,7 @@ import DismissKeyboard from "../../../components/DismissKeyboard";
 import {clearCreateAddressErrorMessage, createAddress} from "../../../context/addresses/addressesActions";
 import {CreateAddressState} from "../../../context/addresses/createAddressReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
+import Text from "../../../components/Text";
 
 interface Props extends ComponentProps<any>{
 }
@@ -29,7 +30,7 @@ const SignupCustomerAddressScreenView = ({...restProps}:Props) => {
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
     const {setLoadingVisibility} = useLoading();
-    const {email, name, password} = props;
+    const {email, name, password} = restProps;
 
     // ••• navigation variables •••
 
@@ -135,10 +136,12 @@ const SignupCustomerAddressScreenView = ({...restProps}:Props) => {
             <SafeAreaView>
                 <Block
                     style={{
-                        height: '100%',
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
+                    <Text bold
+                          h1>Completa il profilo</Text>
+                    <NewLine multiplier={2}/>
                     <TextInput
                         disabled={pending}
                         placeholder="Indirizzo"
@@ -191,23 +194,6 @@ const SignupCustomerAddressScreenView = ({...restProps}:Props) => {
                     />
                 </Block>
             </SafeAreaView>
-            <Block
-                row
-                fluid
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    justifyContent: 'space-between',
-                }}>
-                <Image
-                    source={require('../../../assets/images/footer-image1.png')}
-                    style={[styles.image, {}]}
-                />
-                <Image
-                    source={require('../../../assets/images/footer-image2.png')}
-                    style={[styles.image, {}]}
-                />
-            </Block>
         </DismissKeyboard>
     );
 };

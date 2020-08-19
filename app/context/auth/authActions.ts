@@ -7,7 +7,7 @@ import {SIGNOUT_TYPES, SignoutAction} from "./signoutTypes";
 
 export enum UserRoles {
     CUSTOMER = 1,
-    DELIVERY = 2,
+    RUNNER = 2,
 }
 
 export interface User {

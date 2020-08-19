@@ -9,10 +9,4 @@ const DrawerScreenContainer = ({...restProps}:Props) => {
   return <DrawerScreenView {...restProps} />;
 };
 
-DrawerScreenContainer.options = {
-  topBar: {
-    visible: false,
-  },
-};
-
 export default DrawerScreenContainer;

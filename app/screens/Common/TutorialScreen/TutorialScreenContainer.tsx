@@ -17,10 +17,4 @@ const TutorialScreenContainer = ({...restProps}:Props) => {
   return <TutorialScreenView {...restProps} />;
 };
 
-TutorialScreenContainer.options = {
-  topBar: {
-    visible: false,
-  },
-};
-
 export default TutorialScreenContainer;

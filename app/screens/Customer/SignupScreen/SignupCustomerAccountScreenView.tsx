@@ -1,5 +1,5 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
 import {UserRoles} from '../../../context/auth/authActions';
 import {AuthState} from '../../../context/auth/authReducer';
@@ -12,7 +12,7 @@ import {Navigation} from "react-native-navigation";
 import {
     NAVIGATION_COMPONENTS_COMMON,
     NAVIGATION_COMPONENTS_CUSTOMER,
-    NAVIGATION_COMPONENTS_DELIVERY
+    NAVIGATION_COMPONENTS_RUNNER
 } from "../../../data/CommonNavigation";
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import SignupForm from "../../../components/SignupForm";
@@ -83,10 +83,12 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
             <SafeAreaView>
                 <Block
                     style={{
-                        height: '100%',
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
+                    <Text bold
+                          h1>Registrati</Text>
+                    <NewLine multiplier={2}/>
                     <Block center>
                         <Block row>
                             <Text>Hai già un account?</Text>
@@ -141,7 +143,7 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                                 onPress={() => {
                                     Navigation.push(restProps.componentId, {
                                         component: {
-                                            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP
+                                            name: NAVIGATION_COMPONENTS_RUNNER.SIGN_UP
                                         }
                                     });
                                 }}>
@@ -153,23 +155,6 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                     </Block>
                 </Block>
             </SafeAreaView>
-            <Block
-                row
-                fluid
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    justifyContent: 'space-between',
-                }}>
-                <Image
-                    source={require('../../../assets/images/footer-image1.png')}
-                    style={[styles.image, {}]}
-                />
-                <Image
-                    source={require('../../../assets/images/footer-image2.png')}
-                    style={[styles.image, {}]}
-                />
-            </Block>
         </DismissKeyboard>
     );
 };

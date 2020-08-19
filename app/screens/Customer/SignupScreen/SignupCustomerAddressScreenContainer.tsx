@@ -17,14 +17,4 @@ const SignupCustomerAddressScreenContainer = ({...restProps}:Props) => {
     return <SignupCustomerAddressScreenView {...restProps}/>;
 };
 
-SignupCustomerAddressScreenContainer.options = {
-    topBar: {
-        ...SCREEN_TOP_BAR, ...{
-            title: {
-                text: 'Indirizzo',
-            },
-        }
-    },
-};
-
 export default SignupCustomerAddressScreenContainer;

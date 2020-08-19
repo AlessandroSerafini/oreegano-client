@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {formatDistance, formatPrice} from "../services/FormatService";
 import moment from "moment";
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS_CUSTOMER, NAVIGATION_COMPONENTS_DELIVERY} from "../data/CommonNavigation";
+import {NAVIGATION_COMPONENTS_CUSTOMER, NAVIGATION_COMPONENTS_RUNNER} from "../data/CommonNavigation";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
 
@@ -91,7 +91,7 @@ const MisteryBoxItem = ({box, ...restProps}: Props) => {
                     <NewLine multiplier={0.3}/>
                     {box.distance && (
                         <Block row middle>
-                            <Icon name="map-marker-circle"
+                            <Icon name="map-marker"
                                   style={{marginRight: 5}}
                                   color={COLORS.DARK_GREY}
                                   size={FONT_SIZES.P}
@@ -122,6 +122,7 @@ const MisteryBoxItem = ({box, ...restProps}: Props) => {
                         <Block row>
                             {box.oldPrice && (
                                 <Text color={COLORS.DARK_GREY}
+                                      regular
                                       style={{
                                           marginRight: 10,
                                           textDecorationLine: 'line-through'

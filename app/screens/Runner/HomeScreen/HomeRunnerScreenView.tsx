@@ -15,7 +15,7 @@ enum ROOMS {
 
 const styles = StyleSheet.create({});
 
-const HomeDeliveryScreenView = ({...restProps}: Props) => {
+const HomeRunnerScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
@@ -67,4 +67,4 @@ const HomeDeliveryScreenView = ({...restProps}: Props) => {
     );
 };
 
-export default HomeDeliveryScreenView;
+export default HomeRunnerScreenView;

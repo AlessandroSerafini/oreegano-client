@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text as RNText, TextStyle} from 'react-native';
-import {FONT_FAMILIES, FONT_SIZES, LINE_HEIGHTS} from '../data/ThemeConstants';
+import {COLORS, FONT_FAMILIES, FONT_SIZES, LINE_HEIGHTS} from '../data/ThemeConstants';
 
 interface Props {
     style?: TextStyle;
@@ -109,7 +109,7 @@ const Text = ({
                 {
                     fontFamily: FONT_FAMILIES.MEDIUM,
                     lineHeight: 24,
-                    color: "#000",
+                    color: COLORS.DARK,
                     fontSize: FONT_SIZES.P,
                 },
                 textStyle,

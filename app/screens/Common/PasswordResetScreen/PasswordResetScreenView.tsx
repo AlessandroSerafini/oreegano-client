@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 const PasswordResetScreenView = ({...restProps}:Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
-    const {token, email} = props;
+    const {token, email} = restProps;
     const {openDropDownAlert} = useDropDown();
     const {setLoadingVisibility} = useLoading();
 

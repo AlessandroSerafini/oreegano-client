@@ -18,14 +18,4 @@ const SignupCustomerAccountScreenContainer = ({...restProps}:Props) => {
     return <SignupCustomerAccountScreenView {...restProps}/>;
 };
 
-SignupCustomerAccountScreenContainer.options = {
-    topBar: {
-        ...SCREEN_TOP_BAR, ...{
-            title: {
-                text: 'Registrati',
-            },
-        }
-    },
-};
-
 export default SignupCustomerAccountScreenContainer;

@@ -17,10 +17,4 @@ const SplashScreenContainer = ({...restProps}:Props) => {
   return <SplashScreenView {...restProps} />;
 };
 
-SplashScreenContainer.options = {
-  topBar: {
-    visible: false,
-  },
-};
-
 export default SplashScreenContainer;

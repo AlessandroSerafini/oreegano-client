@@ -16,12 +16,4 @@ const PasswordRecoveryScreenContainer = ({...restProps}:Props) => {
     return <PasswordRecoveryScreenView {...restProps}/>;
 };
 
-PasswordRecoveryScreenContainer.options = {
-    topBar: {
-        title: {
-            text: 'Recupera password',
-        },
-    },
-};
-
 export default PasswordRecoveryScreenContainer;

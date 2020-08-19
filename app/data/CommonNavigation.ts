@@ -12,7 +12,6 @@ export const NAVIGATION_COMPONENTS_COMMON = {
     SIGN_IN: 'Signin',
     PASSWORD_RECOVERY: 'RecoveryPassword',
     PASSWORD_RESET: 'ResetPassword',
-    TOP_BAR_BACKGROUND: 'TopBarBackground',
     DRAWER: 'Drawer',
 };
 export const NAVIGATION_COMPONENTS_CUSTOMER = {
@@ -22,34 +21,18 @@ export const NAVIGATION_COMPONENTS_CUSTOMER = {
     ORDER_DETAIL: 'OrderDetailCustomer',
     BOX_DETAIL: 'BoxDetailCustomer',
 };
-export const NAVIGATION_COMPONENTS_DELIVERY = {
-    SIGN_UP: 'SignupDelivery',
-    HOME: 'HomeDelivery',
-};
-
-const TOP_BAR_TITLE = {
-    color: COLORS.DARK,
-    fontFamily: FONT_FAMILIES.BOLD,
+export const NAVIGATION_COMPONENTS_RUNNER = {
+    SIGN_UP: 'SignupRunner',
+    HOME: 'HomeRunner',
 };
 
 export const DEFAULT_TOP_BAR = {
-    visible: true,
-    animate: true,
-    drawBehind: false,
-    noBorder: true,
-    largeTitle: {
-        visible: true,
-        fontSize: 10,
-        color: COLORS.DARK,
-        fontFamily: FONT_FAMILIES.BOLD,
-    },
-    title: TOP_BAR_TITLE,
+    visible: false,
 }
 
 export const SCREEN_TOP_BAR = {
     ...DEFAULT_TOP_BAR, ...{
         background: {
-            // color: '#f2f3ee',
             color: '#FFF',
         },
         backButton: {

@@ -17,14 +17,4 @@ const SigninScreenContainer = ({...restProps}:Props) => {
     return <SigninScreenView {...restProps}/>;
 };
 
-SigninScreenContainer.options = {
-    topBar: {
-        ...SCREEN_TOP_BAR, ...{
-            title: {
-                text: 'Accedi',
-            },
-        }
-    },
-};
-
 export default SigninScreenContainer;

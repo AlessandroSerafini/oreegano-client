@@ -22,7 +22,7 @@ export const LINE_HEIGHTS = {
   H1: 40,
   H2: 30,
   H3: 26,
-  H4: 23,
+  H4: 25,
   H5: 20,
   P: 16,
   S: 14,
@@ -35,7 +35,8 @@ export const COLORS = {
   DANGER_RED: '#931c1c',
   LIGHT_GREY: '#ddd',
   DULL_ORANGE: '#e98a22',
-  DARK: '#193030',
+  DARK: '#16132b',
+  DARK_GREY_BLUE: '#2c3e50',
 };
 export const SIZES = {
   DEFAULT_PADDING: 15,
@@ -43,13 +44,13 @@ export const SIZES = {
 };
 
 export const FONT_FAMILIES = {
-  BLACK: 'PublicSans-Black',
-  BOLD: 'PublicSans-Bold',
-  EXTRA_BOLD: 'PublicSans-ExtraBold',
-  EXTRA_LIGHT: 'PublicSans-ExtraLight',
-  LIGHT: 'PublicSans-Light',
-  MEDIUM: 'PublicSans-Medium',
-  REGULAR: 'PublicSans-Regular',
-  SEMI_BOLD: 'PublicSans-SemiBold',
-  THIN: 'PublicSans-Thin',
+  BLACK: 'Poppins-Black',
+  BOLD: 'Poppins-Bold',
+  EXTRA_BOLD: 'Poppins-ExtraBold',
+  EXTRA_LIGHT: 'Poppins-ExtraLight',
+  LIGHT: 'Poppins-Light',
+  MEDIUM: 'Poppins-Medium',
+  REGULAR: 'Poppins-Regular',
+  SEMI_BOLD: 'Poppins-SemiBold',
+  THIN: 'Poppins-Thin',
 };

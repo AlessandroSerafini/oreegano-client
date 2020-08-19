@@ -16,12 +16,4 @@ const PasswordResetScreenContainer = ({...restProps}:Props) => {
     return <PasswordResetScreenView {...restProps}/>;
 };
 
-PasswordResetScreenContainer.options = {
-    topBar: {
-        title: {
-            text: 'Reimposta password',
-        },
-    },
-};
-
 export default PasswordResetScreenContainer;

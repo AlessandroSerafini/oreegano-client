@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
 import Geolocation from '@react-native-community/geolocation';
 import Block from "../../../components/Block";
@@ -14,6 +14,9 @@ import {
     clearGetNearBoxesErrorMessage, clearGetSoldOutBoxesErrorMessage,
     getBoxesNearMe, getLatestBoxes, getSoldOutBoxes
 } from "../../../context/misteryBoxes/misteryBoxesActions";
+import Text from "../../../components/Text";
+import {COLORS, SIZES} from "../../../data/ThemeConstants";
+import DismissKeyboard from "../../../components/DismissKeyboard";
 
 interface Props {
 }
@@ -138,26 +141,34 @@ const HomeCustomerScreenView = ({...restProps}: Props) => {
     }, [latitude, longitude]);
 
     return (
-        <ScrollView>
-            {nearBoxes && nearBoxes.length>0 && (
-                <Block>
-                    <MisteryBoxesList title="Vicini a me" boxes={nearBoxes} {...restProps}/>
-                    <NewLine multiplier={1}/>
+        <SafeAreaView>
+            <ScrollView>
+                <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
+                    <NewLine multiplier={3}/>
+                    <Text bold
+                          h1>Scopri</Text>
+                    <NewLine multiplier={2}/>
                 </Block>
-            )}
-            {latestBoxes && latestBoxes.length>0 && (
-                <Block>
-                    <MisteryBoxesList title="Ultime possibilità" boxes={latestBoxes} {...restProps}/>
-                    <NewLine multiplier={1}/>
-                </Block>
-            )}
-            {soldOutBoxes && soldOutBoxes.length>0 && (
-                <Block>
-                    <MisteryBoxesList title="Perse per un pelo" boxes={soldOutBoxes} {...restProps}/>
-                    <NewLine multiplier={1}/>
-                </Block>
-            )}
-        </ScrollView>
+                {nearBoxes && nearBoxes.length > 0 && (
+                    <Block>
+                        <MisteryBoxesList title="Vicini a me" boxes={nearBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </Block>
+                )}
+                {latestBoxes && latestBoxes.length > 0 && (
+                    <Block>
+                        <MisteryBoxesList title="Ultime possibilità" boxes={latestBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </Block>
+                )}
+                {soldOutBoxes && soldOutBoxes.length > 0 && (
+                    <Block>
+                        <MisteryBoxesList title="Perse per un pelo" boxes={soldOutBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </Block>
+                )}
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 

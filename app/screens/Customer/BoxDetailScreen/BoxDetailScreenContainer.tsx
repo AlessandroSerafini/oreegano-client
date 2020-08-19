@@ -10,12 +10,4 @@ const BoxDetailScreenContainer = ({...restProps}: Props) => {
     return <BoxDetailScreenView {...restProps}/>;
 };
 
-BoxDetailScreenContainer.options = {
-    topBar: {
-        ...SCREEN_TOP_BAR, ...{
-            visible: false,
-        }
-    },
-};
-
 export default BoxDetailScreenContainer;

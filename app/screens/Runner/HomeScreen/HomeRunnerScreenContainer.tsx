@@ -1,14 +1,14 @@
 import React, {ComponentProps} from 'react';
-import HomeDeliveryScreenView from './HomeDeliveryScreenView';
+import HomeRunnerScreenView from './HomeRunnerScreenView';
 import {SCREEN_TOP_BAR} from "../../../data/CommonNavigation";
 import HomeCustomerScreenContainer from "../../Customer/HomeScreen/HomeCustomerScreenContainer";
 
 interface Props extends ComponentProps<any>{
 }
 
-const HomeDeliveryScreenContainer = () => {
-    return <HomeDeliveryScreenView/>;
+const HomeRunnerScreenContainer = () => {
+    return <HomeRunnerScreenView/>;
 };
 
 
-export default HomeDeliveryScreenContainer;
+export default HomeRunnerScreenContainer;

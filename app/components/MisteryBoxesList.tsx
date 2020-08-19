@@ -55,10 +55,9 @@ const MisteryBoxesList = ({boxes, title, ...restProps}: Props) => {
             <Block style={{
                 paddingHorizontal: SIZES.DEFAULT_PADDING,
             }}>
-                <NewLine multiplier={2}/>
                 {title && (
                     <>
-                        <Text h4 bold>{title}</Text>
+                        <Text h4 semiBold>{title}</Text>
                         <NewLine multiplier={1}/>
                     </>
                 )}

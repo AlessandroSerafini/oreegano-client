@@ -16,13 +16,13 @@ import {
     MODAL_TOP_BAR,
     NAVIGATION_COMPONENTS_COMMON,
     NAVIGATION_COMPONENTS_CUSTOMER,
-    NAVIGATION_COMPONENTS_DELIVERY
+    NAVIGATION_COMPONENTS_RUNNER
 } from "../../../data/CommonNavigation";
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import {SigninState} from "../../../context/auth/signinReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 
-interface Props extends ComponentProps<any>{
+interface Props extends ComponentProps<any> {
 }
 
 const styles = StyleSheet.create({
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SigninScreenView = ({...restProps}:Props) => {
+const SigninScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
@@ -107,7 +107,7 @@ const SigninScreenView = ({...restProps}:Props) => {
                 component: {
                     name: loginData.user.role === UserRoles.CUSTOMER
                         ? NAVIGATION_COMPONENTS_CUSTOMER.HOME
-                        : NAVIGATION_COMPONENTS_DELIVERY.HOME
+                        : NAVIGATION_COMPONENTS_RUNNER.HOME
                 },
             });
         }
@@ -124,85 +124,68 @@ const SigninScreenView = ({...restProps}:Props) => {
     return (
         <DismissKeyboard>
             <SafeAreaView>
-                <Block>
-                    <Block
-                        style={{
-                            height: '100%',
-                            paddingHorizontal: SIZES.DEFAULT_PADDING,
-                        }}>
-                        <NewLine multiplier={3}/>
-                        <TextInput
-                            disabled={pending}
-                            placeholder="E-mail"
-                            autoCapitalize="none"
-                            inputState={email}
-                            onChangeText={(text) => {
-                                setEmail({status: 'success', text});
-                            }}
-                        />
-                        <NewLine multiplier={1.333}/>
-                        <TextInput
-                            disabled={pending}
-                            secureTextEntry
-                            placeholder="Password"
-                            inputState={password}
-                            onChangeText={(text) => {
-                                setPassword({status: 'success', text});
-                            }}
-                        />
-                        <NewLine multiplier={2}/>
-                        <Button
-                            disabled={!canIProceed()}
-                            title={'Accedi'}
+                <Block
+                    style={{
+                        paddingHorizontal: SIZES.DEFAULT_PADDING,
+                    }}>
+                    <NewLine multiplier={3}/>
+                    <Text bold
+                          h1>Accedi</Text>
+                    <NewLine multiplier={2}/>
+                    <TextInput
+                        disabled={pending}
+                        placeholder="E-mail"
+                        autoCapitalize="none"
+                        inputState={email}
+                        onChangeText={(text) => {
+                            setEmail({status: 'success', text});
+                        }}
+                    />
+                    <NewLine multiplier={1.333}/>
+                    <TextInput
+                        disabled={pending}
+                        secureTextEntry
+                        placeholder="Password"
+                        inputState={password}
+                        onChangeText={(text) => {
+                            setPassword({status: 'success', text});
+                        }}
+                    />
+                    <NewLine multiplier={2}/>
+                    <Button
+                        disabled={!canIProceed()}
+                        title={'Accedi'}
+                        onPress={() => {
+                            handleSignIn();
+                        }}
+                    />
+                    <NewLine multiplier={2}/>
+                    <Block center>
+                        <TouchableOpacity
+                            activeOpacity={0.7}
                             onPress={() => {
-                                handleSignIn();
-                            }}
-                        />
-                        <NewLine multiplier={2}/>
-                        <Block center>
-                            <TouchableOpacity
-                                activeOpacity={0.7}
-                                onPress={() => {
-                                    Navigation.showModal({
-                                        stack: {
-                                            children: [
-                                                {
-                                                    component: {
-                                                        name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RECOVERY,
-                                                        options: {
-                                                            topBar: MODAL_TOP_BAR
-                                                        }
+                                Navigation.showModal({
+                                    stack: {
+                                        children: [
+                                            {
+                                                component: {
+                                                    name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RECOVERY,
+                                                    options: {
+                                                        topBar: MODAL_TOP_BAR
                                                     }
                                                 }
-                                            ]
-                                        }
-                                    });
-                                }}>
-                                <Text underline s color={COLORS.DARK_SAGE}>
-                                    Password dimenticata?
-                                </Text>
-                            </TouchableOpacity>
-                        </Block>
+                                            }
+                                        ]
+                                    }
+                                });
+                            }}>
+                            <Text underline s color={COLORS.DARK_SAGE}>
+                                Password dimenticata?
+                            </Text>
+                        </TouchableOpacity>
                     </Block>
                 </Block>
             </SafeAreaView>
-            <Block
-                row
-                fluid
-                style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    justifyContent: 'space-between',
-                }}>
-                <Image
-                    source={require('../../../assets/images/footer-image1.png')}
-                    style={[styles.image, {}]}
-                />
-                <Image
-                    source={require('../../../assets/images/footer-image2.png')}
-                    style={[styles.image, {}]}
-                />
-            </Block>
         </DismissKeyboard>
     );
 };

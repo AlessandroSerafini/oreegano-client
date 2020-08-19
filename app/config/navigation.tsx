@@ -11,10 +11,9 @@ import {
     DEFAULT_TOP_BAR,
     NAVIGATION_COMPONENTS_COMMON,
     NAVIGATION_COMPONENTS_CUSTOMER,
-    NAVIGATION_COMPONENTS_DELIVERY,
+    NAVIGATION_COMPONENTS_RUNNER,
     NAVIGATION_STACKS
 } from "../data/CommonNavigation";
-import TopBarBackground from "../components/TopBarBackground";
 import {persistor, store} from "./store";
 import {PersistGate} from "redux-persist/integration/react";
 import {DropDownAlertContextProvider} from "../providers/DropdownAlertProvider";
@@ -25,13 +24,13 @@ import TutorialScreenContainer from "../screens/Common/TutorialScreen/TutorialSc
 import SigninScreenContainer from "../screens/Common/SigninScreen/SigninScreenContainer";
 import PasswordRecoveryScreenContainer from "../screens/Common/PasswordRecoveryScreen/PasswordRecoveryScreenContainer";
 import PasswordResetScreenContainer from "../screens/Common/PasswordResetScreen/PasswordResetScreenContainer";
-import SignupDeliveryScreenContainer from "../screens/Delivery/SignupScreen/SignupDeliveryScreenContainer";
+import SignupRunnerScreenContainer from "../screens/Runner/SignupScreen/SignupRunnerScreenContainer";
 import SignupCustomerAddressScreenContainer
     from "../screens/Customer/SignupScreen/SignupCustomerAddressScreenContainer";
 import SignupCustomerAccountScreenContainer
     from "../screens/Customer/SignupScreen/SignupCustomerAccountScreenContainer";
 import HomeCustomerScreenContainer from "../screens/Customer/HomeScreen/HomeCustomerScreenContainer";
-import HomeDeliveryScreenContainer from "../screens/Delivery/HomeScreen/HomeDeliveryScreenContainer";
+import HomeRunnerScreenContainer from "../screens/Runner/HomeScreen/HomeRunnerScreenContainer";
 import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenContainer";
 import {LoadingContextProvider} from "../providers/LoadingProvider";
 import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDetailScreenContainer";
@@ -85,16 +84,16 @@ const SetupNavigation = () => {
             concreteComponentProvider: BoxDetailScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
-            concreteComponentProvider: SignupDeliveryScreenContainer,
+            name: NAVIGATION_COMPONENTS_RUNNER.SIGN_UP,
+            concreteComponentProvider: SignupRunnerScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS_DELIVERY.SIGN_UP,
-            concreteComponentProvider: SignupDeliveryScreenContainer,
+            name: NAVIGATION_COMPONENTS_RUNNER.SIGN_UP,
+            concreteComponentProvider: SignupRunnerScreenContainer,
         },
         {
-            name: NAVIGATION_COMPONENTS_DELIVERY.HOME,
-            concreteComponentProvider: HomeDeliveryScreenContainer,
+            name: NAVIGATION_COMPONENTS_RUNNER.HOME,
+            concreteComponentProvider: HomeRunnerScreenContainer,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.SPLASH,
@@ -103,10 +102,6 @@ const SetupNavigation = () => {
         {
             name: NAVIGATION_COMPONENTS_COMMON.TUTORIAL,
             concreteComponentProvider: TutorialScreenContainer,
-        },
-        {
-            name: NAVIGATION_COMPONENTS_COMMON.TOP_BAR_BACKGROUND,
-            concreteComponentProvider: TopBarBackground,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.SIGN_IN,
@@ -176,17 +171,8 @@ const SetupNavigation = () => {
             },
             topBar: {
                 ...DEFAULT_TOP_BAR, ...{
-                    background: {
-                        component: {
-                            // name: NAVIGATION_COMPONENTS_COMMON.TOP_BAR_BACKGROUND,
-                        },
-                    },
                 }
             }
-            /*bottomTab: {
-                    fontSize: 14,
-                          selectedFontSize: 14
-                },*/
         });
         Navigation.setRoot(MAIN_FLOW);
     });
