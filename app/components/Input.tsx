@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         borderRadius: SIZES.BORDER_RADIUS,
         fontSize: FONT_SIZES.P,
         paddingHorizontal: SIZES.DEFAULT_PADDING,
+        backgroundColor: "#FFF"
     },
 });
 

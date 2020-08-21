@@ -53,3 +53,13 @@ export function closeDrawer() {
         }
     });
 }
+
+export function openDrawer() {
+    Navigation.mergeOptions(NAVIGATION_STACKS.LEFT, {
+        sideMenu: {
+            left: {
+                visible: true
+            }
+        }
+    });
+}

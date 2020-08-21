@@ -13,7 +13,7 @@ export const LoadingContextProvider = ({children}) => {
         setVisible(visibility);
     }
 
-    const animationSize = 250;
+    const animationSize = 300;
 
     return (
         <LoadingContext.Provider
@@ -22,12 +22,16 @@ export const LoadingContextProvider = ({children}) => {
             }}>
             {children}
             {isVisible && (
-                <Block bg="rgba(255,255,255,0.8)" center middle style={{
+                <Block bg="rgba(255,255,255,0.95)" style={{
                     position: "absolute",
                     top: 0,
                     left: 0,
                     width: "100%",
                     height: "100%",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    alignContent: "center",
+                    alignSelf: "center"
                 }}>
                     <LottieView style={{
                         width: animationSize,

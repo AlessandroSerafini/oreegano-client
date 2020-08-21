@@ -16,8 +16,9 @@ import {
 } from "../../../data/CommonNavigation";
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import SignupForm from "../../../components/SignupForm";
+import Title from "../../../components/Title";
 
-interface Props extends ComponentProps<any>{
+interface Props extends ComponentProps<any> {
 }
 
 const styles = StyleSheet.create({
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
+const SignupCustomerAccountScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
@@ -52,7 +53,7 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
     // ••• useEffect methods •••
 
     useEffect(() => {
-        if(isComponentFocused) {
+        if (isComponentFocused) {
             if (loginData) {
                 Navigation.push(restProps.componentId, {
                     component: {
@@ -86,9 +87,9 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
-                    <Text bold
-                          h1>Registrati</Text>
-                    <NewLine multiplier={2}/>
+                    <Title title={"Registrati"}
+                           showImage
+                           imageStyle={{top: -10}}/>
                     <Block center>
                         <Block row>
                             <Text>Hai già un account?</Text>
@@ -102,13 +103,13 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                                         }
                                     });
                                 }}>
-                                <Text bold underline color={COLORS.DARK_SAGE}>
+                                <Text bold underline color={COLORS.GREYISH_GREEN}>
                                     Accedi
                                 </Text>
                             </TouchableOpacity>
                         </Block>
+                        <NewLine multiplier={2}/>
                     </Block>
-                    <NewLine multiplier={2}/>
                     <Block>
                         <Block
                             height={1}
@@ -132,7 +133,7 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                         </Block>
                     </Block>
                     <NewLine multiplier={2}/>
-                    <SignupForm role={UserRoles.CUSTOMER} />
+                    <SignupForm role={UserRoles.CUSTOMER}/>
                     <NewLine multiplier={2}/>
                     <Block center>
                         <Block row>
@@ -147,7 +148,7 @@ const SignupCustomerAccountScreenView = ({...restProps}:Props) => {
                                         }
                                     });
                                 }}>
-                                <Text bold underline color={COLORS.DARK_SAGE}>
+                                <Text bold underline color={COLORS.GREYISH_GREEN}>
                                     Lavora con noi
                                 </Text>
                             </TouchableOpacity>

@@ -18,6 +18,7 @@ import TextInput from "../../../components/Input";
 import Button from "../../../components/Button";
 import Text from '../../../components/Text';
 import {useLoading} from "../../../providers/LoadingProvider";
+import Title from "../../../components/Title";
 
 interface Props extends ComponentProps<any>{
 }
@@ -114,9 +115,7 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
-                    <Text bold
-                          h1>Recupera password</Text>
-                    <NewLine multiplier={2}/>
+                    <Title title={"Recupera password"} />
                     <Text>Inserisci l'indirizzo E-mail del tuo account.{`\n`}Riceverai una mail contenente un link
                         per
                         reimpostare la password.</Text>

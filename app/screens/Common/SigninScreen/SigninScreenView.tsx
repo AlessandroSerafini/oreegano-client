@@ -21,6 +21,7 @@ import {
 import DismissKeyboard from "../../../components/DismissKeyboard";
 import {SigninState} from "../../../context/auth/signinReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
+import Title from "../../../components/Title";
 
 interface Props extends ComponentProps<any> {
 }
@@ -129,9 +130,25 @@ const SigninScreenView = ({...restProps}: Props) => {
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
-                    <Text bold
-                          h1>Accedi</Text>
-                    <NewLine multiplier={2}/>
+                    <Title title={"Accedi"}
+                           showImage
+                           imageStyle={{top: -10}}/>
+                    <Block center>
+                        <Block row>
+                            <Text>Non hai un account?</Text>
+                            <TouchableOpacity
+                                activeOpacity={0.7}
+                                style={{marginLeft: 8}}
+                                onPress={() => {
+                                    Navigation.pop(restProps.componentId);
+                                }}>
+                                <Text bold underline color={COLORS.GREYISH_GREEN}>
+                                    Registrati
+                                </Text>
+                            </TouchableOpacity>
+                        </Block>
+                        <NewLine multiplier={2}/>
+                    </Block>
                     <TextInput
                         disabled={pending}
                         placeholder="E-mail"
@@ -179,7 +196,7 @@ const SigninScreenView = ({...restProps}: Props) => {
                                     }
                                 });
                             }}>
-                            <Text underline s color={COLORS.DARK_SAGE}>
+                            <Text underline s color={COLORS.GREYISH_GREEN}>
                                 Password dimenticata?
                             </Text>
                         </TouchableOpacity>

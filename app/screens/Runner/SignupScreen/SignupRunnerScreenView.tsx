@@ -12,6 +12,7 @@ import DismissKeyboard from "../../../components/DismissKeyboard";
 import SignupForm from "../../../components/SignupForm";
 import {AuthState} from "../../../context/auth/authReducer";
 import Text from "../../../components/Text";
+import Title from "../../../components/Title";
 
 interface Props extends ComponentProps<any>{
 }
@@ -66,9 +67,16 @@ const SignupRunnerScreenView = ({...restProps}:Props) => {
                         }}>
 
                         <NewLine multiplier={3}/>
-                        <Text bold
-                              h1>Nuovo runner</Text>
-                        <NewLine multiplier={2}/>
+                        <Title title={"Nuovo runner"}
+                               showImage
+                               leftButtons={[
+                                   {
+                                       name: "chevron-left", callback: () => {
+                                           Navigation.pop(restProps.componentId);
+                                       }
+                                   }
+                               ]}
+                               imageStyle={{top: -10}}/>
                         <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
                         <NewLine multiplier={2}/>
                         <SignupForm role={UserRoles.RUNNER} />

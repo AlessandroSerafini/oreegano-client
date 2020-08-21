@@ -15,6 +15,7 @@ import {clearCreateAddressErrorMessage, createAddress} from "../../../context/ad
 import {CreateAddressState} from "../../../context/addresses/createAddressReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 import Text from "../../../components/Text";
+import Title from "../../../components/Title";
 
 interface Props extends ComponentProps<any>{
 }
@@ -139,9 +140,7 @@ const SignupCustomerAddressScreenView = ({...restProps}:Props) => {
                         paddingHorizontal: SIZES.DEFAULT_PADDING,
                     }}>
                     <NewLine multiplier={3}/>
-                    <Text bold
-                          h1>Completa il profilo</Text>
-                    <NewLine multiplier={2}/>
+                    <Title title={"Completa il profilo"} />
                     <TextInput
                         disabled={pending}
                         placeholder="Indirizzo"

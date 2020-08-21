@@ -62,7 +62,6 @@ const DrawerScreenView = ({...restProps}: Props) => {
 
     useEffect(() => {
         if (!loginData) {
-            console.log("PASSO");
             (async () => {
                 closeDrawer();
                 if (!await isFirstAppLaunch()) {

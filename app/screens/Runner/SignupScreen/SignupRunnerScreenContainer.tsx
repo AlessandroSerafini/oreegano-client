@@ -17,4 +17,4 @@ const SignupRunnerScreenContainer = ({...restProps}:Props) => {
     return <SignupRunnerScreenView {...restProps}/>;
 };
 
-export default RunnerSignupRunnerScreenContainer;
+export default SignupRunnerScreenContainer;

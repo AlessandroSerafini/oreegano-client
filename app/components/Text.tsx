@@ -107,7 +107,7 @@ const Text = ({
         <RNText
             style={[
                 {
-                    fontFamily: FONT_FAMILIES.MEDIUM,
+                    fontFamily: FONT_FAMILIES.REGULAR,
                     lineHeight: 24,
                     color: COLORS.DARK,
                     fontSize: FONT_SIZES.P,

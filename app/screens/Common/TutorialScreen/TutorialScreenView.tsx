@@ -129,19 +129,17 @@ const TutorialScreenView = ({...restProps}:Props) => {
                     ))}
                 </Swiper>
             </Block>
-            <Button
-                style={{
-                    alignSelf: "center",
-                    width: "90%",
-                }}
-                title={activeIndex < SLIDES.length - 1 ? 'Avanti' : 'Inizia'}
-                onPress={() => {
-                    handlePressNext();
-                    setTimeout(() => {
-                        imageSwiperEl.current.scrollTo(activeIndex);
-                    }, 200);
-                }}
-            />
+            <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
+                <Button
+                    title={activeIndex < SLIDES.length - 1 ? 'Avanti' : 'Inizia'}
+                    onPress={() => {
+                        handlePressNext();
+                        setTimeout(() => {
+                            imageSwiperEl.current.scrollTo(activeIndex);
+                        }, 200);
+                    }}
+                />
+            </Block>
         </SafeAreaView>
     );
 };

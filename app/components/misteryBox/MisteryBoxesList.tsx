@@ -1,11 +1,11 @@
 import React, {ComponentProps, useEffect} from 'react';
 import {FlatList, StyleSheet,} from 'react-native';
-import {MisteryBox} from "../context/misteryBoxes/misteryBoxesActions";
-import Block from "./Block";
-import Text from "./Text";
+import {MisteryBox} from "../../context/misteryBoxes/misteryBoxesActions";
+import Block from "../Block";
+import Text from "../Text";
 import MisteryBoxItem from "./MisteryBox";
-import {SIZES} from "../data/ThemeConstants";
-import NewLine from "./NewLine";
+import {INITIAL_INPUT_STATE, InputState, SIZES} from "../../data/ThemeConstants";
+import NewLine from "../NewLine";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
 
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({});
 
 // --------------------------------------- INTERFACES ---------------------------------------
 
-interface Props extends ComponentProps<any>{
+interface Props extends ComponentProps<any> {
     boxes: MisteryBox[];
     title?: string;
 }
@@ -41,7 +41,7 @@ const MisteryBoxesList = ({boxes, title, ...restProps}: Props) => {
             paddingLeft: index === 0 ? SIZES.DEFAULT_PADDING : SIZES.DEFAULT_PADDING / 2,
             paddingRight: index === boxes.length - 1 ? SIZES.DEFAULT_PADDING : SIZES.DEFAULT_PADDING / 2
         }}>
-            <MisteryBoxItem box={item} {...restProps}/>
+            <MisteryBoxItem box={item} componentId={restProps.componentId}/>
         </Block>
     };
 
@@ -51,25 +51,22 @@ const MisteryBoxesList = ({boxes, title, ...restProps}: Props) => {
     // ••• useEffect methods •••
 
     return (
-        <Block>
-            <Block style={{
-                paddingHorizontal: SIZES.DEFAULT_PADDING,
-            }}>
-                {title && (
-                    <>
-                        <Text h4 semiBold>{title}</Text>
-                        <NewLine multiplier={1}/>
-                    </>
-                )}
-            </Block>
+        <>
+            {title && (
+                <>
+                    <Text h4 semiBold>{title}</Text>
+                    <NewLine multiplier={2}/>
+                </>
+            )}
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
+                style={{marginHorizontal: -SIZES.DEFAULT_PADDING}}
                 data={boxes}
                 keyExtractor={(item, index) => `${index}`.toString()}
                 renderItem={({item, index}) => renderItem(item, index)}
             />
-        </Block>
+        </>
     );
 };
 

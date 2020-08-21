@@ -4,6 +4,7 @@ import oreeganoApi from "../../api/oreeganoApi";
 import {GET_LATEST_BOXES_TYPES, GetLatestBoxesAction} from "./getLatestBoxesTypes";
 import {GET_NEAR_BOXES_TYPES, GetNearBoxesAction} from "./getNearBoxesTypes";
 import {GET_SOLD_OUT_BOXES_TYPES, GetSoldOutBoxesAction} from "./getSoldOutBoxesTypes";
+import {Store} from "../stores/storesActions";
 
 export interface MisteryBox {
     id: number;
@@ -11,10 +12,11 @@ export interface MisteryBox {
     description: string;
     imageUrl: string;
     price: number;
-    oldPrice?: number;
-    date?: Date;
+    distance: number;
     available: number;
-    distance?: number;
+    store: Store
+    date: Date;
+    oldPrice?: number;
 }
 
 export interface NearMe {
@@ -92,6 +94,17 @@ export const getSoldOutBoxes = () => async (dispatch: Dispatch<GetSoldOutBoxesAc
             type: GET_SOLD_OUT_BOXES_TYPES.GET_SOLD_OUT_BOXES_ADD_ERROR,
             payload: error.message,
         });
+    }
+};
+
+export const getBoxesByStore = async(idStore: number):Promise<MisteryBox[]> => {
+    try {
+        const response: AxiosResponse<any> = await oreeganoApi.get(
+            `/stores/${idStore}/mistery-boxes`,
+        );
+        return response.data;
+    } catch (e) {
+        throw new Error(e.response.data);
     }
 };
 
