@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     },
     floatingButton: {
         position: "absolute",
-        bottom: 0,
+        bottom: BUTTON_SIZES.FLOATING_BOTTOM_OFFSET,
         width: "100%",
     },
     outlineButton: {

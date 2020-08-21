@@ -144,40 +144,38 @@ const HomeCustomerScreenView = ({...restProps}: Props) => {
     }, [latitude, longitude]);
 
     return (
-        <SafeAreaView>
-            <ScrollView>
-                <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
-                    <NewLine multiplier={3}/>
-                    <Title title={"Scopri"}
-                           showImage
-                           rightButtons={[
-                               {
-                                   name: "menu",
-                                   callback: () => openDrawer()
-                               }
-                           ]}
-                    />
-                    {nearBoxes && nearBoxes.length > 0 && (
-                        <>
-                            <MisteryBoxesList title="Vicini a me" boxes={nearBoxes} {...restProps}/>
-                            <NewLine multiplier={4}/>
-                        </>
-                    )}
-                    {latestBoxes && latestBoxes.length > 0 && (
-                        <>
-                            <MisteryBoxesList title="Ultime possibilità" boxes={latestBoxes} {...restProps}/>
-                            <NewLine multiplier={4}/>
-                        </>
-                    )}
-                    {soldOutBoxes && soldOutBoxes.length > 0 && (
-                        <>
-                            <MisteryBoxesList title="Perse per un pelo" boxes={soldOutBoxes} {...restProps}/>
-                            <NewLine multiplier={4}/>
-                        </>
-                    )}
-                </Block>
-            </ScrollView>
-        </SafeAreaView>
+        <ScrollView>
+            <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
+                <NewLine multiplier={3}/>
+                <Title title={"Scopri"}
+                       showImage
+                       rightButtons={[
+                           {
+                               name: "menu",
+                               callback: () => openDrawer()
+                           }
+                       ]}
+                />
+                {nearBoxes && nearBoxes.length > 0 && (
+                    <>
+                        <MisteryBoxesList title="Vicini a me" boxes={nearBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </>
+                )}
+                {latestBoxes && latestBoxes.length > 0 && (
+                    <>
+                        <MisteryBoxesList title="Ultime possibilità" boxes={latestBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </>
+                )}
+                {soldOutBoxes && soldOutBoxes.length > 0 && (
+                    <>
+                        <MisteryBoxesList title="Perse per un pelo" boxes={soldOutBoxes} {...restProps}/>
+                        <NewLine multiplier={4}/>
+                    </>
+                )}
+            </Block>
+        </ScrollView>
     );
 };
 

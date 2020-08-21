@@ -110,7 +110,7 @@ const BoxDetailScreenView = ({...restProps}: Props) => {
 
 
     return (
-        <SafeAreaView>
+        <>
             <ScrollView>
                 <Block style={{
                     paddingHorizontal: SIZES.DEFAULT_PADDING,
@@ -205,7 +205,7 @@ const BoxDetailScreenView = ({...restProps}: Props) => {
                     }}
                 />
             )}
-        </SafeAreaView>
+        </>
     );
 };
 

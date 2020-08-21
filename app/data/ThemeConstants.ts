@@ -42,6 +42,7 @@ export const COLORS = {
 export const BUTTON_SIZES = {
     FLOATING_INSET_OFFSET: 7,
     HEIGHT: 55,
+    FLOATING_BOTTOM_OFFSET: 35,
 };
 export const SIZES = {
     DEFAULT_PADDING: 15,
