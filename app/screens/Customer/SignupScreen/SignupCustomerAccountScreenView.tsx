@@ -125,7 +125,6 @@ const SignupCustomerAccountScreenView = ({...restProps}: Props) => {
                         />
                         <Block center>
                             <Text
-                                s
                                 color={COLORS.GREY}
                                 style={{backgroundColor: '#FFF', paddingHorizontal: 22}}>
                                 Oppure inserisci le credenziali

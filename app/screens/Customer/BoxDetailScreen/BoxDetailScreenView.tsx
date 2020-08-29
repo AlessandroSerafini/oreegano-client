@@ -201,7 +201,14 @@ const BoxDetailScreenView = ({...restProps}: Props) => {
                     title={'Prenota la tua box'}
                     floating
                     onPress={() => {
-
+                        Navigation.push(restProps.componentId, {
+                            component: {
+                                name: NAVIGATION_COMPONENTS_CUSTOMER.CHECKOUT,
+                                passProps: {
+                                    box
+                                }
+                            }
+                        });
                     }}
                 />
             )}

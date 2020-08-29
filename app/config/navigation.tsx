@@ -35,6 +35,7 @@ import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenCo
 import {LoadingContextProvider} from "../providers/LoadingProvider";
 import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDetailScreenContainer";
 import {PropsWithChildren} from "react";
+import CheckoutScreenContainer from "../screens/Customer/CheckoutScreen/CheckoutScreenContainer";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -78,6 +79,10 @@ const SetupNavigation = () => {
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_DETAIL,
             concreteComponentProvider: OrderDetailScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.CHECKOUT,
+            concreteComponentProvider: CheckoutScreenContainer,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,
