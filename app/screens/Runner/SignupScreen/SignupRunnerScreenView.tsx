@@ -1,5 +1,5 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {Image, SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {UserRoles} from '../../../context/auth/authActions';
 import {DropdownAlertContext,} from '../../../providers/DropdownAlertProvider';

@@ -3,7 +3,6 @@ import {StyleSheet, TouchableOpacity, TouchableOpacityProps, ViewStyle,} from 'r
 import {BUTTON_SIZES, COLORS, FONT_SIZES, SIZES} from '../data/ThemeConstants';
 import Text from './Text';
 import Block from "./Block";
-import NewLine from "./NewLine";
 
 const styles = StyleSheet.create({
     button: {

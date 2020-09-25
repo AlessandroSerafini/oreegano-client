@@ -1,22 +1,21 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useSelector} from 'react-redux';
-import {UserRoles} from '../../../context/auth/authActions';
-import {AuthState} from '../../../context/auth/authReducer';
-import Text from '../../../components/Text';
-import {DropdownAlertContext,} from '../../../providers/DropdownAlertProvider';
-import {COLORS, SIZES,} from '../../../data/ThemeConstants';
-import Block from '../../../components/Block';
-import NewLine from '../../../components/NewLine';
+import {UserRoles} from '../../../../context/auth/authActions';
+import {AuthState} from '../../../../context/auth/authReducer';
+import Text from '../../../../components/Text';
+import {COLORS, SIZES,} from '../../../../data/ThemeConstants';
+import Block from '../../../../components/Block';
+import NewLine from '../../../../components/NewLine';
 import {Navigation} from "react-native-navigation";
 import {
     NAVIGATION_COMPONENTS_COMMON,
     NAVIGATION_COMPONENTS_CUSTOMER,
     NAVIGATION_COMPONENTS_RUNNER
-} from "../../../data/CommonNavigation";
-import DismissKeyboard from "../../../components/DismissKeyboard";
-import SignupForm from "../../../components/SignupForm";
-import Title from "../../../components/Title";
+} from "../../../../data/CommonNavigation";
+import DismissKeyboard from "../../../../components/DismissKeyboard";
+import SignupForm from "../../../../components/SignupForm";
+import Title from "../../../../components/Title";
 
 interface Props extends ComponentProps<any> {
 }

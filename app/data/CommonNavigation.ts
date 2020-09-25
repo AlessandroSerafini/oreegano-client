@@ -1,4 +1,3 @@
-import {COLORS, FONT_FAMILIES} from "./ThemeConstants";
 import {Navigation} from "react-native-navigation";
 
 

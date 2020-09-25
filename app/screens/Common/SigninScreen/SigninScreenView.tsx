@@ -1,16 +1,15 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {clearSigninErrorMessage, signIn, UserRoles} from '../../../context/auth/authActions';
 import {AuthState} from '../../../context/auth/authReducer';
 import Text from '../../../components/Text';
 import Button from '../../../components/Button';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
-import {COLORS, INITIAL_INPUT_STATE, InputState, SIZES,} from '../../../data/ThemeConstants';
+import {COLORS, SIZES,} from '../../../data/ThemeConstants';
 import Block from '../../../components/Block';
 import NewLine from '../../../components/NewLine';
 import TextInput from '../../../components/Input';
-import {validateEmail} from "../../../services/validationService";
 import {Navigation} from "react-native-navigation";
 import {
     MODAL_TOP_BAR,
@@ -22,6 +21,8 @@ import DismissKeyboard from "../../../components/DismissKeyboard";
 import {SigninState} from "../../../context/auth/signinReducer";
 import {useLoading} from "../../../providers/LoadingProvider";
 import Title from "../../../components/Title";
+import * as Yup from "yup";
+import {Formik, FormikValues} from "formik";
 
 interface Props extends ComponentProps<any> {
 }
@@ -38,23 +39,24 @@ const SigninScreenView = ({...restProps}: Props) => {
     const {openDropDownAlert} = useDropDown();
     const {setLoadingVisibility} = useLoading();
 
+    // ••• form variables •••
+    const initialValues = {
+        email: '',
+        password: '',
+    };
+    const validationSchema = Yup.object({
+        email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+        password: Yup.string()
+            .required('Required'),
+    });
+
     // ••• navigation variables •••
 
     // ••• validation fields methods •••
-    const validateEmailInput = () => {
-        if (email.text && !validateEmail(email.text)) {
-            setEmail({
-                ...email,
-                status: "danger",
-            });
-        }
-    };
 
     // ••• state variables & methods •••
-    const [email, setEmail] = React.useState<InputState>(INITIAL_INPUT_STATE);
-    const [password, setPassword] = React.useState<InputState>(
-        INITIAL_INPUT_STATE,
-    );
 
     // ••• refs variables •••
 
@@ -71,18 +73,11 @@ const SigninScreenView = ({...restProps}: Props) => {
     );
 
     // ••• working methods •••
-    const canIProceed = (): boolean => {
-        return !pending &&
-            !!email.text &&
-            email.status !== "danger" &&
-            !!password.text &&
-            password.status !== "danger";
-    };
-    const handleSignIn = (): void => {
+    const handleSignIn = (values: FormikValues): void => {
         dispatch(
             signIn({
-                email: email.text,
-                password: password.text,
+                email: values.email,
+                password: values.password,
             }),
         );
     };
@@ -116,11 +111,6 @@ const SigninScreenView = ({...restProps}: Props) => {
     useEffect(() => {
         setLoadingVisibility(pending);
     }, [pending]);
-    useEffect(() => {
-        if (email.text) {
-            validateEmailInput();
-        }
-    }, [email.text]);
 
     return (
         <DismissKeyboard>
@@ -149,33 +139,44 @@ const SigninScreenView = ({...restProps}: Props) => {
                         </Block>
                         <NewLine multiplier={2}/>
                     </Block>
-                    <TextInput
-                        disabled={pending}
-                        placeholder="E-mail"
-                        autoCapitalize="none"
-                        inputState={email}
-                        onChangeText={(text) => {
-                            setEmail({status: 'success', text});
-                        }}
-                    />
-                    <NewLine multiplier={1.333}/>
-                    <TextInput
-                        disabled={pending}
-                        secureTextEntry
-                        placeholder="Password"
-                        inputState={password}
-                        onChangeText={(text) => {
-                            setPassword({status: 'success', text});
-                        }}
-                    />
-                    <NewLine multiplier={2}/>
-                    <Button
-                        disabled={!canIProceed()}
-                        title={'Accedi'}
-                        onPress={() => {
-                            handleSignIn();
-                        }}
-                    />
+
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={(values) => {}}
+                    >
+                        {({touched, errors, isValid, handleChange, handleBlur, handleSubmit, values}) => (
+                            <>
+                                <TextInput
+                                disabled={pending}
+                                placeholder="E-mail"
+                                autoCapitalize="none"
+                                onChangeText={handleChange('email')}
+                                onBlur={handleBlur('email')}
+                                value={values.email}
+                                errors={errors.email}
+                                touched={touched.email}
+                            />
+                                <NewLine multiplier={1.333}/>
+                                <TextInput
+                                    disabled={pending}
+                                    secureTextEntry
+                                    placeholder="Password"
+                                    onChangeText={handleChange('password')}
+                                    onBlur={handleBlur('password')}
+                                    value={values.password}
+                                    errors={errors.password}
+                                    touched={touched.password}
+                                />
+                                <NewLine multiplier={2}/>
+                                <Button
+                                    disabled={!(values.email && values.password && isValid && !pending)}
+                                    title={'Accedi'}
+                                    onPress={() => handleSignIn(values)}
+                                />
+                            </>
+                        )}
+                    </Formik>
                     <NewLine multiplier={2}/>
                     <Block center>
                         <TouchableOpacity

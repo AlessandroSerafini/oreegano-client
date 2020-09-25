@@ -26,32 +26,32 @@ const TutorialScreenView = ({...restProps}:Props) => {
     // TODO: IMMAGINI E TESTI NON SONO DEFINITIVI
     const SLIDES: SLIDE[] = [
         {
-            image: require('../../../assets/images/test1.png'),
+            image: require('../../../assets/images/undraw/test1.png'),
             title: "Titolo prima slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
         {
-            image: require('../../../assets/images/test2.png'),
+            image: require('../../../assets/images/undraw/test2.png'),
             title: "Titolo seconda slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
         {
-            image: require('../../../assets/images/test3.png'),
+            image: require('../../../assets/images/undraw/test3.png'),
             title: "Titolo terza slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
         {
-            image: require('../../../assets/images/test4.png'),
+            image: require('../../../assets/images/undraw/test4.png'),
             title: "Titolo quarta slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
         {
-            image: require('../../../assets/images/test5.png'),
+            image: require('../../../assets/images/undraw/test5.png'),
             title: "Titolo quinta slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
         {
-            image: require('../../../assets/images/test6.png'),
+            image: require('../../../assets/images/undraw/test6.png'),
             title: "Titolo sesta slide",
             content: "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.",
         },
@@ -123,7 +123,7 @@ const TutorialScreenView = ({...restProps}:Props) => {
                             <Image
                                 source={slide.image}
                                 resizeMode={"contain"}
-                                style={{width: 200, height: 200, alignSelf: "center"}}
+                                style={{width: 300, height: 400, alignSelf: "center"}}
                             />
                         </Block>
                     ))}

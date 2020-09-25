@@ -1,10 +1,10 @@
-import React, {ComponentProps, useEffect} from 'react';
+import React, {ComponentProps} from 'react';
 import {FlatList, StyleSheet,} from 'react-native';
 import {MisteryBox} from "../../context/misteryBoxes/misteryBoxesActions";
 import Block from "../Block";
 import Text from "../Text";
 import MisteryBoxItem from "./MisteryBox";
-import {INITIAL_INPUT_STATE, InputState, SIZES} from "../../data/ThemeConstants";
+import {SIZES} from "../../data/ThemeConstants";
 import NewLine from "../NewLine";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------

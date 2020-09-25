@@ -1,11 +1,9 @@
 import React from 'react';
-import {Image, Keyboard, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View, ViewStyle,} from 'react-native';
+import {Image, StyleSheet, ViewStyle,} from 'react-native';
 import Text from "./Text";
 import NewLine from "./NewLine";
 import Block from "./Block";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import {COLORS, FONT_SIZES, SIZES} from "../data/ThemeConstants";
-import {signOut} from "../context/auth/authActions";
+import {SIZES} from "../data/ThemeConstants";
 import NavIcon from "./NavIcon";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
@@ -62,8 +60,8 @@ const Title = ({title, showImage = false, leftButtons = [], rightButtons = [], i
                 <Block row middle>
                     {leftButtons.length > 0 && (
                         <>
-                            {leftButtons?.map((b: any) => (
-                                <NavIcon style={{marginRight: SIZES.DEFAULT_PADDING}} name={b.name} callback={b.callback}/>
+                            {leftButtons?.map((b: any, i) => (
+                                <NavIcon key={i} style={{marginRight: SIZES.DEFAULT_PADDING}} name={b.name} callback={b.callback}/>
                             ))}
                         </>
                     )}
@@ -71,8 +69,8 @@ const Title = ({title, showImage = false, leftButtons = [], rightButtons = [], i
                 </Block>
                 {rightButtons.length > 0 && (
                     <Block row middle>
-                        {rightButtons?.map((b: any) => (
-                            <NavIcon style={{marginLeft: SIZES.DEFAULT_PADDING}} name={b.name} callback={b.callback}/>
+                        {rightButtons?.map((b: any, i) => (
+                            <NavIcon key={i} style={{marginLeft: SIZES.DEFAULT_PADDING}} name={b.name} callback={b.callback}/>
                         ))}
                     </Block>
                 )}

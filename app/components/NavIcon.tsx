@@ -1,11 +1,7 @@
 import React from 'react';
-import {Image, Keyboard, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View, ViewStyle,} from 'react-native';
-import Text from "./Text";
-import NewLine from "./NewLine";
-import Block from "./Block";
+import {StyleSheet, TouchableOpacity, ViewStyle,} from 'react-native';
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {COLORS, FONT_SIZES, SIZES} from "../data/ThemeConstants";
-import {signOut} from "../context/auth/authActions";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
 

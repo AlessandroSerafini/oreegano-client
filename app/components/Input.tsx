@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import {StyleSheet, TextInput as RNTextInput, TextInputProps,} from 'react-native';
-import {COLORS, FONT_SIZES, InputState, SIZES} from '../data/ThemeConstants';
+import {COLORS, FONT_SIZES, SIZES} from '../data/ThemeConstants';
 
 const styles = StyleSheet.create({
     input: {
@@ -14,31 +14,27 @@ const styles = StyleSheet.create({
 });
 
 interface Props extends TextInputProps {
-    inputState: InputState;
     disabled?: boolean;
     placeholder?: string;
+    errors?: string;
+    touched?: boolean;
     onChangeText?: (text: string) => void;
     onEndEditing?: () => void;
 }
 
 const TextInput: FunctionComponent<Props> = ({
                                                  placeholder,
-                                                 inputState,
+                                                 errors,
+                                                 touched,
                                                  disabled = false,
                                                  onChangeText,
                                                  onEndEditing,
                                                  ...restProps
                                              }) => {
 
-    let inputStyles;
-    switch (inputState.status) {
-        case "basic":
-        case "success":
-            inputStyles = {borderColor: COLORS.PALE_GREY,}
-            break;
-        case "danger":
-            inputStyles = {borderColor: COLORS.DANGER_RED,}
-            break;
+    let inputStyles = {borderColor: COLORS.PALE_GREY};
+    if(errors && touched) {
+        inputStyles = {borderColor: COLORS.DANGER_RED}
     }
     return (
         <RNTextInput
@@ -57,7 +53,6 @@ const TextInput: FunctionComponent<Props> = ({
                     onEndEditing();
                 }
             }}
-            value={inputState.text}
         />
     );
 };

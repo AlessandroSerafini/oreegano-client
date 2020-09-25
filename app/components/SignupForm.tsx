@@ -2,15 +2,15 @@ import React, {ComponentProps, useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from "react-redux";
 import {useDropDown} from "../providers/DropdownAlertProvider";
-import {validateEmail} from "../services/validationService";
-import {INITIAL_INPUT_STATE, InputState} from "../data/ThemeConstants";
 import {SignupState} from "../context/auth/signupReducer";
 import {clearSignupErrorMessage, signUp, UserRoles} from "../context/auth/authActions";
 import TextInput from "./Input";
 import NewLine from "./NewLine";
 import Button from "./Button";
+import {Formik, FormikValues} from "formik";
+import * as Yup from 'yup';
 
-interface Props extends ComponentProps<any>{
+interface Props extends ComponentProps<any> {
     role: UserRoles,
 }
 
@@ -30,24 +30,23 @@ const SignupForm = ({role, ...restProps}: Props) => {
     const dispatch = useDispatch();
     const {openDropDownAlert} = useDropDown();
 
-    // ••• navigation variables •••
-
-    // ••• validation fields methods •••
-    const validateEmailInput = () => {
-        if (email.text && !validateEmail(email.text)) {
-            setEmail({
-                ...email,
-                status: "danger",
-            });
-        }
+    // ••• form variables •••
+    const initialValues = {
+        name: '',
+        email: '',
+        password: '',
     };
+    const validationSchema = Yup.object({
+        name: Yup.string()
+            .required('Required'),
+        password: Yup.string()
+            .required('Required'),
+        email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+    });
 
-    // ••• state variables & methods •••
-    const [name, setName] = React.useState<InputState>(INITIAL_INPUT_STATE);
-    const [email, setEmail] = React.useState<InputState>(INITIAL_INPUT_STATE);
-    const [password, setPassword] = React.useState<InputState>(
-        INITIAL_INPUT_STATE,
-    );
+    // ••• navigation variables •••
 
     // ••• refs variables •••
 
@@ -59,22 +58,13 @@ const SignupForm = ({role, ...restProps}: Props) => {
     );
 
     // ••• working methods •••
-    const canIProceed = (): boolean => {
-        return !pending &&
-            !!name.text &&
-            name.status !== "danger" &&
-            !!email.text &&
-            email.status !== "danger" &&
-            !!password.text &&
-            password.status !== "danger";
-    };
-    const handleSignup = (): void => {
+    const handleSignup = (values: FormikValues): void => {
         dispatch(
             signUp({
                 role: role,
-                name: name.text,
-                email: email.text,
-                password: password.text,
+                name: values.name,
+                email: values.email,
+                password: values.password,
             }),
         );
     };
@@ -94,52 +84,57 @@ const SignupForm = ({role, ...restProps}: Props) => {
             });
         }
     }, [errorMessage]);
-    useEffect(() => {
-        if (email.text) {
-            validateEmailInput();
-        }
-    }, [email.text]);
-
 
     return (
-        <>
-            <TextInput
-                disabled={pending}
-                placeholder="Nome"
-                inputState={name}
-                onChangeText={(text) => {
-                    setName({status: 'success', text});
-                }}
-            />
-            <NewLine multiplier={1.333}/>
-            <TextInput
-                disabled={pending}
-                placeholder="E-mail"
-                autoCapitalize="none"
-                inputState={email}
-                onChangeText={(text) => {
-                    setEmail({status: 'success', text});
-                }}
-            />
-            <NewLine multiplier={1.333}/>
-            <TextInput
-                disabled={pending}
-                secureTextEntry
-                placeholder="Password"
-                inputState={password}
-                onChangeText={(text) => {
-                    setPassword({status: 'success', text});
-                }}
-            />
-            <NewLine multiplier={2}/>
-            <Button
-                disabled={!canIProceed()}
-                title={'Registrati'}
-                onPress={() => {
-                    handleSignup();
-                }}
-            />
-        </>
+        <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+                console.log(values);
+            }}
+        >
+            {({touched, errors, isValid, handleChange, handleBlur, handleSubmit, values}) => (
+                <>
+                    <TextInput
+                        disabled={pending}
+                        placeholder="Nome"
+                        onChangeText={handleChange('name')}
+                        onBlur={handleBlur('name')}
+                        value={values.name}
+                        errors={errors.name}
+                        touched={touched.name}
+                    />
+                    <NewLine multiplier={1.333}/>
+                    <TextInput
+                        disabled={pending}
+                        placeholder="E-mail"
+                        autoCapitalize="none"
+                        onChangeText={handleChange('email')}
+                        onBlur={handleBlur('email')}
+                        value={values.email}
+                        errors={errors.email}
+                        touched={touched.email}
+                    />
+                    <NewLine multiplier={1.333}/>
+                    <TextInput
+                        disabled={pending}
+                        secureTextEntry
+                        placeholder="Password"
+                        onChangeText={handleChange('password')}
+                        onBlur={handleBlur('password')}
+                        value={values.password}
+                        errors={errors.password}
+                        touched={touched.password}
+                    />
+                    <NewLine multiplier={2}/>
+                    <Button
+                        disabled={!(values.password && values.email && values.name && isValid && !pending)}
+                        title={'Registrati'}
+                        onPress={() => handleSignup(values)}
+                    />
+                </>
+            )}
+        </Formik>
     );
 };
 

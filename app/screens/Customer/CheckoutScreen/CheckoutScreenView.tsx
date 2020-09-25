@@ -7,9 +7,6 @@ import Block from '../../../components/Block';
 import {COLORS, SIZES} from "../../../data/ThemeConstants";
 import NewLine from "../../../components/NewLine";
 import Title from "../../../components/Title";
-import {openDrawer} from "../../../data/CommonNavigation";
-import MisteryBoxesList from "../../../components/misteryBox/MisteryBoxesList";
-import NavIcon from "../../../components/NavIcon";
 import {Navigation} from "react-native-navigation";
 
 interface Props extends ComponentProps<any> {

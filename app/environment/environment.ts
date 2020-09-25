@@ -1,5 +1,5 @@
 export const environment = {
-  DEV_BASE_URL: 'http://localhost:3000',
+  DEV_BASE_URL: 'http://192.168.1.5:3000',
   PROD_BASE_URL: 'https://app.oreegano.it/api',
   DEV_SOCKET_BASE_URL: 'http://localhost:4200',
   PROD_SOCKET_BASE_URL: 'https://app.oreegano.it/api',

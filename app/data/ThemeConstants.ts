@@ -1,13 +1,3 @@
-export interface InputState {
-    text: string;
-    status: 'basic' | 'danger' | 'success';
-}
-
-export const INITIAL_INPUT_STATE: InputState = {
-    text: '',
-    status: 'basic',
-};
-
 export const FONT_SIZES = {
     H1: 34,
     H2: 30,

@@ -1,16 +1,15 @@
-import React, {ComponentProps, useEffect} from 'react';
-import {Dimensions, ImageBackground, StyleSheet, TouchableOpacity,} from 'react-native';
+import React, {ComponentProps} from 'react';
+import {Dimensions, StyleSheet, TouchableOpacity,} from 'react-native';
 import {MisteryBox} from "../../context/misteryBoxes/misteryBoxesActions";
 import Block from "../Block";
 import Text from "../Text";
 import {COLORS, FONT_SIZES, SIZES} from "../../data/ThemeConstants";
-import LinearGradient from 'react-native-linear-gradient';
 import NewLine from "../NewLine";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {formatDistance, formatPrice} from "../../services/FormatService";
 import moment from "moment";
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS_CUSTOMER, NAVIGATION_COMPONENTS_RUNNER} from "../../data/CommonNavigation";
+import {NAVIGATION_COMPONENTS_CUSTOMER} from "../../data/CommonNavigation";
 import CoverImage from "./CoverImage";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------

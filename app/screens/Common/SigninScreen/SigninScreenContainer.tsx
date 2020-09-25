@@ -1,6 +1,5 @@
 import React, {ComponentProps} from 'react';
 import SigninScreenView from './SigninScreenView';
-import {SCREEN_TOP_BAR} from "../../../data/CommonNavigation";
 import {Navigation} from "react-native-navigation";
 
 interface Props extends ComponentProps<any>{

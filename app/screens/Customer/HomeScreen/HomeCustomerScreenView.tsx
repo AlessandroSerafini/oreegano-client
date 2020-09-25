@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
 import Geolocation from '@react-native-community/geolocation';
 import Block from "../../../components/Block";
@@ -11,14 +11,14 @@ import {GetLatestBoxesState} from "../../../context/misteryBoxes/getLatestBoxesR
 import {GetNearBoxesState} from "../../../context/misteryBoxes/getNearBoxesReducer";
 import {
     clearGetLatestBoxesErrorMessage,
-    clearGetNearBoxesErrorMessage, clearGetSoldOutBoxesErrorMessage,
-    getBoxesNearMe, getLatestBoxes, getSoldOutBoxes
+    clearGetNearBoxesErrorMessage,
+    clearGetSoldOutBoxesErrorMessage,
+    getBoxesNearMe,
+    getLatestBoxes,
+    getSoldOutBoxes
 } from "../../../context/misteryBoxes/misteryBoxesActions";
-import Text from "../../../components/Text";
-import {COLORS, FONT_SIZES, SIZES} from "../../../data/ThemeConstants";
-import DismissKeyboard from "../../../components/DismissKeyboard";
+import {SIZES} from "../../../data/ThemeConstants";
 import Title from "../../../components/Title";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import {openDrawer} from "../../../data/CommonNavigation";
 
 interface Props {

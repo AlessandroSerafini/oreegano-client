@@ -1,8 +1,8 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Block from "../../../components/Block";
 import Text from '../../../components/Text';
-import {SIZES} from "../../../data/ThemeConstants";
+import {COLORS, SIZES} from "../../../data/ThemeConstants";
 import NewLine from "../../../components/NewLine";
 import {closeDrawer, NAVIGATION_COMPONENTS_CUSTOMER, NAVIGATION_STACKS} from "../../../data/CommonNavigation";
 import {Navigation} from "react-native-navigation";
@@ -10,8 +10,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {AuthState} from "../../../context/auth/authReducer";
 import {signOut} from "../../../context/auth/authActions";
 import {isFirstAppLaunch} from "../../../services/StorageService";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 interface Props extends ComponentProps<any> {
+}
+
+interface Route {
+    name: string;
+    icon: string;
+    component?: any;
+    callback?: any;
 }
 
 const styles = StyleSheet.create({});
@@ -20,26 +28,26 @@ const DrawerScreenView = ({...restProps}: Props) => {
     // ••• local variables •••
     const dispatch = useDispatch();
     // TODO: IMPLEMENTARE LE ICONE
-    const ROUTES = [
+    const ROUTES: Route[] = [
         {
-            name: "Screen One",
+            name: "Profilo",
             component: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            icon: "account-outline",
         },
         {
-            name: "Screen Two",
+            name: "Ordini",
             component: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            icon: "package-variant-closed",
         },
         {
-            name: "Screen Three",
+            name: "Preferiti",
             component: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            icon: "heart-outline",
         },
         {
-            name: "Screen Four",
+            name: "Impostazioni",
             component: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
-        },
-        {
-            name: "Screen Five",
-            component: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
+            icon: "cog-outline",
         },
     ];
 
@@ -57,6 +65,45 @@ const DrawerScreenView = ({...restProps}: Props) => {
     // ••• working methods •••
 
     // ••• render methods •••
+    const renderMenuItem = (route: Route): React.ReactNode => {
+        return (
+            <TouchableOpacity
+                activeOpacity={0.7}
+                key={route.name}
+                style={{
+                    paddingVertical: SIZES.DEFAULT_PADDING,
+                    paddingHorizontal: SIZES.DEFAULT_PADDING * 1.5,
+                    flexDirection: "row",
+                    alignItems: "center",
+                }}
+                onPress={!!route.callback ? route.callback : () => {
+                    closeDrawer();
+                    Navigation.setStackRoot(NAVIGATION_STACKS.CENTER, {
+                        component: {
+                            name: route.component,
+                        },
+                    });
+                }}>
+                <Block width={40} height={40}
+                       style={{
+                           borderWidth: 1,
+                           borderRadius: SIZES.BORDER_RADIUS,
+                           borderColor: COLORS.GREY,
+                           marginRight: 10,
+                           alignItems: "center",
+                           justifyContent: "center",
+                       }}>
+                    <Icon name={route.icon}
+                          color={COLORS.GREY}
+                          size={30}
+                    />
+                </Block>
+                <Text color="rgba(0,0,0,0.6)">
+                    {route.name}
+                </Text>
+            </TouchableOpacity>
+        );
+    }
 
     // ••• useEffect methods •••
 
@@ -78,52 +125,43 @@ const DrawerScreenView = ({...restProps}: Props) => {
     // TODO: STILARE MEGLIO IL DRAWER
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: "#f2f3ee"}}>
-            <Block flex style={{
-                paddingTop: SIZES.DEFAULT_PADDING * 1.5,
+        <Block flex>
+            <Block style={{
+                paddingHorizontal: SIZES.DEFAULT_PADDING * 1.5,
+                paddingTop: SIZES.DEFAULT_PADDING * 6,
+                paddingBottom: SIZES.DEFAULT_PADDING,
+                borderBottomRightRadius: 50,
+                backgroundColor: COLORS.GREYISH_GREEN
             }}>
-                <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING * 1.5}}>
-                    <Text h1 light>Ciao,</Text>
-                    <Text h1 bold ellipsizeMode="tail"
-                          numberOfLines={1}>{loginData?.user.name}</Text>
-                </Block>
-                <NewLine multiplier={2}/>
-                {ROUTES.length > 0 && (
-                    <Block>
-                        {ROUTES.map((route) =>
-                            <TouchableOpacity
-                                activeOpacity={0.7}
-                                style={{
-                                    paddingVertical: SIZES.DEFAULT_PADDING,
-                                }}
-                                onPress={() => {
-                                    Navigation.setStackRoot(NAVIGATION_STACKS.CENTER, {
-                                        component: {
-                                            name: route.component,
-                                        },
-                                    });
-                                }}>
-                                <Text color="rgba(0,0,0,0.6)" style={{paddingHorizontal: SIZES.DEFAULT_PADDING * 1.5}}>
-                                    {route.name}
-                                </Text>
-                            </TouchableOpacity>
-                        )}
-                    </Block>
-                )}
-                <TouchableOpacity
-                    activeOpacity={0.7}
-                    style={{
-                        paddingVertical: SIZES.DEFAULT_PADDING,
-                    }}
-                    onPress={() => {
-                        dispatch(signOut());
-                    }}>
-                    <Text color="rgba(0,0,0,0.6)" style={{paddingHorizontal: SIZES.DEFAULT_PADDING * 1.5}}>
-                        Signout
-                    </Text>
-                </TouchableOpacity>
+                <Text h1 light color={"#FFF"}>Ciao,</Text>
+                <Text h1 bold color={"#FFF"} ellipsizeMode="tail"
+                      numberOfLines={1}>{loginData?.user.name}</Text>
             </Block>
-        </SafeAreaView>
+            <NewLine multiplier={2}/>
+            {ROUTES.length > 0 && (
+                <Block>
+                    {ROUTES.map((route) => {
+                            return renderMenuItem(route);
+                        }
+                    )}
+                </Block>
+            )}
+            {renderMenuItem({
+                name: "Signout",
+                icon: "logout",
+                callback: () => {
+                    dispatch(signOut());
+                }
+            })}
+            <Image
+                source={require('../../../assets/images/ramo.png')}
+                style={{
+                    position: "absolute",
+                    bottom: 0,
+                    right: 0
+                }}
+            />
+        </Block>
     );
 };
 

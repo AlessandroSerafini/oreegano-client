@@ -3,8 +3,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from "react-native-navigation";
 import {useDropDown} from "../../../providers/DropdownAlertProvider";
-import {validateEmail} from "../../../services/validationService";
-import {INITIAL_INPUT_STATE, InputState, SIZES} from "../../../data/ThemeConstants";
+import {SIZES} from "../../../data/ThemeConstants";
 import {PasswordRecoveryState} from "../../../context/passwordRecovery/passwordRecoveryReducer";
 import {
     clearRecoveryPasswordErrorMessage,
@@ -19,6 +18,8 @@ import Button from "../../../components/Button";
 import Text from '../../../components/Text';
 import {useLoading} from "../../../providers/LoadingProvider";
 import Title from "../../../components/Title";
+import * as Yup from "yup";
+import {Formik, FormikValues} from "formik";
 
 interface Props extends ComponentProps<any>{
 }
@@ -35,20 +36,21 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
     const {openDropDownAlert} = useDropDown();
     const {setLoadingVisibility} = useLoading();
 
+    // ••• form variables •••
+    const initialValues = {
+        email: '',
+    };
+    const validationSchema = Yup.object({
+        email: Yup.string()
+            .email('Invalid email address')
+            .required('Required'),
+    });
+
     // ••• navigation variables •••
 
     // ••• validation fields methods •••
-    const validateEmailInput = () => {
-        if (email.text && !validateEmail(email.text)) {
-            setEmail({
-                ...email,
-                status: "danger",
-            });
-        }
-    };
 
     // ••• state variables & methods •••
-    const [email, setEmail] = React.useState<InputState>(INITIAL_INPUT_STATE);
 
     // ••• refs variables •••
 
@@ -60,12 +62,9 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
     );
 
     // ••• working methods •••
-    const canIProceed = (): boolean => {
-        return !pending && !!email.text && email.status !== "danger";
-    };
-    const handlePasswordRecovery = (): void => {
+    const handlePasswordRecovery = (values: FormikValues): void => {
         dispatch(
-            recoveryPassword(email.text),
+            recoveryPassword(values.email),
         );
     };
 
@@ -90,7 +89,7 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
                     type: 'success',
                     time: 6000,
                     title: 'Controlla la tua casella',
-                    message: `Un'email è stata inviata al tuo indirizzo ${email.text}. Per reimpostare la password, segui le istruzioni riportate nell'email.`,
+                    message: `Un'email è stata inviata al tuo indirizzo email. Per reimpostare la password, segui le istruzioni riportate nell'email.`,
                     callback: () => {
                         dispatch(resetPasswordRecovery);
                         Navigation.dismissModal(restProps.componentId);
@@ -101,11 +100,6 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
     useEffect(() => {
         setLoadingVisibility(pending);
     }, [pending]);
-    useEffect(() => {
-        if (email.text) {
-            validateEmailInput();
-        }
-    }, [email.text]);
 
     return (
         <DismissKeyboard>
@@ -120,22 +114,31 @@ const PasswordRecoveryScreenView = ({...restProps}:Props) => {
                         per
                         reimpostare la password.</Text>
                     <NewLine multiplier={2}/>
-                    <TextInput
-                        placeholder="E-mail"
-                        autoCapitalize="none"
-                        inputState={email}
-                        onChangeText={(text) => {
-                            setEmail({status: 'success', text});
-                        }}
-                    />
-                    <NewLine multiplier={2}/>
-                    <Button
-                        disabled={!canIProceed()}
-                        title={'Recupera password'}
-                        onPress={() => {
-                            handlePasswordRecovery();
-                        }}
-                    />
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={(values) => {}}
+                    >
+                        {({touched, errors, isValid, handleChange, handleBlur, handleSubmit, values}) => (
+                            <>
+                                <TextInput
+                                    placeholder="E-mail"
+                                    autoCapitalize="none"
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}
+                                    errors={errors.email}
+                                    touched={touched.email}
+                                />
+                                <NewLine multiplier={2}/>
+                                <Button
+                                    disabled={!(values.email && isValid && !pending)}
+                                    title={'Recupera password'}
+                                    onPress={() => handlePasswordRecovery(values)}
+                                />
+                            </>
+                        )}
+                    </Formik>
                 </Block>
             </SafeAreaView>
         </DismissKeyboard>

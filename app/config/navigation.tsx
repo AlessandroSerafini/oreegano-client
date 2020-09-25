@@ -26,9 +26,9 @@ import PasswordRecoveryScreenContainer from "../screens/Common/PasswordRecoveryS
 import PasswordResetScreenContainer from "../screens/Common/PasswordResetScreen/PasswordResetScreenContainer";
 import SignupRunnerScreenContainer from "../screens/Runner/SignupScreen/SignupRunnerScreenContainer";
 import SignupCustomerAddressScreenContainer
-    from "../screens/Customer/SignupScreen/SignupCustomerAddressScreenContainer";
+    from "../screens/Customer/SignupScreen/Address/SignupCustomerAddressScreenContainer";
 import SignupCustomerAccountScreenContainer
-    from "../screens/Customer/SignupScreen/SignupCustomerAccountScreenContainer";
+    from "../screens/Customer/SignupScreen/Account/SignupCustomerAccountScreenContainer";
 import HomeCustomerScreenContainer from "../screens/Customer/HomeScreen/HomeCustomerScreenContainer";
 import HomeRunnerScreenContainer from "../screens/Runner/HomeScreen/HomeRunnerScreenContainer";
 import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenContainer";
@@ -36,6 +36,7 @@ import {LoadingContextProvider} from "../providers/LoadingProvider";
 import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDetailScreenContainer";
 import {PropsWithChildren} from "react";
 import CheckoutScreenContainer from "../screens/Customer/CheckoutScreen/CheckoutScreenContainer";
+import {StatusBar} from "react-native";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -143,7 +144,10 @@ const SetupNavigation = () => {
                 <PersistGate loading={null} persistor={persistor}>
                     <DropDownAlertContextProvider>
                         <LoadingContextProvider>
-                            {child}
+                            <>
+                                <StatusBar barStyle="dark-content"/>
+                                {child}
+                            </>
                         </LoadingContextProvider>
                     </DropDownAlertContextProvider>
                 </PersistGate>
@@ -175,8 +179,7 @@ const SetupNavigation = () => {
                 /*backgroundColor: '#4d089a'*/
             },
             topBar: {
-                ...DEFAULT_TOP_BAR, ...{
-                }
+                ...DEFAULT_TOP_BAR, ...{}
             }
         });
         Navigation.setRoot(MAIN_FLOW);

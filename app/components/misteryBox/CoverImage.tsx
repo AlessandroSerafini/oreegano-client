@@ -44,6 +44,7 @@ const CoverImage = ({box, style}: Props) => {
             style={[{
                 borderRadius: SIZES.BORDER_RADIUS,
                 overflow: "hidden",
+                backgroundColor: COLORS.LIGHT_GREY,
                 height: 150
             }, style]}>
             {box.available <= 3 && (

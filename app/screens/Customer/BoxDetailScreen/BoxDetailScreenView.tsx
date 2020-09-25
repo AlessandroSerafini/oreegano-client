@@ -1,35 +1,22 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, ScrollView, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import Text from '../../../components/Text';
 import {DropdownAlertContext, useDropDown,} from '../../../providers/DropdownAlertProvider';
 import Block from '../../../components/Block';
-import {
-    COLORS,
-    FLOATING_BUTTON_OFFSET,
-    FONT_SIZES,
-    INITIAL_INPUT_STATE,
-    InputState,
-    SIZES,
-} from "../../../data/ThemeConstants";
+import {COLORS, FLOATING_BUTTON_OFFSET, FONT_SIZES, SIZES,} from "../../../data/ThemeConstants";
 import NewLine from "../../../components/NewLine";
 import Button from "../../../components/Button";
-import Title from "../../../components/Title";
-import {NAVIGATION_COMPONENTS_COMMON, NAVIGATION_COMPONENTS_CUSTOMER, openDrawer} from "../../../data/CommonNavigation";
+import {NAVIGATION_COMPONENTS_CUSTOMER} from "../../../data/CommonNavigation";
 import NavIcon from "../../../components/NavIcon";
 import {Navigation} from "react-native-navigation";
 import CoverImage from "../../../components/misteryBox/CoverImage";
-import {
-    clearGetNearBoxesErrorMessage,
-    getBoxesByStore,
-    MisteryBox
-} from "../../../context/misteryBoxes/misteryBoxesActions";
+import {getBoxesByStore, MisteryBox} from "../../../context/misteryBoxes/misteryBoxesActions";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import moment from "moment";
 import {formatPrice} from "../../../services/FormatService";
 import ReadMore from 'react-native-read-more-text';
 import LinearGradient from 'react-native-linear-gradient';
-import MisteryBoxItem from "../../../components/misteryBox/MisteryBox";
 import MisteryBoxesList from "../../../components/misteryBox/MisteryBoxesList";
 
 interface Props extends ComponentProps<any> {
@@ -183,16 +170,18 @@ const BoxDetailScreenView = ({...restProps}: Props) => {
                     <Block row middle style={{justifyContent: "space-between"}}>
                         <Text color={COLORS.GREY}>{box.store.address.replace(/\\n/g, '\n')}</Text>
                         <Image
-                            source={require('../../../assets/images/mappa.jpg')}
-                            resizeMode={"contain"}
+                            source={require('../../../assets/images/undraw/mappa.png')}
                             style={{
+                                width: 300,
+                                height: 250,
+                                marginTop: -40,
                                 marginRight: -SIZES.DEFAULT_PADDING,
                                 borderBottomLeftRadius: SIZES.BORDER_RADIUS,
                                 borderTopLeftRadius: SIZES.BORDER_RADIUS
                             }}
                         />
                     </Block>
-                    <NewLine multiplier={4}/>
+                    <NewLine multiplier={2}/>
                     <MisteryBoxesList title={`Altre box di "${box.store.title}"`} boxes={relatedBoxes} {...restProps}/>
                 </Block>
             </ScrollView>
