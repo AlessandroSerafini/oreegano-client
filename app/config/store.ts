@@ -8,6 +8,8 @@ import signinReducer from '../context/auth/signinReducer';
 import signoutReducer from '../context/auth/signoutReducer';
 import signupReducer from '../context/auth/signupReducer';
 import getNearBoxesReducer from '../context/misteryBoxes/getNearBoxesReducer';
+import getNearRunnerOrdersReducer from '../context/orders/getNearRunnerOrdersReducer';
+import getLatestOrdersReducer from '../context/orders/getLatestOrdersReducer';
 import getLatestBoxesReducer from '../context/misteryBoxes/getLatestBoxesReducer';
 import getSoldOutBoxesReducer from '../context/misteryBoxes/getSoldOutBoxesReducer';
 import createAddressReducer from '../context/addresses/createAddressReducer';
@@ -23,6 +25,8 @@ const rootReducer = combineReducers({
     signoutReducer,
     signupReducer,
     getNearBoxesReducer,
+    getNearRunnerOrdersReducer,
+    getLatestOrdersReducer,
     getLatestBoxesReducer,
     getSoldOutBoxesReducer,
     createAddressReducer,

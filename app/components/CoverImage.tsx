@@ -1,8 +1,8 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, ViewStyle,} from 'react-native';
-import Text from "../Text";
-import {MisteryBox} from "../../context/misteryBoxes/misteryBoxesActions";
-import {COLORS, SIZES} from "../../data/ThemeConstants";
+import Text from "./Text";
+import {MisteryBox} from "../context/misteryBoxes/misteryBoxesActions";
+import {COLORS, SIZES} from "../data/ThemeConstants";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
 
@@ -13,7 +13,8 @@ const styles = StyleSheet.create({});
 // --------------------------------------- INTERFACES ---------------------------------------
 
 interface Props {
-    box: MisteryBox;
+    imageUrl: string;
+    availability?: number;
     style?: ViewStyle;
 }
 
@@ -21,7 +22,7 @@ interface Props {
 
 // ----------------------------------- MAIN RENDER METHOD -----------------------------------
 
-const CoverImage = ({box, style}: Props) => {
+const CoverImage = ({imageUrl, availability = 100, style}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
@@ -40,24 +41,24 @@ const CoverImage = ({box, style}: Props) => {
 
     return (
         <ImageBackground
-            source={{uri: box.imageUrl}}
+            source={{uri: imageUrl}}
             style={[{
                 borderRadius: SIZES.BORDER_RADIUS,
                 overflow: "hidden",
                 backgroundColor: COLORS.LIGHT_GREY,
                 height: 150
             }, style]}>
-            {box.available <= 3 && (
+            {availability <= 3 && (
                 <Text s style={{
                     position: "absolute",
                     top: SIZES.DEFAULT_PADDING,
                     left: SIZES.DEFAULT_PADDING,
                     borderRadius: 12,
                     overflow: "hidden",
-                    backgroundColor: box.available === 0 ? COLORS.GREY : COLORS.DULL_ORANGE,
+                    backgroundColor: availability === 0 ? COLORS.GREY : COLORS.DULL_ORANGE,
                     paddingHorizontal: SIZES.DEFAULT_PADDING / 1.5,
                     color: "#FFF"
-                }}>{`${box.available === 0 ? "Sold out" : box.available + " rimanenti"}`}</Text>
+                }}>{`${availability === 0 ? "Sold out" : availability + " rimanenti"}`}</Text>
             )}
         </ImageBackground>
     );

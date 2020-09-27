@@ -10,7 +10,6 @@ import Button from "../../../components/Button";
 import {NAVIGATION_COMPONENTS_CUSTOMER} from "../../../data/CommonNavigation";
 import NavIcon from "../../../components/NavIcon";
 import {Navigation} from "react-native-navigation";
-import CoverImage from "../../../components/misteryBox/CoverImage";
 import {getBoxesByStore, MisteryBox} from "../../../context/misteryBoxes/misteryBoxesActions";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import moment from "moment";
@@ -18,6 +17,7 @@ import {formatPrice} from "../../../services/FormatService";
 import ReadMore from 'react-native-read-more-text';
 import LinearGradient from 'react-native-linear-gradient';
 import MisteryBoxesList from "../../../components/misteryBox/MisteryBoxesList";
+import CoverImage from "../../../components/CoverImage";
 
 interface Props extends ComponentProps<any> {
 }
@@ -108,7 +108,8 @@ const BoxDetailScreenView = ({...restProps}: Props) => {
                         Navigation.pop(restProps.componentId);
                     }}/>
                     <NewLine multiplier={2}/>
-                    <CoverImage box={restProps.box}
+                    <CoverImage availability={restProps.box.available}
+                                imageUrl={restProps.box.imageUrl}
                                 style={{height: 230}}/>
                     <NewLine multiplier={2}/>
                     <Text h3 semiBold numberOfLines={2}>{box.title}</Text>

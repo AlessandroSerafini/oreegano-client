@@ -1,6 +1,5 @@
 import React, {ComponentProps} from 'react';
 import {Dimensions, StyleSheet, TouchableOpacity,} from 'react-native';
-import {MisteryBox} from "../../context/misteryBoxes/misteryBoxesActions";
 import Block from "../Block";
 import Text from "../Text";
 import {COLORS, FONT_SIZES, SIZES} from "../../data/ThemeConstants";
@@ -10,6 +9,7 @@ import {formatDistance, formatPrice} from "../../services/FormatService";
 import moment from "moment";
 import {Navigation} from "react-native-navigation";
 import {NAVIGATION_COMPONENTS_CUSTOMER} from "../../data/CommonNavigation";
+import {Order} from "../../context/orders/ordersActions";
 import CoverImage from "../CoverImage";
 
 // ------------------------------------ WORKING VARIABLES ------------------------------------
@@ -21,14 +21,14 @@ const styles = StyleSheet.create({});
 // --------------------------------------- INTERFACES ---------------------------------------
 
 interface Props extends ComponentProps<any> {
-    box?: MisteryBox;
+    order?: Order;
 }
 
 // ------------------------------------- WORKING METHODS -------------------------------------
 
 // ----------------------------------- MAIN RENDER METHOD -----------------------------------
 
-const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
+const OrderItem = ({order, componentId, ...restProps}: Props) => {
     // ••• local variables •••
 
     // ••• navigation variables •••
@@ -46,7 +46,7 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
     // ••• useEffect methods •••
 
 
-    return box
+    return order
         ? (
             <TouchableOpacity activeOpacity={0.7}
                               onPress={() => {
@@ -54,7 +54,7 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
                                       component: {
                                           name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,
                                           passProps: {
-                                              box
+                                              order
                                           }
                                       }
                                   });
@@ -62,24 +62,23 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
                               }}
                               style={{
                                   width: Dimensions.get('window').width - (SIZES.DEFAULT_PADDING * 2) - 100,
-                                  opacity: box.available === 0 ? 0.4 : 1
                               }}>
-                <CoverImage imageUrl={box.imageUrl} availability={box.available}/>
+                <CoverImage imageUrl={order.boxImageUrl}/>
                 <NewLine multiplier={0.5}/>
                 <Text medium
                       p
                       ellipsizeMode="tail"
-                      numberOfLines={2}>{box.title}</Text>
+                      numberOfLines={2}>{order.boxTitle}</Text>
                 <Text regular
                       uppercase
                       s
                       color={COLORS.DARK_GREY}
                       ellipsizeMode="tail"
-                      numberOfLines={2}>{box.store.title}</Text>
+                      numberOfLines={2}>{order.storeTitle}</Text>
                 <NewLine multiplier={0.5}/>
                 <Block>
                     <NewLine multiplier={0.3}/>
-                    <Block row middle>
+                    <Block row>
                         <Block row middle>
                             <Icon name="map-marker-outline"
                                   style={{marginRight: 5}}
@@ -88,7 +87,7 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
                             />
                             <Text size={FONT_SIZES.S}
                                   regular
-                                  color={COLORS.DARK_GREY}>{formatDistance(box.distance)}</Text>
+                                  color={COLORS.DARK_GREY}>{formatDistance(order.distance)}</Text>
                         </Block>
                         <Block row middle>
                             <>
@@ -106,22 +105,10 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
                                 <Text size={FONT_SIZES.S}
                                       regular
                                       color={COLORS.DARK_GREY}>
-                                    {`Dalle ${moment(box.date).format("HH:mm")}`}
+                                    {moment(order.date).format("DD/MM HH:mm")}
                                 </Text>
                             </>
                         </Block>
-                    </Block>
-                    <NewLine multiplier={0.3}/>
-                    <Block row>
-                        {box.oldPrice && (
-                            <Text color={COLORS.DARK_GREY}
-                                  regular
-                                  style={{
-                                      marginRight: 10,
-                                      textDecorationLine: 'line-through'
-                                  }}>{formatPrice(box.oldPrice)}</Text>
-                        )}
-                        <Text bold>{formatPrice(box.price)}</Text>
                     </Block>
                 </Block>
             </TouchableOpacity>
@@ -129,4 +116,4 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
         : null;
 };
 
-export default MisteryBoxItem;
+export default OrderItem;
