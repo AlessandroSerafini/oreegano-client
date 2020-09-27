@@ -79,7 +79,7 @@ const MisteryBoxItem = ({box, componentId, ...restProps}: Props) => {
                 <NewLine multiplier={0.5}/>
                 <Block>
                     <NewLine multiplier={0.3}/>
-                    <Block row middle>
+                    <Block row>
                         <Block row middle>
                             <Icon name="map-marker-outline"
                                   style={{marginRight: 5}}

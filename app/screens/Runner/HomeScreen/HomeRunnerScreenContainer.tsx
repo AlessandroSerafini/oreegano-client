@@ -4,8 +4,8 @@ import HomeRunnerScreenView from './HomeRunnerScreenView';
 interface Props extends ComponentProps<any>{
 }
 
-const HomeRunnerScreenContainer = () => {
-    return <HomeRunnerScreenView/>;
+const HomeRunnerScreenContainer = ({...restProps}:Props) => {
+    return <HomeRunnerScreenView {...restProps}/>;
 };
 
 

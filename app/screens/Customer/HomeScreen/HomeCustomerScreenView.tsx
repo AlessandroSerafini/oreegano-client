@@ -144,7 +144,7 @@ const HomeCustomerScreenView = ({...restProps}: Props) => {
     }, [latitude, longitude]);
 
     return (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
                 <NewLine multiplier={3}/>
                 <Title title={"Scopri"}

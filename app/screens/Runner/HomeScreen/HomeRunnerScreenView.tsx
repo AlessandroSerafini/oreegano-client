@@ -118,14 +118,13 @@ const HomeRunnerScreenView = ({...restProps}: Props) => {
     }, [lastErrorMessage]);
     useEffect(() => {
         if (latitude && longitude) {
-            console.log("PASSO", latitude, longitude);
             dispatch(getOrdersNearRunner({lat: latitude, lon: longitude}))
             dispatch(getLatestOrdersRunner({lat: latitude, lon: longitude}))
         }
     }, [latitude, longitude]);
 
     return (
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <Block style={{paddingHorizontal: SIZES.DEFAULT_PADDING}}>
                 <NewLine multiplier={3}/>
                 <Title title={"Ordini"}

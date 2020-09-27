@@ -140,7 +140,7 @@ const CheckoutScreenView = ({...restProps}: Props) => {
         >
             {({touched, errors, isValid, handleChange, handleBlur, values}) => (
                 <>
-                    <ScrollView>
+                    <ScrollView showsVerticalScrollIndicator={false}>
                         <Block style={{
                             paddingHorizontal: SIZES.DEFAULT_PADDING,
                             paddingBottom: FLOATING_BUTTON_OFFSET,
