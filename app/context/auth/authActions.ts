@@ -4,6 +4,7 @@ import oreeganoApi from '../../api/oreeganoApi';
 import {SIGNUP_TYPES, SignupAction} from './signupTypes';
 import {SIGNIN_TYPES, SigninAction} from "./signinTypes";
 import {SIGNOUT_TYPES, SignoutAction} from "./signoutTypes";
+import {Address} from "../addresses/addressesActions";
 
 export enum UserRoles {
     CUSTOMER = 1,
@@ -29,6 +30,7 @@ export interface Credentials {
 export interface JwtResponse {
     id: string;
     user: Omit<User, 'password'>;
+    address: Address;
 }
 
 export const signUp = (

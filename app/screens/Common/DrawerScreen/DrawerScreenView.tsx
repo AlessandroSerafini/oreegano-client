@@ -122,8 +122,6 @@ const DrawerScreenView = ({...restProps}: Props) => {
         }
     }, [loginData]);
 
-    // TODO: STILARE MEGLIO IL DRAWER
-
     return (
         <Block flex>
             <Block style={{

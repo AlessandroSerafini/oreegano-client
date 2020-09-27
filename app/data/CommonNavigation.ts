@@ -19,6 +19,7 @@ export const NAVIGATION_COMPONENTS_CUSTOMER = {
     HOME: 'HomeCustomer',
     ORDER_DETAIL: 'OrderDetailCustomer',
     CHECKOUT: 'Checkout',
+    ORDER_CONFIRM: 'OrderConfirm',
     BOX_DETAIL: 'BoxDetailCustomer',
 };
 export const NAVIGATION_COMPONENTS_RUNNER = {

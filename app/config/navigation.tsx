@@ -37,6 +37,7 @@ import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDet
 import {PropsWithChildren} from "react";
 import CheckoutScreenContainer from "../screens/Customer/CheckoutScreen/CheckoutScreenContainer";
 import {StatusBar} from "react-native";
+import OrderConfirmScreenContainer from "../screens/Customer/OrderConfirmScreen/OrderConfirmScreenContainer";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -84,6 +85,10 @@ const SetupNavigation = () => {
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.CHECKOUT,
             concreteComponentProvider: CheckoutScreenContainer,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_CONFIRM,
+            concreteComponentProvider: OrderConfirmScreenContainer,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,

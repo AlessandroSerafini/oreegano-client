@@ -11,14 +11,14 @@ export interface Address {
 }
 
 export const createAddress = (
-    address: Omit<Address,
-        'id'>,
+    address: Omit<Address, 'id'>,
+    idUser: number
 ) => async (dispatch: Dispatch<CreateAddressAction>) => {
     try {
         dispatch({type: CREATE_ADDRESS_TYPES.CREATE_ADDRESS_PENDING});
 
         const response: AxiosResponse<any> = await oreeganoApi.post(
-            '/addresses/create',
+            `users/${idUser}/addresses`,
             address
         );
 

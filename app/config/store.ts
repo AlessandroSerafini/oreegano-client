@@ -11,6 +11,7 @@ import getNearBoxesReducer from '../context/misteryBoxes/getNearBoxesReducer';
 import getLatestBoxesReducer from '../context/misteryBoxes/getLatestBoxesReducer';
 import getSoldOutBoxesReducer from '../context/misteryBoxes/getSoldOutBoxesReducer';
 import createAddressReducer from '../context/addresses/createAddressReducer';
+import createOrderReducer from '../context/orders/createOrderReducer';
 import passwordRecoveryReducer from '../context/passwordRecovery/passwordRecoveryReducer';
 import passwordResetReducer from '../context/passwordRecovery/passwordResetReducer';
 
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
     getLatestBoxesReducer,
     getSoldOutBoxesReducer,
     createAddressReducer,
+    createOrderReducer,
     passwordRecoveryReducer,
     passwordResetReducer,
 });

@@ -16,6 +16,7 @@ import {useLoading} from "../../../../providers/LoadingProvider";
 import Title from "../../../../components/Title";
 import {Formik, FormikValues} from "formik";
 import * as Yup from "yup";
+import {AuthState} from "../../../../context/auth/authReducer";
 
 interface Props extends ComponentProps<any> {
 }
@@ -67,16 +68,23 @@ const SignupCustomerAddressScreenView = ({...restProps}: Props) => {
             return createAddressReducer;
         },
     );
+    const {loginData} = useSelector(
+        ({authReducer}: { authReducer: AuthState }) => {
+            return authReducer;
+        },
+    );
 
     // ••• working methods •••
     const handleSignup = (values: FormikValues): void => {
+        if (!loginData) return;
+
         dispatch(
             createAddress({
                 address: values.address,
                 postalCode: values.postalCode,
                 city: values.city,
                 state: values.state,
-            }),
+            }, loginData?.user.id),
         );
     };
 
@@ -120,7 +128,8 @@ const SignupCustomerAddressScreenView = ({...restProps}: Props) => {
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
-                        onSubmit={(values) => {}}
+                        onSubmit={(values) => {
+                        }}
                     >
                         {({touched, errors, isValid, handleChange, handleBlur, handleSubmit, values}) => (
                             <>
