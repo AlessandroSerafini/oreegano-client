@@ -10,9 +10,9 @@ export const FONT_SIZES = {
 
 export const LINE_HEIGHTS = {
     H1: 50,
-    H2: 30,
+    H2: 35,
     H3: 35,
-    H4: 30,
+    H4: 26,
     H5: 22,
     P: 16,
     S: 14,
@@ -20,6 +20,7 @@ export const LINE_HEIGHTS = {
 export const COLORS = {
     GREYISH_GREEN: '#7ba67f',
     GREYISH_GREEN_50: 'rgba(123, 166, 127, 0.5)',
+    GREYISH_GREEN_20: 'rgba(123, 166, 127, 0.2)',
     GREY: '#8b959a',
     DARK_GREY: '#8b959a',
     PALE_GREY: '#e2e6ea',

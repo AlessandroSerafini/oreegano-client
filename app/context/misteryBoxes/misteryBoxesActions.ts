@@ -55,12 +55,21 @@ export const getBoxesNearMe = (
     }
 };
 
-export const getLatestBoxes = () => async (dispatch: Dispatch<GetLatestBoxesAction>) => {
+export const getLatestBoxes = (
+    data: NearMe,
+) => async (dispatch: Dispatch<GetLatestBoxesAction>) => {
     try {
         dispatch({type: GET_LATEST_BOXES_TYPES.GET_LATEST_BOXES_PENDING});
 
         const response: AxiosResponse<any> = await oreeganoApi.get(
             '/mistery-boxes/latest',
+            {
+                params: {
+                    lat: data.lat,
+                    lon: data.lon,
+                    distance: data.distance || 25,
+                },
+            },
         );
 
         dispatch({
@@ -76,12 +85,21 @@ export const getLatestBoxes = () => async (dispatch: Dispatch<GetLatestBoxesActi
     }
 };
 
-export const getSoldOutBoxes = () => async (dispatch: Dispatch<GetSoldOutBoxesAction>) => {
+export const getSoldOutBoxes = (
+    data: NearMe,
+) => async (dispatch: Dispatch<GetSoldOutBoxesAction>) => {
     try {
         dispatch({type: GET_SOLD_OUT_BOXES_TYPES.GET_SOLD_OUT_BOXES_PENDING});
 
         const response: AxiosResponse<any> = await oreeganoApi.get(
             '/mistery-boxes/sold-out',
+            {
+                params: {
+                    lat: data.lat,
+                    lon: data.lon,
+                    distance: data.distance || 25,
+                },
+            },
         );
 
         dispatch({
@@ -97,10 +115,17 @@ export const getSoldOutBoxes = () => async (dispatch: Dispatch<GetSoldOutBoxesAc
     }
 };
 
-export const getBoxesByStore = async(idStore: number):Promise<MisteryBox[]> => {
+export const getBoxesByStore = async (idStore: number, data: NearMe): Promise<MisteryBox[]> => {
     try {
         const response: AxiosResponse<any> = await oreeganoApi.get(
             `/stores/${idStore}/mistery-boxes`,
+            {
+                params: {
+                    lat: data.lat,
+                    lon: data.lon,
+                    distance: data.distance || 25,
+                },
+            },
         );
         return response.data;
     } catch (e) {

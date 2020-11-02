@@ -18,26 +18,29 @@ import {persistor, store} from "./store";
 import {PersistGate} from "redux-persist/integration/react";
 import {DropDownAlertContextProvider} from "../providers/DropdownAlertProvider";
 import {Provider as ReduxStoreProvider} from "react-redux";
-import OrderDetailScreenContainer from "../screens/Customer/OrderDetailScreen/OrderDetailScreenContainer";
-import SplashScreenContainer from "../screens/Common/SplashScreen/SplashScreenContainer";
-import TutorialScreenContainer from "../screens/Common/TutorialScreen/TutorialScreenContainer";
-import SigninScreenContainer from "../screens/Common/SigninScreen/SigninScreenContainer";
-import PasswordRecoveryScreenContainer from "../screens/Common/PasswordRecoveryScreen/PasswordRecoveryScreenContainer";
-import PasswordResetScreenContainer from "../screens/Common/PasswordResetScreen/PasswordResetScreenContainer";
-import SignupRunnerScreenContainer from "../screens/Runner/SignupScreen/SignupRunnerScreenContainer";
-import SignupCustomerAddressScreenContainer
-    from "../screens/Customer/SignupScreen/Address/SignupCustomerAddressScreenContainer";
-import SignupCustomerAccountScreenContainer
-    from "../screens/Customer/SignupScreen/Account/SignupCustomerAccountScreenContainer";
-import HomeCustomerScreenContainer from "../screens/Customer/HomeScreen/HomeCustomerScreenContainer";
-import HomeRunnerScreenContainer from "../screens/Runner/HomeScreen/HomeRunnerScreenContainer";
-import DrawerScreenContainer from "../screens/Common/DrawerScreen/DrawerScreenContainer";
+import OrderDetailScreenCustomer from "../screens/Customer/OrderDetailScreen";
+import OrderDetailScreenRunner from "../screens/Runner/OrderDetailScreen";
+import SplashScreen from "../screens/Common/SplashScreen";
+import TutorialScreen from "../screens/Common/TutorialScreen";
+import SigninScreen from "../screens/Common/SigninScreen";
+import PasswordRecoveryScreen from "../screens/Common/PasswordRecoveryScreen";
+import PasswordResetScreen from "../screens/Common/PasswordResetScreen";
+import SignupRunnerScreen from "../screens/Runner/SignupRunnerScreen";
+import SignupCustomerAddressScreen
+    from "../screens/Customer/SignupScreen/SignupCustomerAddressScreen";
+import SignupCustomerAccountScreen
+    from "../screens/Customer/SignupScreen/SignupCustomerAccountScreen";
+import HomeCustomerScreen from "../screens/Customer/HomeCustomerScreen";
+import HomeRunnerScreen from "../screens/Runner/HomeRunnerScreen";
+import DrawerScreen from "../screens/Common/DrawerScreen";
 import {LoadingContextProvider} from "../providers/LoadingProvider";
-import BoxDetailScreenContainer from "../screens/Customer/BoxDetailScreen/BoxDetailScreenContainer";
+import BoxDetailScreen from "../screens/Customer/BoxDetailScreen";
 import {PropsWithChildren} from "react";
-import CheckoutScreenContainer from "../screens/Customer/CheckoutScreen/CheckoutScreenContainer";
+import CheckoutScreen from "../screens/Customer/CheckoutScreen";
 import {StatusBar} from "react-native";
-import OrderConfirmScreenContainer from "../screens/Customer/OrderConfirmScreen/OrderConfirmScreenContainer";
+import OrderConfirmScreen from "../screens/Customer/OrderConfirmScreen";
+import OrderInTransitScreen from "../screens/Runner/OrderInTransitScreen";
+import {LocationContextProvider} from "../providers/LocationProvider";
 
 const SetupNavigation = () => {
     // ••• local variables •••
@@ -68,67 +71,75 @@ const SetupNavigation = () => {
     const COMPONENTS = [
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ACCOUNT,
-            concreteComponentProvider: SignupCustomerAccountScreenContainer,
+            concreteComponentProvider: SignupCustomerAccountScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.SIGN_UP_ADDRESS,
-            concreteComponentProvider: SignupCustomerAddressScreenContainer,
+            concreteComponentProvider: SignupCustomerAddressScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.HOME,
-            concreteComponentProvider: HomeCustomerScreenContainer,
+            concreteComponentProvider: HomeCustomerScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_DETAIL,
-            concreteComponentProvider: OrderDetailScreenContainer,
+            concreteComponentProvider: OrderDetailScreenCustomer,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.CHECKOUT,
-            concreteComponentProvider: CheckoutScreenContainer,
+            concreteComponentProvider: CheckoutScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.ORDER_CONFIRM,
-            concreteComponentProvider: OrderConfirmScreenContainer,
+            concreteComponentProvider: OrderConfirmScreen,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_RUNNER.ORDER_IN_TRANSIT,
+            concreteComponentProvider: OrderInTransitScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,
-            concreteComponentProvider: BoxDetailScreenContainer,
+            concreteComponentProvider: BoxDetailScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_RUNNER.SIGN_UP,
-            concreteComponentProvider: SignupRunnerScreenContainer,
+            concreteComponentProvider: SignupRunnerScreen,
+        },
+        {
+            name: NAVIGATION_COMPONENTS_RUNNER.ORDER_DETAIL,
+            concreteComponentProvider: OrderDetailScreenRunner,
         },
         {
             name: NAVIGATION_COMPONENTS_RUNNER.SIGN_UP,
-            concreteComponentProvider: SignupRunnerScreenContainer,
+            concreteComponentProvider: SignupRunnerScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_RUNNER.HOME,
-            concreteComponentProvider: HomeRunnerScreenContainer,
+            concreteComponentProvider: HomeRunnerScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.SPLASH,
-            concreteComponentProvider: SplashScreenContainer,
+            concreteComponentProvider: SplashScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.TUTORIAL,
-            concreteComponentProvider: TutorialScreenContainer,
+            concreteComponentProvider: TutorialScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.SIGN_IN,
-            concreteComponentProvider: SigninScreenContainer,
+            concreteComponentProvider: SigninScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RECOVERY,
-            concreteComponentProvider: PasswordRecoveryScreenContainer,
+            concreteComponentProvider: PasswordRecoveryScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.PASSWORD_RESET,
-            concreteComponentProvider: PasswordResetScreenContainer,
+            concreteComponentProvider: PasswordResetScreen,
         },
         {
             name: NAVIGATION_COMPONENTS_COMMON.DRAWER,
-            concreteComponentProvider: DrawerScreenContainer,
+            concreteComponentProvider: DrawerScreen,
         }
     ];
 
@@ -148,12 +159,14 @@ const SetupNavigation = () => {
             <ReduxStoreProvider store={store}>
                 <PersistGate loading={null} persistor={persistor}>
                     <DropDownAlertContextProvider>
-                        <LoadingContextProvider>
-                            <>
-                                <StatusBar barStyle="dark-content"/>
-                                {child}
-                            </>
-                        </LoadingContextProvider>
+                        <LocationContextProvider>
+                            <LoadingContextProvider>
+                                <>
+                                    <StatusBar barStyle="dark-content"/>
+                                    {child}
+                                </>
+                            </LoadingContextProvider>
+                        </LocationContextProvider>
                     </DropDownAlertContextProvider>
                 </PersistGate>
             </ReduxStoreProvider>

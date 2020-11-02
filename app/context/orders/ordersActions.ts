@@ -7,12 +7,23 @@ import {GET_NEAR_BOXES_TYPES, GetNearBoxesAction} from "../misteryBoxes/getNearB
 import {GET_NEAR_RUNNER_ORDERS_TYPES, GetNearRunnerOrdersAction} from "./getNearRunnerOrdersTypes";
 import {NearMe} from "../misteryBoxes/misteryBoxesActions";
 import {GET_LATEST_ORDERS_TYPES, GetLatestOrdersAction} from "./getLatestOrdersTypes";
+import axios from 'axios';
+import {environment} from "../../environment/environment";
+import {LatLng} from "react-native-maps";
 
 export interface Order {
     id: number;
+    userName: string,
+    userEmail: string,
+    userAddress: string,
+    userPostalCode: string,
+    userCity: string,
+    userState: string,
+    userLat: number,
+    userLon: number,
     userId: number;
     date: string;
-    distance: number;
+    distance?: number;
     boxTitle: string;
     boxDescription: string;
     boxImageUrl: string;
@@ -25,21 +36,30 @@ export interface Order {
     storeDescription?: string;
     storePhoneNumber?: string;
     paymentMethod: string;
+    runner: number;
 }
 
 // ••• working methods •••
 export const createOrder = (
     order: Omit<Order, 'id'>,
+    idBox: number,
 ) => async (dispatch: Dispatch<CreateOrderAction>) => {
     try {
         dispatch({type: CREATE_ORDER_TYPES.CREATE_ORDER_PENDING});
 
         // @ts-ignore
-        Object.keys(order).forEach((key:string) => (order[key] == null) && delete order[key]);
+        Object.keys(order).forEach((key: string) => (order[key] == null) && delete order[key]);
+
+        const reverseGeo: AxiosResponse<any> = await axios.get(
+            `https://api.opencagedata.com/geocode/v1/json?q=${order.userAddress}&key=${environment.OPEN_CAGE_DATA_API_KEY}`
+        );
+
+        order.userLat = reverseGeo.data.results[0].geometry.lat;
+        order.userLon = reverseGeo.data.results[0].geometry.lng;
 
         const response: AxiosResponse<any> = await oreeganoApi.post(
             `users/${order.userId}/orders`,
-            order
+            {order, idBox}
         );
 
         dispatch({
@@ -52,6 +72,32 @@ export const createOrder = (
             type: CREATE_ORDER_TYPES.CREATE_ORDER_ADD_ERROR,
             payload: error.message,
         });
+    }
+};
+
+export const joinOrder = async (idOrder: number, idRunner: number) => {
+    try {
+        await oreeganoApi.patch(
+            `orders/${idOrder}`,
+            {runner: idRunner}
+        );
+        return;
+    } catch (e) {
+        const {error} = e.response.data;
+        throw error.message;
+    }
+};
+
+export const updateRunnerPosition = async (idOrder: number, position: LatLng) => {
+    try {
+        await oreeganoApi.patch(
+            `orders/${idOrder}/update-runner-position`,
+            {position}
+        );
+        return;
+    } catch (e) {
+        const {error} = e.response.data;
+        throw error.message;
     }
 };
 
@@ -82,6 +128,18 @@ export const getOrdersNearRunner = (
             type: GET_NEAR_RUNNER_ORDERS_TYPES.GET_NEAR_RUNNER_ORDERS_ADD_ERROR,
             payload: error.message,
         });
+    }
+};
+
+export const getOrderDetail = async (idOrder: number):Promise<Order> => {
+    try {
+        const response: AxiosResponse<any> = await oreeganoApi.get(
+            `orders/${idOrder}`
+        );
+        return response.data;
+    } catch (e) {
+        const {error} = e.response.data;
+        throw error.message;
     }
 };
 
@@ -116,7 +174,7 @@ export const getLatestOrdersRunner = (
 
 // ••• reset methods •••
 export const resetCreateOrder = () => (dispatch: Dispatch<CreateOrderAction>) => {
-    dispatch({ type: CREATE_ORDER_TYPES.CREATE_ORDER_RESET });
+    dispatch({type: CREATE_ORDER_TYPES.CREATE_ORDER_RESET});
 };
 
 // ••• clear error methods •••

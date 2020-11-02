@@ -25,6 +25,8 @@
     "react-native-dropdownalert": "^4.2.1",
     "react-native-flipper": "^0.47.0",
     "react-native-linear-gradient": "^2.5.6",
+    "react-native-maps": "0.27.1",
+    "react-native-maps-directions": "^1.8.0",
     "react-native-navigation": "^6.7.5",
     "react-native-read-more-text": "^1.1.2",
     "react-native-swiper": "^1.6.0",

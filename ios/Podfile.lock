@@ -243,6 +243,8 @@ PODS:
     - React
   - react-native-geolocation (2.0.2):
     - React
+  - react-native-maps (0.27.1):
+    - React
   - React-RCTActionSheet (0.62.2):
     - React-Core/RCTActionSheetHeaders (= 0.62.2)
   - React-RCTAnimation (0.62.2):
@@ -355,6 +357,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-flipper (from `../node_modules/react-native-flipper`)
   - "react-native-geolocation (from `../node_modules/@react-native-community/geolocation`)"
+  - react-native-maps (from `../node_modules/react-native-maps`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -425,6 +428,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-flipper"
   react-native-geolocation:
     :path: "../node_modules/@react-native-community/geolocation"
+  react-native-maps:
+    :path: "../node_modules/react-native-maps"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -485,6 +490,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
   react-native-flipper: 6de5b91e6b22bee0ed0a5b8fba6e73d20d3902b0
   react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
+  react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
   React-RCTBlob: a332773f0ebc413a0ce85942a55b064471587a71
@@ -503,4 +509,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: b4cc89e9a7a15d1b8cc7cab28358732c2788fb39
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0

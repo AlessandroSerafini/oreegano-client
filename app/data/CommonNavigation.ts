@@ -25,6 +25,8 @@ export const NAVIGATION_COMPONENTS_CUSTOMER = {
 export const NAVIGATION_COMPONENTS_RUNNER = {
     SIGN_UP: 'SignupRunner',
     HOME: 'HomeRunner',
+    ORDER_DETAIL: 'OrderDetail',
+    ORDER_IN_TRANSIT: 'OrderInTransit',
 };
 
 export const DEFAULT_TOP_BAR = {

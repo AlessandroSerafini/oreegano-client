@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {formatDistance, formatPrice} from "../../services/FormatService";
 import moment from "moment";
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS_CUSTOMER} from "../../data/CommonNavigation";
+import {NAVIGATION_COMPONENTS_CUSTOMER, NAVIGATION_COMPONENTS_RUNNER} from "../../data/CommonNavigation";
 import {Order} from "../../context/orders/ordersActions";
 import CoverImage from "../CoverImage";
 
@@ -52,7 +52,7 @@ const OrderItem = ({order, componentId, ...restProps}: Props) => {
                               onPress={() => {
                                   Navigation.push(componentId, {
                                       component: {
-                                          name: NAVIGATION_COMPONENTS_CUSTOMER.BOX_DETAIL,
+                                          name: NAVIGATION_COMPONENTS_RUNNER.ORDER_DETAIL,
                                           passProps: {
                                               order
                                           }
