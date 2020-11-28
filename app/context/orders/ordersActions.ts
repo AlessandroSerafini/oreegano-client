@@ -88,11 +88,11 @@ export const joinOrder = async (idOrder: number, idRunner: number) => {
     }
 };
 
-export const updateRunnerPosition = async (idOrder: number, position: LatLng) => {
+export const updateRunnerPosition = async (idOrder: number, position: LatLng, idRunner: number) => {
     try {
         await oreeganoApi.patch(
             `orders/${idOrder}/update-runner-position`,
-            {position}
+            {position, idRunner}
         );
         return;
     } catch (e) {
@@ -131,7 +131,7 @@ export const getOrdersNearRunner = (
     }
 };
 
-export const getOrderDetail = async (idOrder: number):Promise<Order> => {
+export const getOrderDetail = async (idOrder: number): Promise<Order> => {
     try {
         const response: AxiosResponse<any> = await oreeganoApi.get(
             `orders/${idOrder}`

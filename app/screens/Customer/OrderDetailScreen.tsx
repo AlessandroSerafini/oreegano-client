@@ -1,5 +1,5 @@
 import React, {ComponentProps, useEffect} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import {DropdownAlertContext, useDropDown,} from '../../providers/DropdownAlertProvider';
 import Block from '../../components/Block';
 import {BUTTON_SIZES, COLORS, FONT_SIZES, SIZES,} from "../../data/ThemeConstants";
@@ -15,9 +15,14 @@ import {formatPrice} from "../../services/FormatService";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Button from "../../components/Button";
 import {Navigation} from "react-native-navigation";
-import {NAVIGATION_COMPONENTS_RUNNER, NAVIGATION_STACKS} from "../../data/CommonNavigation";
+import {
+    NAVIGATION_COMPONENTS_CUSTOMER,
+    NAVIGATION_COMPONENTS_RUNNER,
+    NAVIGATION_STACKS
+} from "../../data/CommonNavigation";
 import socketIOClient from "socket.io-client";
 import {environment} from "../../environment/environment";
+import {UserRoles} from "../../context/auth/authActions";
 
 interface Props extends ComponentProps<any> {
     idOrder: number;
@@ -36,6 +41,7 @@ const OrderDetailScreen = ({idOrder, ...restProps}: Props) => {
     // ••• state variables & methods •••
     const [order, setOrder] = React.useState<Order | undefined>(undefined);
     const [runnerPosition, setRunnerPosition] = React.useState<LatLng | undefined>(undefined);
+    const [idRunner, setIdRunner] = React.useState<number | undefined>(undefined);
 
     // ••• refs variables •••
     const mapRef = React.useRef(null)
@@ -55,22 +61,23 @@ const OrderDetailScreen = ({idOrder, ...restProps}: Props) => {
             setOrder(await getOrderDetail(idOrder));
 
             const socket = socketIOClient(environment.DEV_SOCKET_BASE_URL);
-            socket.on(`trackOrder-${idOrder}`, (data: { position: LatLng }) => {
-                console.log("PASSO2");
+            socket.on(`trackOrder-${idOrder}`, (data: { position: LatLng, idRunner: number }) => {
+                setIdRunner(data.idRunner);
                 setRunnerPosition(data.position);
+            });
+
+            socket.on(`completeRun-${idOrder}`, () => {
+                // TODO: MOSTRARE L'ALERT CHE TORNA ALLA HOME
             });
         })();
 
     }, []);
-    useEffect(() => {
-        console.log("PASSO3", runnerPosition);
-    }, [runnerPosition]);
 
     return !!order ? (
         <>
             <MapView
                 onMapReady={() => {
-                    if (!!order?.runner) {
+                    if (!!idRunner) {
                         // @ts-ignore
                         mapRef.current.fitToCoordinates([{
                             latitude: order.storeLat,
@@ -96,7 +103,7 @@ const OrderDetailScreen = ({idOrder, ...restProps}: Props) => {
                     longitudeDelta: 0.0421,
                 }}
             >
-                {!!order.runner && (
+                {!!idRunner && (
                     <>
                         <Marker
                             key={0}
@@ -126,8 +133,7 @@ const OrderDetailScreen = ({idOrder, ...restProps}: Props) => {
                                 image={require('../../assets/images/map/runner.png')}
                                 identifier={'mk3'}
                                 coordinate={runnerPosition}
-                                title={order.userName}
-                                description={order.userAddress}
+                                title={`Runner #${idRunner}`}
                             />
                         )}
                         <MapViewDirections
@@ -179,6 +185,25 @@ const OrderDetailScreen = ({idOrder, ...restProps}: Props) => {
                     shadowRadius: 7.49,
                     elevation: 12,
                 }}>
+                    <TouchableOpacity onPress={()=>{
+                        Navigation.setStackRoot(restProps.componentId, {
+                            component: {
+                                name: NAVIGATION_COMPONENTS_CUSTOMER.HOME
+                            },
+                        });
+                    }}>
+                        <Block row middle>
+                            <Icon name="arrow-left"
+                                  size={FONT_SIZES.S}
+                                  color={COLORS.GREY}
+                                  style={{marginRight: 5}}
+                            />
+                            <Text size={FONT_SIZES.S} color={COLORS.GREY}>
+                                Torna alla home</Text>
+                        </Block>
+                    </TouchableOpacity>
+
+                    <NewLine multiplier={1}/>
                     <Text h5 semiBold
                           ellipsizeMode="tail"
                           numberOfLines={2}>{order.boxTitle}</Text>

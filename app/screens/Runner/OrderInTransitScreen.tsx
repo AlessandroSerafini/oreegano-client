@@ -1,6 +1,6 @@
 import React, {ComponentProps, useEffect} from 'react';
 import {Image, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Text from '../../components/Text';
 import {DropdownAlertContext, useDropDown,} from '../../providers/DropdownAlertProvider';
 import Block from '../../components/Block';
@@ -18,6 +18,7 @@ import Geolocation from "@react-native-community/geolocation";
 import {environment} from "../../environment/environment";
 import io from 'socket.io-client';
 import {getOrderDetail, updateRunnerPosition} from "../../context/orders/ordersActions";
+import {AuthState} from "../../context/auth/authReducer";
 
 interface Props extends ComponentProps<any> {
     idOrder: number;
@@ -39,6 +40,9 @@ const OrderInTransitScreen = ({idOrder, ...restProps}: Props) => {
     // ••• refs variables •••
 
     // ••• useSelector methods •••
+    const {loginData} = useSelector(({authReducer}: { authReducer: AuthState }) => {
+        return authReducer;
+    });
 
     // ••• working methods •••
 
@@ -46,17 +50,14 @@ const OrderInTransitScreen = ({idOrder, ...restProps}: Props) => {
 
     // ••• useEffect methods •••
     useEffect(() => {
-        console.log("PASSO1");
-        Geolocation.watchPosition(async (info) => {
-            console.log("PASSO1.1");
-            const {latitude, longitude} = info.coords;
+        if(!!loginData) {
+            Geolocation.watchPosition(async (info) => {
+                const {latitude, longitude} = info.coords;
 
-            console.log("PASSO1.2", {latitude, longitude});
-
-            await updateRunnerPosition(idOrder, {latitude, longitude});
-        }, (error) => {
-            console.log("PASSO1.3", {error});
-        });
+                await updateRunnerPosition(idOrder, {latitude, longitude}, loginData.user.id);
+            }, (error) => {
+            });
+        }
     }, []);
     return (
         <>
