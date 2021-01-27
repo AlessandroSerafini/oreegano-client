@@ -50,8 +50,9 @@ export const createOrder = (
         // @ts-ignore
         Object.keys(order).forEach((key: string) => (order[key] == null) && delete order[key]);
 
+
         const reverseGeo: AxiosResponse<any> = await axios.get(
-            `https://api.opencagedata.com/geocode/v1/json?q=${order.userAddress}&key=${environment.OPEN_CAGE_DATA_API_KEY}`
+            `https://api.opencagedata.com/geocode/v1/json?q=${encodeURI(order.userAddress)}&key=${environment.OPEN_CAGE_DATA_API_KEY}`
         );
 
         order.userLat = reverseGeo.data.results[0].geometry.lat;
